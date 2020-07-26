@@ -66,6 +66,14 @@ Round 2 dev:
         Post Demo 1:
             ☐ Polish Stair Controller
 
+    New Objects (post demo 1):
+        Door:
+            ☐ create door object
+            ☐ create door animation
+            ☐ change door transition timer to door animation length
+            ☐ make sure door transition also stops all enemy movement/spawning until the animation is complete
+                ^ is likely best done using a variable in the level editor that wraps the entire enemy loop and enabling/disabling it
+
     July 25:
         Did a lot of work on animations. Switched to the Unity animator. Wish I'd taken more notes.
     July 26:
