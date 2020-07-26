@@ -25,7 +25,7 @@ public class PlayerStairController : MonoBehaviour
     private void Awake() {
         player = GameObject.Find("Player");
         playerController = player.GetComponent<PlayerController>();
-        animator = playerController.PlayerAnimator;
+        animator = playerController.playerAnimator;
         platformerController = player.GetComponent<PlayerPlatformerController>();
     }
 

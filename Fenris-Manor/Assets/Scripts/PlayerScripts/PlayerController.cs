@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour
     *  long run, mostly this is just for the purpose of maintaining good object oriented practices, which is important.
     */
 
-    public GameObject Player;
-    public Animator PlayerAnimator;
+    public GameObject player;
+    public Animator playerAnimator;
     
     public enum PLAYER_STATE {
         crouch,
@@ -72,8 +72,8 @@ public class PlayerController : MonoBehaviour
     protected bool canMove = true;
 
     void Awake(){
-        Player = GameObject.Find("Player");
-        PlayerAnimator = Player.GetComponent<Animator>();
+        player = GameObject.Find("Player");
+        playerAnimator = player.GetComponent<Animator>();
     }
 
     void Update(){
@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetCanMove(bool canMove){
         this.canMove = canMove;
-    } 
+    }
 
     //#Helpers
     private bool CheckIdle() {
