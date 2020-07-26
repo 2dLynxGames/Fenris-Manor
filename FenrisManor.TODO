@@ -73,6 +73,14 @@ Round 2 dev:
             ☐ change door transition timer to door animation length
             ☐ make sure door transition also stops all enemy movement/spawning until the animation is complete
                 ^ is likely best done using a variable in the level editor that wraps the entire enemy loop and enabling/disabling it
+    
+
+    New Animations (post demo 1):
+        ☐ Player sub weapon/spell start
+            ☐ animations/objects for each sub weapon
+            ☐ collision effects for each sub weapon
+        ☐ Door walk animation
+            Possibly just a regular walk cycle but slower?
 
     July 25:
         Did a lot of work on animations. Switched to the Unity animator. Wish I'd taken more notes.
