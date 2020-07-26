@@ -1,0 +1,504 @@
+'Cmd/Ctrl+Enter' // Triggers `Todo: Toggle Box`
+'Alt+D' // Triggers `Todo: Toggle Done`
+'Alt+C' // Triggers `Todo: Toggle Cancelled`
+'Alt+S' // Triggers `Todo: Toggle Start`
+'Cmd/Ctrl+Shift+A' // Triggers  `Todo: Archive`
+
+Round 2 dev:
+    The demo is going to be basic.
+    Requirements for Demo 1 Release:
+        Ignore all post demo 1 requirements, these are optional for this release.
+        ☐ Player movement
+        ☐ Player attack
+        ☐ Player health
+        ☐ Cultist
+        ☐ Wolf
+        ☐ Camera
+        ☐ Doors
+    
+    Player Movement:
+        ✔ Play walk animation while moving @done(20-07-24 03:23)
+        ☐ Polish player movement script
+        ☐ Reduce player control while jumping
+        Next (post demo 1): 
+            ☐ Walking off ledge has significantly higher gravity than jumping
+        
+    Player Attack:
+        ✔ Make the button trigger animations @done(20-07-25 03:01)
+        ☐ Make the animations deal damage to enemies and destroy objects.
+        Next (post demo 1):
+            ☐ Make the damage vary by whip upgrade
+            ☐ make the damage
+
+    Player Health:
+        ☐ Make enemies do damage to the player, but not kill the player instantly
+
+    Enemies:
+        Enemy health
+        /X in that situation needs to be more than 2, but if they were 1/2/3 it would be 4 minimum, and I'm not sure if that's too many or not. I think it should be 3 / 2 / 1 for attacks.
+        wait... no I think 1/2/3 translates to 3/2/1...
+        it does, I was overthinking something somewhere
+        this is why I put numbers on a board, like a nerd
+        if I give bosses 16 hp, that'd be 16/8/5 attacks depending on whip strength. Which I think is fine.
+        or, bosses could just take static damage not dependent on weapon type, and require x hits no matter what, and the whip upgrades only affect regular enemies
+        ☐ Enemies deal damage with their hurtbox
+        ☐ Enemies take damage with their hitbox
+        Cultist:
+            ☐ Basic AI movement, walk left to right
+        Wolf:
+            ☐ Jump on wake
+            ☐ Chases player, turns once at screen edge
+    
+    Camera:
+        ✔ Limit min/max positions @done(20-07-24 03:16)
+        Next (post demo 1):
+            ☐ Give camera the ability to scroll vertically for vertical stages
+            This needs to be smooth so that it doesn't move when you jump, only when you get close to the top of the screen (top 1/4-1/3 probably)
+
+        Doors:
+            ✔ Make doors move players and change room bounds @done(20-07-24 03:17)
+            Next (post demo 1):
+                ☐ Make doors trigger from stairs
+
+    Stairs:
+        When rewriting the stair controller in the future, adjustments will need to be made to check player idle, as I'm fairly certain that both 
+        STAIR STATE and isClimbing are always the same state, and only one needs to be used.
+        Post Demo 1:
+            ☐ Polish Stair Controller
+
+    July 25:
+        Did a lot of work on animations. Switched to the Unity animator. Wish I'd taken more notes.
+    July 26:
+        Finished polishing animation controller for the player. I learned a lot over the past few days, should take some notes on this soon, while the 
+        information is fresh in my mind.
+        Change for changes sake.
+        2
+
+FUTURE ME:
+    ☐ Figure out how color multiply and other 'effects' actually work (https://en.wikipedia.org/wiki/Blend_modes#Multiply)
+    ☐ How to make an image BW except 1 color (https://enviragallery.com/how-to-make-a-photo-bw-except-one-color-in-photoshop/)
+
+Past Planning:
+    Phase 1: Jan 28 - Feb 13: 
+        Finish stage 1 art assets. [there's still a lot to do, but I've gotten much faster at this, so a week should be enough time]
+        Jan 28 Priorities:
+            ✔ Create jump animations for Big/Smol Doggos @started(19-01-28 16:21) @done(19-01-28 17:30) @lasted(1h9m31s)
+                Previous Task was only for Big Doggo, smol doggos will take a minor amount of editing to make it work
+                ✔ took a break from above @started(19-01-28 16:52) @done(19-01-28 17:22) @lasted(30m22s)
+                ✔ Small dog animation completed @done(19-01-28 18:53)
+            Finish stage 1 enemy design:   
+                ✔ Create base level sprites for cultist @started(19-01-28 19:07) @done(19-01-28 19:51) @lasted(44m53s)
+                    ✔ short break @started(19-01-28 19:37) @done(19-01-28 19:47) @lasted(10m15s)
+                    ✔ fully animated the cultist @done(19-01-29 00:54)
+                        There will defintely be more of these in the future, but they are easily modular, just swap in a new head and change skin tones to create a new one.
+                ✔ Create base level sprites for bat/bird @done(19-01-28 20:33)
+                    ✔ Fully animated the bat @done(19-01-28 22:11)
+                        Consider changing the colors of the bat in the future, or make multiple different variants. This version is very blue, perhaps should be grey isntead.
+                ✔ Create base level sprites for fish person @done(19-01-28 23:39)
+                    After some amount of experimentation I created an anthro crocodile, these enemies are stationary, so they need some sort of threatening looking animation. This started with no goal of where I was going. I created something funny, and eventually landed on something that fit for the creature I wanted. I'm really proud of what happened here.
+                    ✔ Completed animation of crocman @started(19-01-28 22:21) @done(19-01-28 23:40) @lasted(19m)
+        All of the self assigned tasks for January 28th have been completed at this point, some even further than originally intended. Work started ~4pm tody and finished around 11:30pm. I spent about 7.5 hours working on the project, however I had around 2-3 hours of breaks, and wasn't entirely focused on the project. I would say a solid 4-5 hours was actually spent working today. I'll spend the next bit figuring out what to do for tomorrow and potentially add the second frame of animation to the cultist.
+            
+        Jan 29 Priorities: 
+            Conceptual Planning:
+                ✔ Determine if any sort of cutscene is needed for the 'big doggo' @done(19-01-29 14:05)
+                    To do this we are going to make a statue, and have the statue slowly come to live [shed the stone coloring, tthe sprite has been created "Big Doggo Statue" this statue can also be used as a background element in other stages as well or possibly early in the stage as an element of forshadowing
+                        ✔ Create the stone statue @done(19-01-29 14:06)
+                ✘ Determine if any sort of entry cutscene is necessary for the beginning of the game or whether this should be a stretch goal beyond completing the game @cancelled(19-01-29 15:06)
+                    This can be a stretch goal, but isn't necessary for the demo or even for the regular game. Any story content will be added as a stretch goal beyond funding the title.
+                    Asset Creation: 
+                        Priority Foreground Objects:
+                            ✔ Floor Tiles (probably concrete or wood) @done(19-01-29 19:20)
+                            This isn't finished entirely, but I'm going to call it done for today, I made good progress on an initial start with 4 different walkable tiles and 3 different wall tiles.
+                            
+                            Been throwing things at Aseprite on this for an hour and have created the following. Will continue after a short break.
+                            ✔ cleaning break @started(19-01-29 16:11) @done(19-01-29 16:25) @lasted(14m45s)
+                            ✔ Wood/Log floor tile @done(19-01-29 16:10)
+                            ✔ Grass Tile 1 (minecraftish) @done(19-01-29 16:10)
+                            ✔ Grass Tile 2 (Terrariaish) @done(19-01-29 16:10)
+                            ✔ Stone Tile @done(19-01-29 16:44)
+                            ✔ Grassy Stones @done(19-01-29 16:44)
+                                ✔ second break @started(19-01-29 16:45) @done(19-01-29 18:03) @lasted(1h18m36s)
+                                Determined that both walkable and solid blocks were required
+                                ✔ Solid Wood Block @done(19-01-29 19:07)
+                                ✔ Stairs (probably wood) @done(19-01-29 22:32)
+                                Mostly playing around with stairs trying to come up with a the correct size for the stairs to be so that the climbing animations work well.
+                                
+                            This turned into quite the task, many of the sprites needed pixels trimmed off of them to make them fit on any stair design that was reasonable. I have determined that a single stair should be 8x8 [or 1/2 of 1 block on each side] this lines up well with the fact that the space between the bottom and the raised foot of the climbing sprite is 8 pixels higher than the other.
+                            
+                            The re-trimming allowed me to make all the sprites have all sides be a multiple of 8. Unsure if this still helps with loading times, but it will definitely make things line up better as long as I maintain this discipline.
+                            ✔ Dinner Break @started(19-01-29 19:53) @done(19-01-29 20:18) @lasted(25m45s)
+            All tasks for January 29th have been either postponed or completed. I worked today from ~noon to 10pm with about 3.5 hours of breaks. While I didn't actually complete everything planned for today, I made a lot of good progress. I have enough now that I can start building a sample screen [just a few enemies and objects on a screen to help pull the aesthetic together] Which will be one of my tasks for tomorrow.
+            
+        Jan 30 Priorities: 
+            *BIG NOTE!* For some reason a lot of sprites didn't export right, the bat for example has a bunch of random artifacts when it's imported back into aseprite from the PNG files. The ones I've noticed this from so far are the Cultist, Small Wolves, and Bat. Seems to be true for all sprites that aren't tiles for some reason, will investigate later.
+            *Work Around* Open the PNG in Aseprite, copy and paste from there.
+            Build 2 sample screens [240x400]:
+                ✔ Sample Screen 1 Complete @done(19-01-30 17:50)
+                ✔ Sample Screen 2 Complete @done(19-02-09 20:36)
+                    Requirements:
+                    ✔ Include atleast 2 different enemies @done(19-01-30 17:50)
+                    ✔ Include Izabell [duh] @done(19-01-30 17:50)
+                    ✔ Include stairs up or down @done(19-01-30 17:50)
+                    ✔ Include solid blocks as well as walkables @done(19-01-30 17:50)
+            Time permitting I'll continue on to the next set of task, and work on either learning a tool or making ones I already have work.
+            ✔ Find a tool that allows for stage building. @done(19-01-31 01:39)
+                I found a tool called Tiled, that can export stages to Unity and has an easy tool allowing you to use brushes to place tiles and enemies. It's really easy to use, and has a lot of resources and has it's own forums if I need help. I should look more into it's licensing and whether it aligns with my goals for this project. I can alway look at the open source project and use it as a guide to build my own tool, which I know would work perfectly for everything I wanted it to.
+
+                Unity also has it's own tools and tutorials on how to use them, I may explore those also. 
+                
+                I need to learn how to build a sprite sheet so that it's easier to import into another level editors
+
+                Not necessarily something in an Engine, but don't rule that out either. This might be the first point in this project where I launch Unity. Learn how to build a stage, and do the first mock up of the demo stage. This will help to ensure that nothing is missing from the list of todo items for the demo so that artwork is completely wrapped by the end of the week. 
+                    [Note: I'm actualy a little ahead of schedule at this point, surprisingly. Animating went better than I expected for the previous models. I did postpone a few tasks from Tuesday, but that was simply because they logically didn't make sense to complete at the given time.]
+            I didn't get nearly as much done today as I wanted to, but anxiety is a bitch and as a result it hampered my creativity and my drive to work.
+
+        Jan 31 Priorities: 
+            May take the day off but if not, these will be the tasks for today, since I didn't do them yesterday.
+            Art assets for background objects:
+            Top Priority object in this group is torches, and something to place them on outside, this can be a hedge, tree, or statue base. Second priroty objects in this group are obviously hedges, trees, a statue. [perhaps use the cultist or Izabell as a design reference, probably 48x16 or 64x16] The remaining items are low priority. This should be designed after Sample Screen 1 is completed, based on what I feel those need and what would feel correct within them. I wouldn't expect each of these objects to take very long, there are also plenty of reference objects available online if I get stuck.
+            ✘ Brick Wall @cancelled(19-02-02 19:53)
+            ✔ Hedge @done(19-02-02 16:37)
+                
+            ✔ Tree @done(19-02-02 18:00)
+                ✘ Consider making this bigger in the future or multiple different trees to reduce repetitiveness @cancelled(19-02-05 21:52)
+            ✔ Wooden support beam for stairs @done(19-02-02 17:53)
+                make this stackable for any height, 2 pieces probably 1 for base and another for the 
+            ✘ Rocks @cancelled(19-02-02 19:53)
+            ✘ Statue @cancelled(19-02-05 21:52)
+            ✔ Stone Pillar @done(19-02-05 21:49)
+            ✔ Stone Stairs @done(19-02-05 21:49)
+            ✔ Torches (breakable) @done(19-02-07 21:20)
+                ✔ A tentative version of this is done, but might be finalized soon @done(19-02-05 21:53)
+        Postponed Tasks:
+            ✔ Begin working on the background, something paralax and easy to create, not necessarily something to finish. Might be easier once forground objects or created @done(19-02-05 21:50)
+                This will be easier once I have assembled an entire screen for the game, even if it's a basice one. I'm post-poning this until later in the week at a currently undecided time.
+            ✔ Water Pools @done(19-02-07 21:43)
+                Also postponing this until I find a location that I will need to put water, so that I can then determine how I want to design it
+        
+        Late Phase 1 Tasks: 
+            ✔ Weapon Animations @done(19-02-09 20:36)
+                I need to decide on the range and style of the weapon. At this point I'm probably going to stick to a generic whip, maybe a morningstar or similar for the extended version, could just be a longer whip.
+                            
+        Izabell Sprite Art and Animation:
+            These are priority one, and should be the first set of animations and sprites completed for the game as they will help determine the aesthetic for the levels and design of the stages.
+            Shapes will be heavily influenced by Simon Belmont from Casltevania https://cdn.discordapp.com/attachments/523288534711402506/534782332968632320/post-10601-1222449014.png
+            ✔ Walk Cycle @done(19-01-17 00:51)
+                This cycle took the most time because I had to settle upon a general size for the sprite to be. This took a lot of trial and error and resulted in several discarded WIP pieces. These pieces though will be useful for showing a step-by-step guide to how I settled upon the aesthetic for the game. 
+            ✔ Crouch Position @done(19-01-17 22:12)
+                This position should also have an animation for attacking.
+            ✔ Stair Climb @started(19-01-17 23:45) @done(19-01-18 00:31) @lasted(46m53s)
+                This position should allow you to attack, climb and descend stairs. This position consists of 2 new frames [one for up and one for down] and one for the leg cross from the original walk cycle.
+            ✘ Jump Animation @cancelled(19-01-17 22:12)
+                Turns out the jump animation is just a combination of the first frame of the walk cycle [up to a certain height] and the crouch position [to peak and back to the original height]. This means this is effectively done since the Walk Cycle and Couch Position are done.
+            Finalize the weapon design so that you can animate it, it's likely going to just be a whip at this point, just for simplicity sake.
+            Attack Animation:
+                Both with and without the weapon drawn so that multiple weapons can be created instead of just one. Should also function for the crouched position.
+                ✔ Standing Attack @done(19-01-18 17:10)
+                ✔ Up Stair Attack @done(19-01-18 18:37)
+                ✔ Down Stair Attack @done(19-01-18 18:37)
+                ✔ Crouch Attack @done(19-01-18 18:58)
+                Weapon Animation:
+                    This animation needs to match up with the generic attack pattern animation; however it should be simple and doesn't require much effort. There will be 3 different variations of this attack based on the maximum length of the weapon.
+                    ✔ Short Attack @done(19-02-09 20:36)
+                    ✔ Mid Attack @done(19-02-09 20:36)
+                    ✔ Long Attack @done(19-02-09 20:36)
+                        ✔ Upgraded version of the previous @done(19-02-09 20:36)
+            ✔ Damage Animation (Mid Priority) @done(19-01-18 15:25)
+                This animation will happen whenever the player is hit and will cause them to recoil backwards a bit. This is medium priority for the sake of getting the demo together. It's not mandatory for the game to work, but it'll help make sense.
+            ✘ Idle Position (Low Priority) @cancelled(19-01-18 18:37)
+                This has been deemed to be unnecessary and has been canceled to progress further.
+                There are two options for this, it can be a unique position that leads into all of the others through the first frame of the walk cycle, or it can just be the first frame of the walk cycle. This is a low priority asset, and likely will just be canceled in the future
+            ✔ Death Animation (Low Priority) @started(19-01-18 15:25) @done(19-01-18 15:36) @lasted(11m41s)
+                Not mandatory, but will play when the player takes enough damage to die.
+        
+        Big Doggo Sprite Art and Animation:
+            More attack patterns may be added as necessary
+                ✔ Basic Sprite @started(19-01-23 20:48) @done(19-01-23 22:04) @lasted(1h16m38s)
+                    ✔ Add texture and detail to the baseline @done(19-01-24 22:54)
+                    ✔ Walk Animation @done(19-01-25 23:27)
+                        This is potentially the same as the first attack pattern, but until I decide for sure, I'm going to leave them as a separate task
+                ✔ 'Boss Cutscene' @done(19-01-29 22:50)
+                    Make an extension of the standard idle animation for the regular doggos
+                ✔ Attack pattern 1 @done(19-01-27 03:34)
+                ✘ Attack pattern 2 @cancelled(19-01-27 03:36)
+                    This was canceled because it is the same as the Jump Attack task, if in the future more patterns are deemed necessary this might be restarted.
+                ✔ Jump Attack @done(19-01-28 17:33)
+                ✘ Damage Animation @cancelled(19-01-27 03:34)
+                    This animation isn't necessary, the enemy can just flash to show that it has taken damage and is currently invulnerable, or something similar. 
+                ✘ Death Animation @cancelled(19-01-27 03:35)
+                    This animation is very low priority, and not necessary at all, the enemy can just despawn with a few generic 'explosions' when the boss dies.
+
+        Level 1 Stage Art:
+            This list will be populated as more ideas and objects become necessary to make the stage feel complete
+                ✔ Stage 1 Background @done(19-02-07 21:44)
+                    Stage 1 is outdoors between the Gate and the entrance to the Manor, should be very green and organic
+                Foreground:
+                    ✘ Tall Grass @cancelled(19-02-07 21:44)
+                    ✘ Archway @cancelled(19-02-07 21:44)
+                    ✘ Marble Pillar @cancelled(19-02-07 21:44)
+                Background:
+                    ✘ Brick Wall @cancelled(19-02-07 21:44)
+                    ✔ Hedge @done(19-02-07 21:44)
+                    ✔ Tree @done(19-02-07 21:44)
+                    ✘ Rocks @cancelled(19-02-07 21:44)
+                    ✘ Statue @cancelled(19-02-07 21:44)
+                    ✔ Torches (breakable) @done(19-02-07 21:44)
+                Collison:
+                    ✔ Grass Pathway @done(19-01-29 22:40)
+                    ✔ Concrete Pathway @done(19-01-29 22:40)
+                    ✔ Wood Stairs @done(19-01-29 22:41)
+                    ✔ Wood Walkway @done(19-01-29 22:41)
+                    ✘ Brick Pathway @cancelled(19-02-07 21:44)
+                Hazards:
+                    ✔ Water Pit @done(19-02-07 21:44)
+
+        Enemy Art and Design:
+            The enemies in this game will be inspired primarily by Castlevania 1. A sprite sheet with all the enemies in the original game is available here: https://cdn.discordapp.com/attachments/523288534711402506/535360611278651422/2ffcc62f67a2bf55eff5646481722e62.png
+            ✔ Cultist @done(19-01-29 22:41)
+                ✔ Move/Attack animation (finalize this) @done(19-02-07 21:44)
+            ✔ Wolf @done(19-01-24 15:40)
+                Initial design is done, just needs an idle animation and a movement animation
+                ✔ Idle Animation (wait until alert) @done(19-01-26 19:29)
+                ✔ Move/Attack (alert state) @done(19-01-26 19:08)
+                ✔ Jump Animation (if above when alerted) @done(19-01-29 22:42)
+            ✔ Fish Person @done(19-01-29 22:42) (Croc man) (is finalized)
+            ✔ Bat/Bird @done(19-01-29 22:42) (Bat) (is finalized)
+
+        Item Drops:
+            Sub-Weapons:
+            Double Shot / Triple Shot
+            These will both be static versions of the current subweapon. Double Shot will have a + and Triple Shot will have ++. These powerups will vanish when you change sub weapons.
+                Lightning:
+                    Lightning will hit the 3 tiles in front of you and attack enemies between you and it initially. 
+                    Double shot it will arc forward to aditional enemies
+                    Triple shot it will arc forward and backward to even more additional enemies
+                    ✔ Item Drop @done(19-02-11 18:29)
+                    ☐ Attack Animation
+                    ✔ Double Shot / Triple Shot @done(19-02-12 21:53)
+                Icicle:
+                    ✔ Item Drop @done(19-02-12 21:41)
+                    ☐ Attack Animation
+                    ✔ Double Shot / Triple Shot @done(19-02-12 21:45)
+                Magic Missle:
+                    ✔ Item Drop @done(19-02-12 21:41)
+                    ☐ Attack Animation
+                    ✔ Double Shot / wTriple Shot @done(19-02-12 21:45)
+                Fire Bomb (DoT):
+                    ✔ Item Drop @done(19-02-12 21:41)
+                    ☐ Attack Animation
+                    ☐ DoT Animation
+                    ✔ Double Shot / Triple Shot @done(19-02-12 21:53)
+                Tornado:
+                    Acts like a boomerang, fires forward and then returns back to the user. If the users dodges it, it travels back to the opposite edge of the screen.
+                    ✔ Item Drop @done(19-02-11 21:16)
+                    ☐ Attack Animation
+                    ✔ Double Shot / Triple Shot @done(19-02-12 21:53)
+
+
+            Power Ups:
+                Range Extender:
+                    This will also increase the damage of the base weapon, not just the range making it deal more damage.
+                    ✔ Whip + @done(19-02-11 16:18)
+                    ✔ Whip ++ @done(19-02-11 16:18)
+                Invincibility:
+                    ✔ Item Drop @done(19-02-11 16:19)
+                    Will cause character to change between two different color pallets, should be easy to execute with some sort of color overlay effect. Option to instead make the character appear invisible instead once every few frames
+                    ☐ Effect animation
+                ☐ Screen Wipe
+                    Will cause a screen flash.
+            
+            Point Drops:
+                ☐ 100
+                ☐ 250
+                ☐ 500
+                ☐ 1000
+            Ammo Drops:
+                ☐ Single
+                ☐ 5x
+                ☐ Max Ammo
+
+    Phase 1.5:
+        Things found in phase two that should've been done in phase one. Things that need to be done before phase 2 can continue.
+
+        Phase 2: Feb 14 -??:
+        Design/Build first stage, potentially start writing code for a movement controller and camera controller before the end of the week.
+        First Steps:
+            ✔ Gain a better understanding of Unity's Tilemap tool @done(19-02-20 20:51)
+                ✔ Figure out how to make a prefab brush or other custom brush for objects larger that 1 tile @done(19-02-14 13:19)
+                    This was actually as simple as dragging over the tiles you wanted to place, and placing them. It is unclear why this wasn't working last night, but it is now and that's what matters. If I encounter issues with this again, I'll look more into it.
+                ✔ Take extensive notes so that if you ever have a question again you can easily find the solution @done(19-02-20 20:51)
+                    ✔ Find a solution to why sprites bleed over into each other and cause issues with very colorful sprites @done(19-02-14 16:04)
+                        This was because the compression for the sprite sheet was set to normal instead of high quality. So it was compressing some colors together and leaving artifacts of some on the other. (initail findings)
+    
+                        Later I discovered this wasn't correct, instead of high quality, you should set compression to None. This means there is no filter ran over the top of your files. The bleeding and blurryness is a result of the GPU trying to speed up the process of importing the sprite. This is more noticable with things like the character sprite and larger items than it is with smaller items. 16-07-2019
+    
+                    ✔ Tile Pallet offset when importing a sliced spritesheet. @done(19-02-14 16:06)
+                        This was a result of setting the Pivot to something other than center in the Sprite Editor in this case (Top Left)
+                Build a stage strictly for testing with the following conditions:
+                    ☐ At least 1 of each enemy type
+                        ☐ Small Dog
+                        ☐ Cultist
+                        ☐ Bat
+                        ☐ Crocman
+                    ✔ Make a room for boss testing @done(19-02-20 20:51)
+                    ✔ Make a section that has each power-up and subweapon laying on the ground @done(19-02-20 20:51)
+                    ✔ Stairs up and down @done(19-02-14 16:44)
+                    ✔ One or more room transitions @done(19-02-20 20:51)
+                    ✔ Candles placed, no logic yet @done(19-02-14 16:44)
+                        ☐ Candles with guaranteed drops
+                        ☐ Candles with random drops
+                    ✔ Water Hazard @done(19-02-14 16:44)
+            ✔ Figure out how to convert Orthographic Camera size to pixel size ~[240x400] [15 tiles x 25 tiles] @done(19-02-14 13:19)
+                Camera Size = x / ((( x / y ) * 2 ) * s )
+                Where 
+                'x' = Screen Width (px) = 400
+                'y' = Screen Height (px) = 240
+                's' = Desired Height of Photoshop Square (px) = 16
+                400 / ((( 400 / 240) * 2 ) * 16 )=7.5
+                This doesn't allow pixel perfect control in both directions, but this is actually fine, I'd rather have a full 16:9 resolution witha few tiles overhanging on the sides than a non-true 16:9 resolution
+        Tuesday:
+            Good movement is what makes a platformer into a platformer. This won't be an easy task and is going to take a lot of trial and error. Camera work /should/ be easy thanks to Cinemachine, but I need to figure out how exactly that works once I have a character moving.
+            ✔ Follow https://unity3d.com/learn/tutorials/topics/2d-game-creation/scripting-collision?playlist=17093 tutorial to make a basic physics script/movement script.@created(19-02-19 17:43) @done(19-02-19 20:27)
+            ✔ Modify the basic physics/movement script to fit my project (only worry about moving and jumping for now, attacking and stairs come next) @created(19-02-19 17:44) @done(19-07-16 02:12)
+                ✔ Dial in jump height/gravity/move speed etc so that things feel right. 
+            ✔ Make the above scripts trigger appropriate animations (Don't worry about attacking or stairs yet) @done(19-02-20 20:52)
+                The above is going to need a second tutorial for how to setup the animator, however I understand how it works from a coding stand point, just need to learn the ins and outs of the animator class itself.
+                Note for hurt animation: when you get hit, apply a force [a vector away and up from where you're facing and then play the 'animation'] Instead of just trying to make the animation itself control your position.
+            ✔ Figure out how to get cinemachine to work effectively @done(19-02-20 20:52)
+                ✔ how to bind it to a certain area [so that doors function] @done(19-02-20 20:52)
+                    ✔ Figure out how to make the camera switch to a new bound when a trigger is entered @created(19-02-20 20:52) @done(19-07-17 01:24)
+                        Read https://www.reddit.com/r/Unity2D/comments/8wrjpy/unity2dim_trying_to_using_cinemachine_and_i_need/ and find resources from this
+                        Both of these are done by adjusting the deadzones, this shouldn't be hard to control or hard to do
+    
+                    Door script has been created allowing me to define two rooms, a camera for each room and deactivate/reactivate cameras when entering a transition. This script also is currently handling the ability for a player to control Izabel during the transitions. The controls are being completely disabled. I will also need to figure out how to make all scripts wait for this transition so that enemies aren't moving/attacking while the camera is scrolling and the character is frozen.
+    
+                    This script also has an example of how to start a coroutine for anything that should run simultaneous to the update loop without being run every frame. This event would be placed in Start() if it would run for the whole game. [I.E. and overlay for loadless speedrun timing or the background clock for 'game time' if that is something we decide to include.] This can easily be called within other triggers for things like invincibility timing (by disabling damage taken for allies or enemies), cooldown on subweapons
+    
+                ✔ how to make it not follow the character vertically in horizontal stages [since the screen should be locked vertically in horiziontal stages] @done(19-02-20 21:04)
+                ✔ opposite of above @done(19-02-20 21:04)
+        Thursday:
+            ✔ Update Game design document then work on any of the above tasks that aren't finished @created(19-02-19 17:46) @done(19-02-21 16:45)
+            ☐ If the above are all done, work on making attacks work @created(19-02-20 21:19)
+                This is going to be more complex than I thought for the system I was trying to use. The current system attempts to save memory on the spritesheet size by only having 1 set of attack animations and 1 set of weapon animations [4 animation sets (3 frames) with 2 weapons each [and an additional frame for the 2nd upgrade]] 28 sprites would be needed for this system 7 for each type of attack with 4 different attacks.
+                ✔ Make a new sprite sheet with these 28 attack frames properly rendered, this will be a much larger sprite sheet, but will make animating attacks easier.@created(19-02-21 20:52) @done(19-07-17 01:21)
+                ✔ Make a note to come back to this later if desired so that this problem doesn't stonewall us now @created(19-02-21 20:53) @done(19-07-17 01:21)
+                    Attacks are all animated, simply need to program the attack button to start the animation and determine how to control logic for weapon upgrades and hit boxes for attacks 
+            ✔ Determine whether using the animation state machine is more efficient than writing one yourself. Writing one on your own will take time, but is likely going to be easier to understand and edit later. @created(19-02-21 20:53) @done(19-07-17 01:22)
+                Now that I have a better understanding of how to use Unity's built in animator and animations, I feel that I can easily use it to create all the animations I need. I may revisit this later if I find that using logic to determine the animations is too difficult with the built in system. Although there is very little animation logic required int his game.
+            ☐ Figure out how to make the player crouch @created(19-02-21 14:03)
+                Simply need to bind a crouch button and cause it to trigger a 'crouched' variable, similar to attacking, both of these should be easily achieved at the same time.
+    
+        Next Steps:
+            ☐ Make it so that players can attack @created(19-07-17 01:57)
+                Create an attack button, and make the player animate with an attack
+                ✔ Also add a hit box to the attack animation so that the player can do damage @created(19-07-17 01:59) @done(19-07-28 23:12)
+                ☐ Make candles breakable @created(19-07-17 02:00)
+                    Don't worry about drop tables yet, that can come later.
+            ✔ Make it so the player can climb stairs @created(19-07-17 02:00) @done(19-07-28 23:11)
+                ✔ Up should climb up stairs and vice versa, this may lead to animation problems, but we'll figure that out eventually @created(19-07-17 02:00) @done(19-07-24 19:13)
+                ✔ Minor progress made after 5-6 hours. Player now recognizes the prep areas for stairs and can set a state upon entry / exit @created(19-07-22 23:20) @done(19-07-22 23:21)
+                    My initial problem was that the PlayerStairController script was attached to the player, and I had it looking for collisions from itself, not collisions from other objects.
+                ✔ The entire staircase is the trigger to enter the stairs. @created(19-07-23 11:52) @done(19-07-23 12:35)
+                    Based on below the only information needed to determine all the values of the stairs are:
+                        ✔ Right X/Y @created(19-07-23 11:54) @done(19-07-23 12:35)
+                        ✔ Left X/Y @created(19-07-23 11:54) @done(19-07-23 12:35)
+                ✔ Calculate number of stairs by using trigger x positions. @created(19-07-23 11:48) @done(19-07-23 12:35)
+                    (Right x - Left x) / 2 = num stairs [2 steps per tile so divide by 2]
+                ✔ Determine player y position by calculating which stair they would be on @created(19-07-23 11:49) @done(19-07-28 23:11)
+                    (Right x - player x) / 2 = currentX
+                    currentX = Mathf.Round(currentX * 2) * 0.5f
+                    ✔ Snap the player to this x/y position when climb button (up/down) is held while jumping @created(19-07-23 11:55) @done(19-07-28 23:11)
+                ✔ Snap the player to the 'rail' when walking onto the stairs from the ground @created(19-07-23 21:47) @done(19-07-23 21:49)
+                ✔ Determine whether the stairs go up or down / left or right by comparing left y to right y @created(19-07-23 11:52) @done(19-07-23 21:46)
+                    if (left y < right y) stairs go up
+                    if (left y > right y) stairs go down
+                ✔ Players left/right facing should be preserved from ground/air movement @created(19-07-23 11:55) @done(19-07-24 19:13)
+                    Initial facing is currently preserved, facing is not swapped when changing walk direction, animation plays backwards. This should be easy to remedy, but will require a logic check when changing directions.
+                ✔ Take away player control when entering a stair collision with the activator on @created(19-07-23 15:56) @done(19-07-23 15:56)
+                    This prevents gravity from affecting the player sprite and pulling it back off of the stairs.
+                ✔ Determine which end of the stairs is closest to the player if they are grounded. @created(19-07-23 15:56) @done(19-07-23 20:13)
+                    This required moving collision onto the parent object and down a step from the Tilemap parent and revisiting the StairController script to automatically generate edge colliders.
+    
+                    How to LERP /CORRECTLY/ http://www.blueraja.com/blog/404/how-to-use-unity-3ds-linear-interpolation-vector3-lerp-correctly
+    
+                Remaining Stair Steps (hah):
+                    ✔ Force dismount at top and bottom of stairs @created(19-07-23 21:51) @done(19-07-24 19:13)
+                        dismount should set state to off_stair, allow the player to resume normal movement controls, and reapply gravity to the player
+                    ✔ Make the stair climb action wait for the stair climb animation @created(19-07-23 21:52) @done(19-07-24 19:13)
+                        may need to speed up the animation to make this feel fluid and not like walking through mud
+                    ✔ Make the player change direction based on whether they are going left or right on the stairs @created(19-07-23 21:56) @done(19-07-24 19:13)
+                    ✔ Allow the player to mount the stairs from a stationary position inside of the collider @created(19-07-25 19:46) @done(19-07-26 20:54)
+                    ✔ Allow the player to mount the stairs while jumping @created(19-07-23 21:57) @done(19-07-26 20:54)
+                    ☐ Allow the player to jump [only vertically] while on the stairs @created(19-07-23 21:57)
+                        I may actually remove this ability, I don't think this is really necessary with all the other control as well ast the stair speed.
+                    ✔ Allow the player to press down and jump to dismount early. @created(19-07-23 21:57) @done(19-07-25 19:47)
+                        Player can hold jump, then press down to dismount the stairs. [Note: only works with down not with whichever direction (left or right) would be down the stairs.]
+                    Stair Bugs:
+                        ✔ Holding jump means you cannot progress up or down the stairs @created(19-07-26 20:54) @done(19-07-28 23:09)
+                        ✔ If you hold jump from jumping onto a staircase it charges a jump for when you leave the stairs @created(19-07-26 20:55) @done(19-07-27 14:01)
+                            Note: Jumping into any trigger causes this same situation. It is more easily apparent what is happening when entering a door transition. Upwards momentum is preserved and used after passing through the doorway. I might be able to fix this with a boolean value attached to the jumping portion of the platformer controller.
+                            This bug was fixed by modifying the platformer controller's velocity.y to 0 in any transition. Now the player properly transitions off the stairs or through the doorway without any extra momentum.
+    
+                
+                Considerations:
+                    ✔ Consider the long term implications of adding a 'climb' button to the game, instead of using up/down. Perhaps discuss with other Castlevania      fans @created(19-07-23 21:50) @done(19-07-25 19:46)
+                        Decided this wasn't relevant and the use of up and down works perfectly well and the addition of another button strictly for using stairs might seem clunky and non-intuitive.
+                    ☐ Consider rewriting the PhysicsObject class and PlayerPlatformerController class @created(19-07-25 19:48)
+                        These were originally from a tutorial on how to code a 2D platformer, however they make some assumptions that I disagree with for this platformer. I may attempt to adjust rather than replace, but writing my own platformer state machine might be preferable to the current plan. [Reference: https://github.com/lynx-the-cat/Block-People/blob/master/Assets/Scripts/Player/PlayerStateMachine.cs a previously written state machine for player controls]
+                    
+                Future Stair Requirements:
+                    ☐ Player can attack while on stairs @created(19-07-23 21:58)
+                    ☐ Player can use subweapons while on stairs @created(19-07-23 21:59)
+    
+                To complete the Player Controller:
+                    ☐ Finish stairs (see above) @created(19-07-25 14:31)
+                        Make a decision on the ability to jump while on stairs and jump onto stairs. Make the controls more intuitive / flexible [done I think]
+                    ☐ Attacks @created(19-07-25 14:32)
+                        Dependant on whip level.
+                        ✔ Complete all Unity animations for player attack patterns @created(19-07-25 19:44) @done(19-07-25 19:45)
+                            Also included transitions in the animator, hopefully I shouldn't need to touch the animator for anything else player related until I work on the player's hurtbox, after the first enemy is coded.
+                        ☐ Create basic attack functionality @created(19-07-25 19:50)
+                            Player presses attack, animation plays once, control is resumed as normal.
+                        ☐ Make the script care about weapon levels. Weapon Levels will be stored in the Player Controller. @created(19-07-25 19:51)
+                        ☐ Make the script play appropriate attack animation for player state [upStairs/downStairs/crouched/normal] @created(19-07-25 19:54)
+                        ☐ Make the script play appropriate attack animation for weapon level@created(19-07-25 19:55)
+                    ☐ Subweapons / spells @created(19-07-25 14:33)
+                        Just base versions for now double/triple shot come later
+                            These will require animation work to function properly
+                    ☐ Hurt Box / Damage taken @created(19-07-25 14:32)
+                        Attempt to make the hurtbox size/shape match the character more closely.
+                    ☐ Player stats @created(19-07-25 14:32)
+                        Health, ammo, subweapon equipped, whip level, etc.
+                    
+    
+    
+        Future Bugs:
+            ✔ BUG: PlayerFeet hitbox is acting as a collider with terrain, fix that @created(19-07-22 23:21) @done(19-07-22 23:21)
+                Note; On further inspection, this was no longer necessary. Might find a way to reimplement later if stairs don't feel sticky enough and/or hard to enter. Another option would be to change the shape of stair triggers [more likely]
+    
+                Reimplimented this hitbox, however chose to not make it larger than the players hitbox by default. If I decide to expand this later, this may become a challenge again. A likely sollution is just changing the tags or layer of this to something that has no collision since it acts mostly as a trigger anyway. However, checking 'Is Trigger' didn't resolve this initially.
+    
+            ☐ BUG: Player colliding with a ceiling causes the player to get stuck or move upwards. @created(19-07-23 01:45)
+                This is a result of animating the hitbox of the player when they jump. The solution is to forcibly move the player down 1/2 tile when they colide with a ceiling, to make room for the expanding hitbox. This must be done before animating the expanded hitbox. The alternative is making the player's hitbox not expand until they are grounded, but this can result in the player appearing to be inside a block.
+    
+    Phase 3: 
+        Finish writing code for movement controller/camera controller, make enemies react when seeing the player, give enemies and the player a health value, give weapons a damage value [for enemies their body is the weapon].
+    
+    Phase 4: 
+        Work on music and sound effects, see if this is even something reasonable for me to do myself, or if I should release a demo without sound/music or with free sounds from other sources and add purchasing music and sound effects into the budget for the KickStarter plan.
+    
+    Phase 5:
+        Send demo builds to friends/other people interested in testing to find any bugs before a public release.
+    
+    Phase 6: 
+        Build a website[should take about a day] and launch the demo, and potential KickStarter .
+    
+    Stretch Goal Ideas:
+        ☐ Opening/Ending Cinematic
+        ☐ Actual story content
+    
+    Backer Incentive Idea:
+        ☐ Cultist Recolored in color scheme of your choice [make all cultists random]
+    
+    
