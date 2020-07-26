@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerAttackController : PlayerController
 {
-    private GameObject player;
     private PlayerController playerController;
     private Animator animator;
 
@@ -14,7 +13,6 @@ public class PlayerAttackController : PlayerController
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
         playerController = player.GetComponent<PlayerController>();
         animator = player.GetComponent<Animator>();
         animator.SetInteger("whipLevel", 1);
