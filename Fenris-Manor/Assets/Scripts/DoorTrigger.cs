@@ -35,10 +35,10 @@ public class DoorTrigger : MonoBehaviour {
             Debug.Log("Controls Off");
             ToggleControls(false);
             playerController.playerAnimator.SetBool("idle", true);
+            platformerController.SetPlayerVelocity(new Vector2(platformerController.GetPlayerVelocity().x, 0));
             // TODO: Make thise duration different based upon the door open/close animation length once the door is created.
             // TODO: Make a player walking animation that starts once the door is open and ends upon reachign destination. 
             yield return new WaitForSeconds(1);
-            platformerController.SetPlayerVelocity(new Vector2(platformerController.GetPlayerVelocity().x, 0));
             Debug.Log("Controls On");
             ToggleControls(true);
 
