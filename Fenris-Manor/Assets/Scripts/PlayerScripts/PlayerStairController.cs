@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿/* using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,7 +46,7 @@ public class PlayerStairController : MonoBehaviour
             playerController.SetIsClimbing(true);
             //Debug.Log("Control taken from platformer controller");
             // move player to base of stairs if grounded
-            if (playerController.GetIsGrounded())
+            if (playerController.GetJumpState() == PlayerController.JUMPING.grounded)
             {
                 //Debug.Log("Closest End: " + closestEndStep.name);
                 fraction = 0;
@@ -69,7 +69,7 @@ public class PlayerStairController : MonoBehaviour
         if ((climb == 1 || climb == -1) && playerController.GetStairState() != PlayerController.STAIR_STATE.on_stair) {
             platformerController.enabled = false;
             playerController.SetIsClimbing(true);
-            if (playerController.GetIsGrounded()) {
+            if (playerController.GetJumpState() == PlayerController.JUMPING.grounded) {
                 fraction = 0;
                 StartCoroutine(MovePlayerToStairs(player, stairController));
             } else {
@@ -121,7 +121,7 @@ public class PlayerStairController : MonoBehaviour
         player.transform.position = Vector2.Lerp(posPlayer, closestStep, 1);
         animator.Play("PlayerStairsIdle");
         playerController.SetStairState(PlayerController.STAIR_STATE.on_stair);
-        playerController.SetIsGrounded(false);
+        playerController.SetJumpState(PlayerController.JUMPING.in_air);
         animator.SetBool("grounded", false);
         yield return new WaitForSeconds(animationDelay);
         this.enabled = true;
@@ -339,3 +339,4 @@ public class PlayerStairController : MonoBehaviour
             }
     }
 }
+ */
