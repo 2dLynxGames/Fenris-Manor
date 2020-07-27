@@ -4,44 +4,40 @@ using UnityEngine;
 
 public class PlayerPlatformerController : PhysicsObject
 {
-    public float maxSpeed = 7;
-    public float jumpTakeOffSpeed = 7;
+    public float maxSpeed;
+    public float jumpTakeOffSpeed;
 
     private SpriteRenderer spriteRenderer;
-    //private Animator animator;
+    private PlayerController playerController;
 
     // Start is called before the first frame update
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        //animator = GetComponent<Animator>();
+        playerController = GetComponent<PlayerController>();
     }
 
     protected override void AnimateActor(){
-
         if(velocity.y != 0) {
-            if (velocity.y > 0) {
-                animator.SetFloat("velocityY", velocity.y);
-            }
-            else if(velocity.y < 0) {
-                animator.SetFloat("velocityY", velocity.y);
-            }
+            playerController.SetJumpState( velocity.y > 0 ? PlayerController.JUMPING.up : PlayerController.JUMPING.down );
+            playerController.playerAnimator.SetFloat("velocityY", velocity.y);
             return;
-        }           
-        animator.SetFloat("velocityY", 0);
+        }
+        playerController.playerAnimator.SetFloat("velocityY", 0);
+        playerController.SetJumpState(PlayerController.JUMPING.grounded);
         if (velocity.x != 0) {
-            animator.SetFloat("velocityX", Mathf.Abs(velocity.x));
+            playerController.playerAnimator.SetFloat("velocityX", Mathf.Abs(velocity.x));
             FlipSprite();
         }
         if (playerController.GetIsIdle() && Input.GetButton("Crouch")){
-            animator.SetBool("crouched", true);
+            playerController.playerAnimator.SetBool("crouched", true);
             playerController.SetCanMove(false);
         }
         if (Input.GetButtonUp("Crouch")){
-            animator.SetBool("crouched", false);
+            playerController.playerAnimator.SetBool("crouched", false);
             playerController.SetCanMove(true);
         }
-        animator.SetBool("idle", playerController.GetIsIdle());
+        playerController.playerAnimator.SetBool("idle", playerController.GetIsIdle());
     }
 
     protected override void ComputeVelocity(){
@@ -50,17 +46,20 @@ public class PlayerPlatformerController : PhysicsObject
 
         if (playerController.GetCanMove()) {
             move.x = Input.GetAxisRaw("Horizontal");
-            if (Input.GetButtonDown("Jump") && playerController.GetIsGrounded()) {
+            if (Input.GetButtonDown("Jump") && (playerController.GetJumpState() == PlayerController.JUMPING.grounded)) {
                 velocity.y = jumpTakeOffSpeed;
             }
-        
+            // player is in the air and moving backwards
+            if (playerController.GetJumpState() != PlayerController.JUMPING.grounded && playerController.PlayerMovingBackwards(move.x)) {
+                move.x *= 0.5f;
+            }
             targetVelocity = move * maxSpeed;
 
-            if(targetVelocity.x > 0 || targetVelocity.y > 0 || targetVelocity.x < 0 || targetVelocity.y < 0){
+            if(!targetVelocity.Equals(Vector2.zero) ){
                 playerController.SetIsMoving(true);
             } else {
                 playerController.SetIsMoving(false);
-                animator.SetFloat("velocityX", 0);
+                playerController.playerAnimator.SetFloat("velocityX", 0);
             }
         }
     }
