@@ -19,13 +19,10 @@ public class PhysicsObject : MonoBehaviour
     protected ContactFilter2D contactFilter;            // A filter for which layers should be included for collision [see note in declaration during Start()]
     protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];  // An array used to get the results of from the Rigidbody2D.cast
     protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D> (16); // A list to store the array for later uses
-    protected PlayerController playerController;
-    protected GameObject player;
-    protected Animator animator;
 
     // Constants that help prevent items passing through each other or getting stuck inside of each other
-    protected const float minMoveDistance = 0.0001f;
-    protected const float shellRadius = 0.01f;
+    protected const float minMoveDistance = 0.001f;
+    protected const float shellRadius = 1f / 16f;
 
     void OnEnable() {
         // Get the Rigidbody2d component of the object this script is attached to
@@ -37,9 +34,6 @@ public class PhysicsObject : MonoBehaviour
         contactFilter.useTriggers = false;
         contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         contactFilter.useLayerMask = true;
-        player = GameObject.Find("Player");
-        playerController = player.GetComponent<PlayerController>();
-        animator = player.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -50,7 +44,7 @@ public class PhysicsObject : MonoBehaviour
         AnimateActor();
     }
 
-    // This will be overridden in PlayerPlatformerController.cs and used to calculate the new target velocity of our player object.
+    // This will be overridden in future objects to calculate the new target velocity of the object 
     protected virtual void ComputeVelocity() {
 
     }
@@ -59,22 +53,24 @@ public class PhysicsObject : MonoBehaviour
 
     }
 
-    // Use fixed update for physic
+    // Use fixed update for physics
     void FixedUpdate() {
-        // Use the gravity modifier, default gravity value from Unity, and the time since the last frame to calculate the velocity vector for the current object
+        /*
+         * Use the gravity modifier, default gravity value from Unity, and the time since the last 
+         * frame to calculate the velocity vector for the current object 
+         */
         velocity += (fGravityModifier * Physics2D.gravity * Time.deltaTime);
 
         // Use target velocity from the external class and add it to our current x velocity to determine the new velocity
         velocity.x = targetVelocity.x;
 
-        playerController.SetIsGrounded(false);
-        animator.SetBool("grounded", false);
-
         // Use veloicty and time since last frame to calculate the change in position
         Vector2 deltaPostion = velocity * Time.deltaTime;
         
-        /* If using sloped tiles this is necessary to make sure your character walks up/down a slope instead of into a slope.
-         Since this game does not use slopes, I'm going to take this part of the calculation out, but leave it here just as a note */
+        /* 
+         * If using sloped tiles this is necessary to make sure your character walks up/down a slope instead of into a slope.
+         * Since this game does not use slopes, I'm going to take this part of the calculation out, but leave it here just as a note 
+         */
         //Vector2 followGround = new Vector2 (groundNormal.y, -groundNormal.x);
 
         Vector2 move = Vector2.right * deltaPostion.x;
@@ -89,10 +85,14 @@ public class PhysicsObject : MonoBehaviour
 
     // Function to make the given object move, this function is only called if the character is moving along the y axis
     void Movement(Vector2 move, bool yMovement) {
-        //Distance is used to determine whether or not collision should be checked. This prevents stationary objects from constantly checking their collision
+        /*
+         * Distance is used to determine whether or not collision should be checked. This prevents stationary objects
+         * from constantly checking their collision
+        */
         float distance = move.magnitude;
 
-        //use cast to get the number of other colliders that collide with this one using the contact filter [Edit > project settings > Physics2d] layer collision matrix
+        //use cast to get the number of other colliders that collide with this one using the contact filter 
+        //[Edit > project settings > Physics2d] layer collision matrix
         if (distance > minMoveDistance) {
             int count = rbObject.Cast(move, contactFilter, hitBuffer, (distance + shellRadius));
 
@@ -102,22 +102,22 @@ public class PhysicsObject : MonoBehaviour
                 hitBufferList.Add(hitBuffer[i]);
             }
 
-            // Iterate through the hit list to determine if the character hit anything that would cause them to be grounded
-            // Also check if they collided with walls or ceilings to cancel out any momentum in directions that they player should not move to avoid clipping
+            /*
+             * Iterate through the hit list to determine if the object hit anything that would cause it to be grounded also
+             * checks if it collided with walls or ceilings to cancel out any momentum in the correct direction to avoid clipping
+            */
             for (int i = 0; i < hitBufferList.Count; i++)
             {
-                // This is used to insure that the player is truely grounded, not just collided with a wall
+                // This is used to insure that the object is actually grounded, not just collided with a wall
                 Vector2 currentNormal = hitBufferList[i].normal;
                 if (currentNormal.y > minGroundNormalY) {
-                    playerController.SetIsGrounded(true);
-                    animator.SetBool("grounded", true);
                     if (yMovement) {
                         groundNormal = currentNormal;
                         currentNormal.x = 0;
                     }
                 }
 
-                // Projection is used to ensure that if a player collides with a ceiling that their horizontal movement is preserved.
+                // Projection is used to ensure that if an object collides with a ceiling that its horizontal movement is preserved.
                 float projection = Vector2.Dot(velocity, currentNormal);
                 if (projection < 0) {
                     velocity -= projection * currentNormal;
@@ -128,7 +128,11 @@ public class PhysicsObject : MonoBehaviour
                 distance = modifiedDistance < distance ? modifiedDistance : distance;
             }
         }
-
+        //TODO: Make X movement pixel perfect, so that the player moves 1/16th of a unit at a minimum
         rbObject.position += move.normalized * distance;
+    }
+
+    float PixelPerfectPlacement(float distance) {
+        return (Mathf.Round(distance * 16.0f) / 16.0f);
     }
 }
