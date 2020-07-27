@@ -8,18 +8,18 @@ Round 2 dev:
     The demo is going to be basic.
     Requirements for Demo 1 Release:
         Ignore all post demo 1 requirements, these are optional for this release.
-        ☐ Player movement
+        ✔ Player movement @done(20-07-27 03:10)
         ☐ Player attack
         ☐ Player health
         ☐ Cultist
         ☐ Wolf
-        ☐ Camera
-        ☐ Doors
+        ✔ Camera @done(20-07-27 03:11)
+        ✔ Doors @done(20-07-27 03:10)
     
     Player Movement:
         ✔ Play walk animation while moving @done(20-07-24 03:23)
-        ☐ Polish player movement script
-        ☐ Reduce player control while jumping
+        ✔ Polish player movement script @done(20-07-27 03:05)
+        ✔ Reduce player control while jumping @done(20-07-27 03:05)
         Next (post demo 1): 
             ☐ Walking off ledge has significantly higher gravity than jumping
         
@@ -83,10 +83,14 @@ Round 2 dev:
             Possibly just a regular walk cycle but slower?
 
     July 25:
-        Did a lot of work on animations. Switched to the Unity animator. Wish I'd taken more notes.
+        - Did a lot of work on animations. Switched to the Unity animator. Wish I'd taken more notes.
     July 26:
-        Finished polishing animation controller for the player. I learned a lot over the past few days, should take some notes on this soon, while the 
-        information is fresh in my mind.
+        - Finished polishing animation controller for the player. I learned a lot over the past few days, should take some notes on this soon, while the information is fresh in my mind.
+    July 27:
+        - Completed player movement refactor and physics object refactor. Animator is done for all current states. (Stairs will need to be done later) 
+        - Added TODO to DoorTrigger for an animation rather than just locking the character for a second.
+        - Added PhysicsObject todo for pixel perfect x movement.
+        Tomorrow's plan is to do the cultist, and then start working on attacks/player health working. Should all of those get done, work on automatically spawning enemies.
 
 FUTURE ME:
     ☐ Figure out how color multiply and other 'effects' actually work (https://en.wikipedia.org/wiki/Blend_modes#Multiply)
