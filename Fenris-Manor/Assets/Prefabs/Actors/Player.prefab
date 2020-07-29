@@ -164,8 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e9c0f6586e38434ca970686e5119679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1323938216396014}
-  PlayerAnimator: {fileID: 0}
+  player: {fileID: 0}
+  playerAnimator: {fileID: 0}
 --- !u!95 &9026572747746677988
 Animator:
   serializedVersion: 3
@@ -255,8 +255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a032c7f03247f4d960ea02958e242e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionSpeed: 0.5
-  animationDelay: 0.1
 --- !u!1 &709845950635511079
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +267,7 @@ GameObject:
   - component: {fileID: 5909139867561217076}
   m_Layer: 0
   m_Name: PlayerWhipHitboxUpgraded
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -326,7 +324,7 @@ GameObject:
   - component: {fileID: 4435099630051646847}
   m_Layer: 0
   m_Name: PlayerWhipHitboxBase
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
