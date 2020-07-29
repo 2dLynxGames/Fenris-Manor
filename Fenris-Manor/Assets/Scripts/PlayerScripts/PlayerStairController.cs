@@ -1,10 +1,10 @@
-﻿/* using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStairController : MonoBehaviour
 {
-    public float transitionSpeed = 3f;
+    /*public float transitionSpeed = 3f;
     private float fraction = 0;
 
     public float animationDelay = 6f / 60f;
@@ -338,5 +338,5 @@ public class PlayerStairController : MonoBehaviour
                 }
             }
     }
-}
  */
+ }
