@@ -48,7 +48,7 @@ public class CultistController : PhysicsObject
 
     void OnEnable()
 	{
-        isAwake = true;
+        isAwake = false;
         cultistAnimator.SetBool("isAwake", false);
 	}
 
