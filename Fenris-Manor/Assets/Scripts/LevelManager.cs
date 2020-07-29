@@ -7,9 +7,9 @@ public class LevelManager : MonoBehaviour
     public PlayerController playerController;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        playerController = FindObjectOfType<PlayerController>();
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
