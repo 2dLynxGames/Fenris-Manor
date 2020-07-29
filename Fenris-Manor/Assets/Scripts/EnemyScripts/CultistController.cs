@@ -48,10 +48,7 @@ public class CultistController : PhysicsObject
 
     void OnEnable()
 	{
-		isAwake = false;
-        moveDirection = MoveDirection();
-        move = DetermineMoveX(moveDirection);
-        FlipSprite(move.x);
+        isAwake = true;
         cultistAnimator.SetBool("isAwake", false);
 	}
 
@@ -62,8 +59,7 @@ public class CultistController : PhysicsObject
     }
 
     private MOVE_DIRECTION MoveDirection(){
-        //return (levelManager.playerController.player.transform.position.x > transform.position.x) ? MOVE_DIRECTION.right : MOVE_DIRECTION.left;
-        return MOVE_DIRECTION.left;
+        return (levelManager.playerController.player.transform.position.x > transform.position.x) ? MOVE_DIRECTION.right : MOVE_DIRECTION.left;
     }
 
     private Vector2 DetermineMoveX(MOVE_DIRECTION moveDirection) {
