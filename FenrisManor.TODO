@@ -11,7 +11,7 @@ Round 2 dev:
         ✔ Player movement @done(20-07-27 03:10)
         ☐ Player attack
         ☐ Player health
-        ☐ Cultist
+        ✔ Cultist @done(20-07-29 04:38)
         ☐ Wolf
         ✔ Camera @done(20-07-27 03:11)
         ✔ Doors @done(20-07-27 03:10)
@@ -44,7 +44,7 @@ Round 2 dev:
         ☐ Enemies deal damage with their hurtbox
         ☐ Enemies take damage with their hitbox
         Cultist:
-            ☐ Basic AI movement, walk left to right
+            ✔ Basic AI movement, walk left to right based on player location @done(20-07-29 04:31)
         Wolf:
             ☐ Jump on wake
             ☐ Chases player, turns once at screen edge
@@ -91,6 +91,16 @@ Round 2 dev:
         - Added TODO to DoorTrigger for an animation rather than just locking the character for a second.
         - Added PhysicsObject todo for pixel perfect x movement.
         Tomorrow's plan is to do the cultist, and then start working on attacks/player health working. Should all of those get done, work on automatically spawning enemies.
+    July 28:
+        canceled
+    July 29:
+        - Reworked prefab folder structure
+        - Fixed Cultist sprite file size was 16x34, now properly 16x32
+        - Started Level Manager so that cultists could know where the players were
+        - Completed Cultist AI
+            - Awaiting player attack script
+            - Awaiting hurt player script
+        - Discovered that Scene view triggers OnBecameVisible() this will be useful for testing in the future.
 
 FUTURE ME:
     ☐ Figure out how color multiply and other 'effects' actually work (https://en.wikipedia.org/wiki/Blend_modes#Multiply)
