@@ -101,6 +101,7 @@ Round 2 dev:
             - Awaiting player attack script
             - Awaiting hurt player script
         - Discovered that Scene view triggers OnBecameVisible() this will be useful for testing in the future.
+        - Recorded a new video with an enemy and updated animations.
 
 FUTURE ME:
     ☐ Figure out how color multiply and other 'effects' actually work (https://en.wikipedia.org/wiki/Blend_modes#Multiply)
