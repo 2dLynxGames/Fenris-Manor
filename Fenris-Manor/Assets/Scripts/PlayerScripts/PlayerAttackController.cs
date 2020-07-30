@@ -28,13 +28,40 @@ public class PlayerAttackController : PlayerController
         }
     }
 
+    Collider2D CreateWhipHitbox() {
+
+        var playerWhipHitbox = Instantiate(playerController.GetWhipHitbox(), transform);
+        playerWhipHitbox.isTrigger = true;
+        playerWhipHitbox.transform.parent = gameObject.transform;
+        if (playerController.GetFacing() == PlayerController.FACING.right) {
+            if (playerController.GetIsCrouching()) {
+                Debug.Log("Crouching");
+                playerWhipHitbox.transform.position -= new Vector3(0, 0.4f, 0);
+            }
+        } else {
+            playerWhipHitbox.transform.localScale = new Vector3(-1, 1, 1);
+            if (playerController.GetIsCrouching()) {
+                playerWhipHitbox.transform.position -= new Vector3(0, 0.4f, 0);
+            }
+        }
+
+        return playerWhipHitbox;
+
+    }
+
     IEnumerator PlayerAttack() {
         playerController.SetIsAttacking(true);
+        Collider2D playerWhipHitbox;
         animator.SetBool("attack", true);
         
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.125f);
+
+        playerWhipHitbox = CreateWhipHitbox();
+
+        yield return new WaitForSecondsRealtime(0.125f);
         
         playerController.SetIsAttacking(false);
+        Destroy(playerWhipHitbox.gameObject);
         animator.SetBool("attack", false);
     }
 
