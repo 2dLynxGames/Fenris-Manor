@@ -2,19 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CultistController : PhysicsObject
+public class CultistController : PhysicsObject, iEnemyController
 {
+    public int maxHealth = 1;
+    public int damage;
+
     private enum MOVE_DIRECTION {
         left,
         right
     }
 
-    private bool isAwake;
+    private bool isAwake = false;
+    private bool dead = false;
+
     private LevelManager levelManager;
     private Animator cultistAnimator;
     private SpriteRenderer spriteRenderer;
     private MOVE_DIRECTION moveDirection;
     private Vector2 move;
+    private ResetObject resetObject;
+
+    private int health;
 
     public float moveSpeed;
     
@@ -24,24 +32,24 @@ public class CultistController : PhysicsObject
         levelManager = FindObjectOfType<LevelManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         cultistAnimator = GetComponent<Animator>();
-        rbObject=GetComponent<Rigidbody2D>();
+        rbObject = GetComponent<Rigidbody2D>();
+        resetObject = GetComponent<ResetObject>();
+        health = maxHealth;
     }
 
     void Start()
     {
-        moveDirection = MoveDirection();
-        move = DetermineMoveX(moveDirection);
-        FlipSprite(move.x);
+        SetMovement();
     }
     
     protected override void ComputeVelocity(){
-        if (isAwake) {
+        if (isAwake && !dead) {
             targetVelocity = move * moveSpeed;
         }
     }
 
     protected override void AnimateActor(){
-        if (isAwake) {
+        if (isAwake && !dead) {
             cultistAnimator.SetBool("isAwake", true);
         }
     }
@@ -58,6 +66,36 @@ public class CultistController : PhysicsObject
         cultistAnimator.SetBool("isAwake", true);
     }
 
+    public void TakeDamage(int damageToTake) {
+        health -= damageToTake;
+        CheckHealth();
+    }
+
+    public void DealDamage(int damageToDo) {
+        levelManager.playerController.TakeDamage(damageToDo);
+    }
+
+    public bool GetIsDead() {
+        return dead;
+    }
+
+    public void SetIsDead(bool dead){
+        this.dead = dead;
+        if (dead == false) {
+            SetMovement();
+        }
+    }
+
+    public void CheckHealth() {
+        if (health <= 0) {
+            dead = true;
+            gameObject.GetComponentInParent<SpawnEnemy>().enemyIsAlive = false;
+            spriteRenderer.enabled = false;
+            cultistAnimator.enabled = false;
+            move = Vector2.zero;
+        }
+    }
+
     private MOVE_DIRECTION MoveDirection(){
         return (levelManager.playerController.player.transform.position.x > transform.position.x) ? MOVE_DIRECTION.right : MOVE_DIRECTION.left;
     }
@@ -71,6 +109,12 @@ public class CultistController : PhysicsObject
             spriteRenderer.flipX = false;
         else 
             spriteRenderer.flipX = true;
+    }
+
+    private void SetMovement() {
+        moveDirection = MoveDirection();
+        move = DetermineMoveX(moveDirection);
+        FlipSprite(move.x);
     }
 
 }
