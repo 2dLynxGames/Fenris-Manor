@@ -30,8 +30,7 @@ public class PlayerAttackController : PlayerController
 
     Collider2D CreateWhipHitbox() {
 
-        var playerWhipHitbox = Instantiate(playerController.GetWhipHitbox(), transform);
-        playerWhipHitbox.transform.parent = gameObject.transform;
+        var playerWhipHitbox = Instantiate(playerController.GetWhipHitbox(), transform.position, Quaternion.identity);
         if (playerController.GetFacing() == PlayerController.FACING.right) {
             if (playerController.GetIsCrouching()) {
                 Debug.Log("Crouching");
