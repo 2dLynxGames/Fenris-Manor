@@ -9,7 +9,7 @@ Round 2 dev:
     Requirements for Demo 1 Release:
         Ignore all post demo 1 requirements, these are optional for this release.
         ✔ Player movement @done(20-07-27 03:10)
-        ☐ Player attack
+        ✔ Player attack @done(20-07-30 02:20)
         ☐ Player health
         ✔ Cultist @done(20-07-29 04:38)
         ☐ Wolf
@@ -25,7 +25,7 @@ Round 2 dev:
         
     Player Attack:
         ✔ Make the button trigger animations @done(20-07-25 03:01)
-        ☐ Make the animations deal damage to enemies and destroy objects.
+        ✔ Make the animations deal damage to enemies and destroy objects. @done(20-07-30 02:20)
         Next (post demo 1):
             ☐ Make the damage vary by whip upgrade
             ☐ make the damage
@@ -42,7 +42,7 @@ Round 2 dev:
         if I give bosses 16 hp, that'd be 16/8/5 attacks depending on whip strength. Which I think is fine.
         or, bosses could just take static damage not dependent on weapon type, and require x hits no matter what, and the whip upgrades only affect regular enemies
         ☐ Enemies deal damage with their hurtbox
-        ☐ Enemies take damage with their hitbox
+        ✔ Enemies take damage with their hitbox @done(20-07-30 02:19)
         Cultist:
             ✔ Basic AI movement, walk left to right based on player location @done(20-07-29 04:31)
         Wolf:
@@ -82,6 +82,39 @@ Round 2 dev:
         ☐ Door walk animation
             Possibly just a regular walk cycle but slower?
 
+    BUGS:
+        ✔ Whip currently on spawns hitbox on the right side of the character, even when facing left. @done(20-07-30 01:40)
+            Fixed using method 3 from below. Was told a 4th way to do this that is more efficient, and effectively what I'm doing with this code.
+
+            The method is called physics overlap. https://docs.unity3d.com/ScriptReference/Physics2D.BoxCast.html
+            Using this cast create a box cast that generates an array of collisions, iterate through the array for actions to take, then take those actions.
+
+            Similar to the casting in PhysicsObject class. Should be straight forward since I effectively created this myself.
+            There are 3 ways I can think of to fix this:
+                1) use the unity animator and have 2 different 'attack' animations , one facing left and the other facing right [More states for that web I linked] (no extra calls in my scripts, but a more complex animator, and I have no clue what the performance cost here is)
+                2) programatically flip xscale of the hit box from 1 to -1 to reverse the whip hitboxes. (2 extra calls everytime the player flips)
+                3) make the AttackController instantiate/destroy the whipbox as a child object on each attack. This is the most complex, but likely the most correct as well. As this removes the responsibilty of animation hitboxes from the animator, which isn't a responsibility it should have.
+        ✔ Player bounces when whipping a wall. @done(20-07-30 02:16) BANDAID APPLIED
+            This one drove me and Osteel bonkers. Bandaid fix follows:
+                So the issue was not your whip hitting the colliders, not in the way we were thinking. Having it set to a trigger in the prefab was fine and it was not causing collisions as expected.
+                However, if we look at the PhysicsObject script ...
+                There's the movement function which is called a few times, and also overriden once. I'm not sure why.
+                
+                But anyway, what's important is the how this script determines where to position the object. It creates a list called hitBufferList which it populates with colliders in the scene around the object. It determine this by using the Cast method on the rigidbody, a built in method of the component.
+                If we look at the documentation for it
+                https://docs.unity3d.com/ScriptReference/Rigidbody2D.Cast.html "All the Collider2D shapes attached to the Rigidbody2D are cast into the Scene starting at each Collider position ignoring the Colliders attached to the same Rigidbody2D."
+
+                how to fix it in the games current state
+                The best workaround solution I could come up with is to simply not child your whip collider into the player.
+                
+                var playerWhipHitbox = Instantiate(playerController.GetWhipHitbox(), transform.position, Quaternion.identity);
+
+                And instead just position it at the player.
+
+                look into this:
+                    https://docs.unity3d.com/ScriptReference/Physics2D.BoxCast.html
+
+
     July 25:
         - Did a lot of work on animations. Switched to the Unity animator. Wish I'd taken more notes.
     July 26:
@@ -102,6 +135,10 @@ Round 2 dev:
             - Awaiting hurt player script
         - Discovered that Scene view triggers OnBecameVisible() this will be useful for testing in the future.
         - Recorded a new video with an enemy and updated animations.
+    July 30:
+        - Found a bug with whip attack causing the hit box to go only on the left side
+        - Resolved above bug and created a new one where the player bounces when whipping the wall.
+
 
 FUTURE ME:
     ☐ Figure out how color multiply and other 'effects' actually work (https://en.wikipedia.org/wiki/Blend_modes#Multiply)
