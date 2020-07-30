@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject player; 
     public Animator playerAnimator;
+    public Collider2D baseWhipHitbox;
+    public Collider2D upgradedWhipHitbox;
 
     public enum STAIR_STATE {
         on_stair,
@@ -50,15 +52,26 @@ public class PlayerController : MonoBehaviour
 
     // declare boolean variables and initialize values to describe the state of the player
     protected bool isClimbing = false;
+    protected bool isCrouching = false;
     protected bool isAttacking = false;
     protected bool isMoving = false;
     protected bool isIdle = true;
     protected bool isHurt = false;
     protected bool canMove = true;
 
+    protected Collider2D whipHitbox;
+
+    protected int whipDamage = 0;
+    
+    private int startingHealth = 10;
+    protected int health;
+
     void Awake(){
         player = GameObject.Find("Player");
         playerAnimator = player.GetComponent<Animator>();
+        whipDamage = DetermineWhipDamage(whipLevel);
+        health = startingHealth;
+        whipHitbox = DetermineWhipHitbox(whipLevel);
     }
 
     void Update(){
@@ -89,11 +102,13 @@ public class PlayerController : MonoBehaviour
 
     public void SetWhipLevel(WHIP_LEVEL whipLevel){
         this.whipLevel = whipLevel;
+        whipDamage = DetermineWhipDamage(whipLevel);
     }
 
     public JUMPING GetJumpState(){
         return jumpState;
     }
+
     public void SetJumpState(JUMPING jumpState){
         this.jumpState = jumpState;
         if (jumpState == JUMPING.grounded) {
@@ -103,11 +118,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public Collider2D GetWhipHitbox(){
+        return whipHitbox;
+    }
+
+    public void SetWhipHitbox(Collider2D whipHitbox){
+        this.whipHitbox = whipHitbox;
+    }
+
     public bool GetIsClimbing(){
         return isClimbing;
     }
     public void SetIsClimbing(bool climbing){
         isClimbing = climbing;
+    }
+
+    public bool GetIsCrouching(){
+        return isCrouching;
+    }
+    public void SetIsCrouching(bool isCrouching){
+        this.isCrouching = isCrouching;
     }
 
     public bool GetIsAttacking(){
@@ -147,6 +177,14 @@ public class PlayerController : MonoBehaviour
         this.canMove = canMove;
     }
 
+    public int GetWhipDamage() {
+        return whipDamage;
+    }
+
+    public void SetWhipDamage(int whipDamage) {
+        this.whipDamage = whipDamage;
+    }
+
     //#Helpers
     private bool CheckIdle() {
         return !(!(jumpState == JUMPING.grounded) || isMoving || isAttacking);
@@ -162,5 +200,34 @@ public class PlayerController : MonoBehaviour
 
     public bool PlayerMovingBackwards(float move) {
         return ((facing == FACING.right && move < 0.1f) || (facing == FACING.left && move > 0.1f));
+    }
+
+    public void TakeDamage(int damageToTake) {
+        health -= damageToTake;
+    }
+
+    private int DetermineWhipDamage(WHIP_LEVEL whipLevel) {
+        switch (whipLevel) {
+            case WHIP_LEVEL.basic:
+                return 1;
+            case WHIP_LEVEL.chain:
+                return 2;
+            case WHIP_LEVEL.extended_chain:
+                return 3;
+            default:
+                return 1;
+        }
+    }
+
+    private Collider2D DetermineWhipHitbox(WHIP_LEVEL whipLevel) {
+        switch (whipLevel) {
+            case WHIP_LEVEL.basic:
+            case WHIP_LEVEL.chain:
+                return baseWhipHitbox;
+            case WHIP_LEVEL.extended_chain:
+                return upgradedWhipHitbox;
+            default:
+                return baseWhipHitbox;
+        }
     }
 }
