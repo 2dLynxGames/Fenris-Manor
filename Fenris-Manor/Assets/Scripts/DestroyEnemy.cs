@@ -6,6 +6,7 @@ public class DestroyEnemy : MonoBehaviour
 {
     //public GameObject deathAnimation;
 
+    private GameObject player;
     private PlayerController playerController;
 
     private int damageToDo;
@@ -15,7 +16,8 @@ public class DestroyEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        playerController = transform.GetComponentInParent<PlayerController>();
+        player = GameObject.Find("Player");
+        playerController = player.GetComponent<PlayerController>();
     }
 
     void Start() {
