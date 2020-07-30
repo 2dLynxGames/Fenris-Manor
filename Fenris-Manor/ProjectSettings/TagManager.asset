@@ -7,11 +7,11 @@ TagManager:
   - Terrain
   - Stairs
   - PlayerDrop
-  - Breakables
-  - Enemies
   - Trigger
   - PlayerFeet
   - Weapon
+  - Enemy
+  - Breakable
   layers:
   - Default
   - TransparentFX
@@ -23,13 +23,13 @@ TagManager:
   - 
   - Player
   - PlayerDrop
-  - Enemies
-  - Breakables
+  - Enemy
+  - Breakable
   - Stairs
   - Terrain
   - Trigger
   - Background
-  - 
+  - Hitbox
   - 
   - 
   - 
