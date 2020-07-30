@@ -32,10 +32,12 @@ public class PlayerPlatformerController : PhysicsObject
         if (playerController.GetIsIdle() && Input.GetButton("Crouch")){
             playerController.playerAnimator.SetBool("crouched", true);
             playerController.SetCanMove(false);
+            playerController.SetIsCrouching(true);
         }
         if (Input.GetButtonUp("Crouch")){
             playerController.playerAnimator.SetBool("crouched", false);
             playerController.SetCanMove(true);
+            playerController.SetIsCrouching(false);
         }
         playerController.playerAnimator.SetBool("idle", playerController.GetIsIdle());
     }
