@@ -33,7 +33,6 @@ public class PlayerAttackController : PlayerController
         var playerWhipHitbox = Instantiate(playerController.GetWhipHitbox(), transform.position, Quaternion.identity);
         if (playerController.GetFacing() == PlayerController.FACING.right) {
             if (playerController.GetIsCrouching()) {
-                Debug.Log("Crouching");
                 playerWhipHitbox.transform.position -= new Vector3(0, 0.4f, 0);
             }
         } else {
