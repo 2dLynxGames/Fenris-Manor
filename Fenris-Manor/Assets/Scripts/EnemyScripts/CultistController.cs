@@ -89,10 +89,8 @@ public class CultistController : PhysicsObject, IEnemyController
     public void CheckHealth() {
         if (health <= 0) {
             dead = true;
-            gameObject.GetComponentInParent<SpawnEnemy>().enemyIsAlive = false;
-            spriteRenderer.enabled = false;
-            cultistAnimator.enabled = false;
-            move = Vector2.zero;
+            gameObject.GetComponentInParent<SpawnEnemy>().EnemyKilled();
+            Destroy(gameObject);
         }
     }
 
