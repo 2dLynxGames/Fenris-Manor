@@ -6,36 +6,29 @@ public class SpawnEnemy : MonoBehaviour
 {
 
     public GameObject enemyToSpawn;
-    public bool isVisible = false;
+    public bool hasLeftScreen = true;
 
     public bool enemyIsAlive = false;
     private bool canSpawnEnemy = true;
+    private GameObject spawnedEnemy;
 
-    void OnBecameVisible()
-    {
-        isVisible = true;
-        Debug.Log("Spawning Enemy");
+    void OnBecameVisible() {
+        hasLeftScreen = false;
         if (canSpawnEnemy) {
+            Debug.Log("Spawning Enemy");
             Instantiate(enemyToSpawn, transform);
             enemyIsAlive = true;
             canSpawnEnemy = false;
         }
     }
 
-    void OnBecameInvisible()
-    {
-        if (!enemyIsAlive) {
-            canSpawnEnemy = true;
-            isVisible = false;
-        }
+    void OnBecameInvisible() {
+        Debug.Log("Became invisible");
+        hasLeftScreen = true;
     }
 
-    void Update()
-    {
-        if (isVisible && canSpawnEnemy && !enemyIsAlive) {
-            Instantiate(enemyToSpawn, transform);
-            enemyIsAlive = true;
-            canSpawnEnemy = false;
-        }
+    public void EnemyKilled() {
+        canSpawnEnemy = true;
+        enemyIsAlive = false;
     }
 }
