@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 6704199712850528805, guid: 36e592920e03aa545a7bb39c214d9488,
     type: 3}
-  isVisible: 0
+  hasLeftScreen: 1
   enemyIsAlive: 0
 --- !u!61 &291976307
 BoxCollider2D:
@@ -1141,6 +1141,8 @@ MonoBehaviour:
     type: 3}
   upgradedWhipHitbox: {fileID: 6196507281415828997, guid: e73bfbcdbbf69fc438538b5a6d15277f,
     type: 3}
+  knockbackForce: 0
+  startingHealth: 10
 --- !u!4 &323644172 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2829992054523445900, guid: 9f5d694c3362f6947871a1fe2cfa409e,
@@ -2479,6 +2481,11 @@ PrefabInstance:
       propertyPath: fGravityModifier
       value: 1.8
       objectReference: {fileID: 0}
+    - target: {fileID: 212648017196457104, guid: b9b038cc316e0114f8cd73acda3551c7,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 238684945764796557, guid: b9b038cc316e0114f8cd73acda3551c7,
         type: 3}
       propertyPath: m_IsActive
@@ -2521,6 +2528,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6196507281415828997, guid: e73bfbcdbbf69fc438538b5a6d15277f,
         type: 3}
+    - target: {fileID: 3623111047305513170, guid: b9b038cc316e0114f8cd73acda3551c7,
+        type: 3}
+      propertyPath: knockbackForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3967271762790924348, guid: b9b038cc316e0114f8cd73acda3551c7,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -5245,7 +5257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 6704199712850528805, guid: 36e592920e03aa545a7bb39c214d9488,
     type: 3}
-  isVisible: 0
+  hasLeftScreen: 1
   enemyIsAlive: 0
 --- !u!61 &1606216577
 BoxCollider2D:
@@ -6474,7 +6486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 6704199712850528805, guid: 36e592920e03aa545a7bb39c214d9488,
     type: 3}
-  isVisible: 0
+  hasLeftScreen: 1
   enemyIsAlive: 0
 --- !u!212 &2039379450
 SpriteRenderer:
