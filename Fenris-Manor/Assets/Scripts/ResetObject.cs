@@ -30,19 +30,4 @@ public class ResetObject : MonoBehaviour
             rigidbody2d.velocity = Vector2.zero;
         }
     }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Respawn") {
-            Debug.Log(gameObject.name + " hit respawn trigger");
-            var enemy = gameObject.GetComponent<IEnemyController>();
-            if (enemy.GetIsDead()) {
-                Debug.Log("Enemy is dead, resetting");
-                gameObject.GetComponent<SpriteRenderer>().enabled = true;
-                gameObject.GetComponent<Animator>().enabled = true;
-                ResetThisObject();
-                enemy.SetIsDead(false);
-            }
-        }
-    }
 }
