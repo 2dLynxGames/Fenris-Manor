@@ -191,17 +191,20 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator TakeDamage() {
         StartCoroutine(PlayerHurt(0.4f));
+        isHurt = true;
+        canMove = false;
         isKnockedBack = true;
         isAttacking = true; // effectively canAttack = false
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSecondsRealtime(0.3f);
         isKnockedBack = false;
-        yield return new WaitForSecondsRealtime(0.4f);
 
+        canMove = true;
         StartCoroutine(PlayerFlash(0.4f, 4));
 
-        yield return new WaitForSecondsRealtime(0.4f);
+        yield return new WaitForSecondsRealtime(0.6f);
 
         isAttacking = false; // effectively canAttack = true
+        isHurt = false;
         canTakeDamage = true;
     }
 
