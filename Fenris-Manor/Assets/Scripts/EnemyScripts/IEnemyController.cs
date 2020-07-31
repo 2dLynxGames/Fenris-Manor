@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-interface iEnemyController
+interface IEnemyController
 {
     void TakeDamage(int damageToTake);
-    void DealDamage(int damageToDo);
+    void DealDamage();
     bool GetIsDead();
     void SetIsDead(bool dead);
 }
