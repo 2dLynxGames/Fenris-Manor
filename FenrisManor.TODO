@@ -10,11 +10,12 @@ Round 2 dev:
         Ignore all post demo 1 requirements, these are optional for this release.
         ✔ Player movement @done(20-07-27 03:10)
         ✔ Player attack @done(20-07-30 02:20)
-        ☐ Player health
+        ✔ Player health @done(20-07-31 06:07)
         ✔ Cultist @done(20-07-29 04:38)
         ☐ Wolf
         ✔ Camera @done(20-07-27 03:11)
         ✔ Doors @done(20-07-27 03:10)
+        ☐ Build a stage
     
     Player Movement:
         ✔ Play walk animation while moving @done(20-07-24 03:23)
@@ -31,7 +32,10 @@ Round 2 dev:
             ☐ make the damage
 
     Player Health:
-        ☐ Make enemies do damage to the player, but not kill the player instantly
+        ✔ Make enemies do damage to the player, but not kill the player instantly @done(20-07-31 06:07)
+        ✔ Player gets knocked back when taking damage @done(20-07-31 06:08)
+        ✔ Player can't attack when knocked back @done(20-07-31 06:08)
+        ✔ Player flashes while damaged @done(20-07-31 06:08)
 
     Enemies:
         Enemy health
@@ -41,7 +45,7 @@ Round 2 dev:
         this is why I put numbers on a board, like a nerd
         if I give bosses 16 hp, that'd be 16/8/5 attacks depending on whip strength. Which I think is fine.
         or, bosses could just take static damage not dependent on weapon type, and require x hits no matter what, and the whip upgrades only affect regular enemies
-        ☐ Enemies deal damage with their hurtbox
+        ✔ Enemies deal damage with their hurtbox @done(20-07-31 06:08)
         ✔ Enemies take damage with their hitbox @done(20-07-30 02:19)
         Cultist:
             ✔ Basic AI movement, walk left to right based on player location @done(20-07-29 04:31)
