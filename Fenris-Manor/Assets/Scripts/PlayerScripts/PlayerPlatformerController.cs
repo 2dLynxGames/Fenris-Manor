@@ -55,6 +55,17 @@ public class PlayerPlatformerController : PhysicsObject
             if (playerController.GetJumpState() != PlayerController.JUMPING.grounded && playerController.PlayerMovingBackwards(move.x)) {
                 move.x *= 0.5f;
             }
+            if (playerController.GetIsKnockedBack()) {
+                velocity.y = playerController.GetKnockbackForce();
+                velocity.x -= -10;
+/*                 if (playerController.GetFacing() == PlayerController.FACING.right) {
+                    Debug.Log("Boop");
+                    velocity.x = -10;
+                }
+                else {
+                    velocity.x = 10;
+                } */
+            }
             targetVelocity = move * maxSpeed;
 
             if(!targetVelocity.Equals(Vector2.zero) ){
