@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public Animator playerAnimator;
     public Collider2D baseWhipHitbox;
     public Collider2D upgradedWhipHitbox;
+    [SerializeField]
+    protected float knockbackForce;
 
     public enum STAIR_STATE {
         on_stair,
@@ -57,14 +59,16 @@ public class PlayerController : MonoBehaviour
     protected bool isMoving = false;
     protected bool isIdle = true;
     protected bool isHurt = false;
+    protected bool isKnockedBack = false;
     protected bool canMove = true;
 
     protected Collider2D whipHitbox;
 
     protected int whipDamage = 0;
     
-    private int startingHealth = 10;
+    public int startingHealth = 10;
     protected int health;
+    private bool canTakeDamage = true;
 
     void Awake(){
         player = GameObject.Find("Player");
@@ -80,35 +84,19 @@ public class PlayerController : MonoBehaviour
 
     // public getters and setters for every state variable of the player
 
-    public STAIR_STATE GetStairState(){
-        return stairState;
-    }
+    public STAIR_STATE GetStairState(){ return stairState; }
+    public void SetStairState(STAIR_STATE stairState){ this.stairState = stairState; }
 
-    public void SetStairState(STAIR_STATE stairState){
-        this.stairState = stairState;
-    }
+    public FACING GetFacing(){ return facing; }
+    public void SetFacing(FACING facing) { this.facing = facing; }
 
-    public FACING GetFacing(){
-        return facing;
-    }
-
-    public void SetFacing(FACING facing) {
-        this.facing = facing;
-    }
-
-    public WHIP_LEVEL GetWhipLevel(){
-        return whipLevel;
-    }
-
+    public WHIP_LEVEL GetWhipLevel(){ return whipLevel; }
     public void SetWhipLevel(WHIP_LEVEL whipLevel){
         this.whipLevel = whipLevel;
         whipDamage = DetermineWhipDamage(whipLevel);
     }
 
-    public JUMPING GetJumpState(){
-        return jumpState;
-    }
-
+    public JUMPING GetJumpState(){ return jumpState; }
     public void SetJumpState(JUMPING jumpState){
         this.jumpState = jumpState;
         if (jumpState == JUMPING.grounded) {
@@ -118,72 +106,38 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public Collider2D GetWhipHitbox(){
-        return whipHitbox;
-    }
+    public Collider2D GetWhipHitbox(){ return whipHitbox; }
+    public void SetWhipHitbox(Collider2D whipHitbox){ this.whipHitbox = whipHitbox; }
 
-    public void SetWhipHitbox(Collider2D whipHitbox){
-        this.whipHitbox = whipHitbox;
-    }
+    public bool GetIsClimbing(){ return isClimbing; }
+    public void SetIsClimbing(bool climbing){ isClimbing = climbing; }
 
-    public bool GetIsClimbing(){
-        return isClimbing;
-    }
-    public void SetIsClimbing(bool climbing){
-        isClimbing = climbing;
-    }
+    public bool GetIsCrouching(){ return isCrouching; }
+    public void SetIsCrouching(bool isCrouching){ this.isCrouching = isCrouching; }
 
-    public bool GetIsCrouching(){
-        return isCrouching;
-    }
-    public void SetIsCrouching(bool isCrouching){
-        this.isCrouching = isCrouching;
-    }
+    public bool GetIsAttacking(){ return isAttacking; }
+    public void SetIsAttacking(bool attacking){ isAttacking = attacking; }
 
-    public bool GetIsAttacking(){
-        return isAttacking;
-    }
-    public void SetIsAttacking(bool attacking){
-        isAttacking = attacking;
-    }
+    public bool GetIsIdle(){ return isIdle; }
+    public void SetIsIdle(){ isIdle = CheckIdle(); }
 
-    public bool GetIsIdle(){
-        return isIdle;
-    }
-    public void SetIsIdle(){
-        isIdle = CheckIdle();
-    }
+    public bool GetIsMoving(){ return isIdle; }
+    public void SetIsMoving(bool isMoving){ this.isMoving = isMoving; }
 
-    public bool GetIsMoving(){
-        return isIdle;
-    }
-    public void SetIsMoving(bool isMoving){
-        this.isMoving = isMoving;
-    }
+    public bool GetIsHurt(){ return isHurt; }
+    public void SetIsHurt(bool isHurt){ this.isHurt = isHurt; }
 
-    public bool GetIsHurt(){
-        return isHurt;
-    }
+    public bool GetCanMove(){ return canMove; }
+    public void SetCanMove(bool canMove){ this.canMove = canMove; }
 
-    public void SetIsHurt(bool isHurt){
-        this.isHurt = isHurt;
-    }
+    public bool GetIsKnockedBack() { return isKnockedBack; }
+    public void SetIsKnockedBack(bool isKnockedBack) { this.isKnockedBack = isKnockedBack; }
 
-    public bool GetCanMove(){
-        return canMove;
-    }
+    public int GetWhipDamage() { return whipDamage; }
+    public void SetWhipDamage(int whipDamage) { this.whipDamage = whipDamage; }
 
-    public void SetCanMove(bool canMove){
-        this.canMove = canMove;
-    }
-
-    public int GetWhipDamage() {
-        return whipDamage;
-    }
-
-    public void SetWhipDamage(int whipDamage) {
-        this.whipDamage = whipDamage;
-    }
+    public float GetKnockbackForce() { return knockbackForce; }
+    public void SetKnockbackForce(float knockbackForce) { this.knockbackForce = knockbackForce; }
 
     //#Helpers
     private bool CheckIdle() {
@@ -203,7 +157,11 @@ public class PlayerController : MonoBehaviour
     }
 
     public void TakeDamage(int damageToTake) {
-        health -= damageToTake;
+        if (canTakeDamage) {
+            canTakeDamage = false;
+            StartCoroutine(TakeDamage());
+            health -= damageToTake;
+        }
     }
 
     private int DetermineWhipDamage(WHIP_LEVEL whipLevel) {
@@ -229,5 +187,56 @@ public class PlayerController : MonoBehaviour
             default:
                 return baseWhipHitbox;
         }
+    }
+
+    IEnumerator TakeDamage() {
+        StartCoroutine(PlayerHurt(0.4f));
+        isKnockedBack = true;
+        isAttacking = true; // effectively canAttack = false
+        yield return new WaitForEndOfFrame();
+        isKnockedBack = false;
+        yield return new WaitForSecondsRealtime(0.4f);
+
+        StartCoroutine(PlayerFlash(0.4f, 4));
+
+        yield return new WaitForSecondsRealtime(0.4f);
+
+        isAttacking = false; // effectively canAttack = true
+        canTakeDamage = true;
+    }
+
+    IEnumerator PlayerHurt (float hurtDuration) {
+        Debug.Log("Playing Hurt");
+        playerAnimator.SetBool("hurt", true);
+        yield return new WaitForSecondsRealtime(hurtDuration);
+        Debug.Log("Exiting Hurt");
+        playerAnimator.SetBool("hurt", false);
+    }
+
+    public IEnumerator DisableControls(GameObject player, float timeToWait) {
+        ToggleControls(false);
+        yield return new WaitForSecondsRealtime(timeToWait);
+        ToggleControls(true);
+    }
+
+    /*
+     * Toggle the platforming controlls for the player.
+     * bool state should represent the state of the controls for the player
+     * use false to disable, true to enable
+    */
+    void ToggleControls(bool state) {
+        player.GetComponent<PlayerPlatformerController>().enabled = state;
+        playerAnimator.SetBool("idle", !state);
+    }
+
+    IEnumerator PlayerFlash(float flashDuration, int numFlashes) {
+        var transparent = new Color32(255, 255, 255, 0);
+        for (float i = 0f; i <= flashDuration; i += flashDuration / (float)numFlashes) {
+            player.GetComponent<SpriteRenderer>().material.color = Color.white;
+            yield return new WaitForSecondsRealtime(flashDuration / (numFlashes * 2f));
+            player.GetComponent<SpriteRenderer>().material.color = transparent;
+            yield return new WaitForSecondsRealtime(flashDuration / (numFlashes * 2f));
+        }
+        player.GetComponent<SpriteRenderer>().material.color = Color.white;
     }
 }
