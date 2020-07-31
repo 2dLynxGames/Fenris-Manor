@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6704199712850528801}
   - component: {fileID: 6704199712850528803}
   - component: {fileID: 310754106899954779}
+  - component: {fileID: -891348950274955479}
   m_Layer: 10
   m_Name: Cultist
   m_TagString: Enemy
@@ -183,6 +184,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 10
+--- !u!114 &-891348950274955479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704199712850528805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1947083787d6b47a16009a2b2c9488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6704199713137754619
 GameObject:
   m_ObjectHideFlags: 0
