@@ -13,6 +13,8 @@ public class DoorTrigger : MonoBehaviour {
     public GameObject newRoomMinXY;
     public GameObject newRoomMaxXY;
 
+    // TODO: Make a player walking animation that starts once the door is open and ends upon reachign destination. 
+
     void Start() {
         cameraController = FindObjectOfType<CameraController>();
     }
