@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CultistController : PhysicsObject, iEnemyController
+public class CultistController : PhysicsObject, IEnemyController
 {
     public int maxHealth = 1;
-    public int damage;
+    public int damage = 1;
 
     private enum MOVE_DIRECTION {
         left,
@@ -71,8 +71,8 @@ public class CultistController : PhysicsObject, iEnemyController
         CheckHealth();
     }
 
-    public void DealDamage(int damageToDo) {
-        levelManager.playerController.TakeDamage(damageToDo);
+    public void DealDamage() {
+        levelManager.playerController.TakeDamage(damage);
     }
 
     public bool GetIsDead() {

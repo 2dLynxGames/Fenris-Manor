@@ -35,7 +35,7 @@ public class ResetObject : MonoBehaviour
     {
         if (other.tag == "Respawn") {
             Debug.Log(gameObject.name + " hit respawn trigger");
-            var enemy = gameObject.GetComponent<iEnemyController>();
+            var enemy = gameObject.GetComponent<IEnemyController>();
             if (enemy.GetIsDead()) {
                 Debug.Log("Enemy is dead, resetting");
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
