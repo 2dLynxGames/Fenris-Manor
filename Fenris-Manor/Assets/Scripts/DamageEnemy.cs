@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyEnemy : MonoBehaviour
+public class DamageEnemy : MonoBehaviour
 {
     //public GameObject deathAnimation;
 
@@ -28,7 +28,7 @@ public class DestroyEnemy : MonoBehaviour
     {
         Debug.Log(other.tag);
         if (other.tag == "Enemy") {
-            other.GetComponent<iEnemyController>().TakeDamage(damageToDo);
+            other.GetComponent<IEnemyController>().TakeDamage(damageToDo);
         }
     }
 
