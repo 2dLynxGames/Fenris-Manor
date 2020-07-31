@@ -18,16 +18,20 @@ public class PlayerPlatformerController : PhysicsObject
     }
 
     protected override void AnimateActor(){
-        if(velocity.y != 0) {
+        if(velocity.y != 0 && !playerController.GetIsHurt()) {
             playerController.SetJumpState( velocity.y > 0 ? PlayerController.JUMPING.up : PlayerController.JUMPING.down );
             playerController.playerAnimator.SetFloat("velocityY", velocity.y);
             return;
         }
-        playerController.playerAnimator.SetFloat("velocityY", 0);
-        playerController.SetJumpState(PlayerController.JUMPING.grounded);
+        if (velocity.y == 0) {
+            playerController.playerAnimator.SetFloat("velocityY", 0);
+            playerController.SetJumpState(PlayerController.JUMPING.grounded);
+        }
         if (velocity.x != 0) {
             playerController.playerAnimator.SetFloat("velocityX", Mathf.Abs(velocity.x));
-            FlipSprite();
+            if (!playerController.GetIsHurt()) {
+                FlipSprite();
+            }
         }
         if (playerController.GetIsIdle() && Input.GetButton("Crouch")){
             playerController.playerAnimator.SetBool("crouched", true);
@@ -55,17 +59,7 @@ public class PlayerPlatformerController : PhysicsObject
             if (playerController.GetJumpState() != PlayerController.JUMPING.grounded && playerController.PlayerMovingBackwards(move.x)) {
                 move.x *= 0.5f;
             }
-            if (playerController.GetIsKnockedBack()) {
-                velocity.y = playerController.GetKnockbackForce();
-                velocity.x -= -10;
-/*                 if (playerController.GetFacing() == PlayerController.FACING.right) {
-                    Debug.Log("Boop");
-                    velocity.x = -10;
-                }
-                else {
-                    velocity.x = 10;
-                } */
-            }
+
             targetVelocity = move * maxSpeed;
 
             if(!targetVelocity.Equals(Vector2.zero) ){
@@ -74,6 +68,18 @@ public class PlayerPlatformerController : PhysicsObject
                 playerController.SetIsMoving(false);
                 playerController.playerAnimator.SetFloat("velocityX", 0);
             }
+        } else {
+            if (playerController.GetIsKnockedBack()) {
+                if (playerController.GetFacing() == PlayerController.FACING.right) {
+                    move.x = -1;
+                }
+                else {
+                    move.x = 1;
+                }
+                velocity.y = playerController.GetKnockbackForce() / 2f;
+            }
+            Debug.Log(move.x);
+            targetVelocity = move * playerController.GetKnockbackForce();
         }
     }
 
