@@ -27,7 +27,7 @@ public class DamageEnemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Enemy") {
-            other.GetComponent<IEnemyController>().TakeDamage(damageToDo);
+            other.GetComponent<EnemyController>().TakeDamage(damageToDo);
         }
     }
 
