@@ -22,7 +22,7 @@ public class PlayerAttackController : PlayerController
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Attack") && !playerController.GetIsAttacking() && canAttack) {
+        if (Input.GetButtonDown("Attack") && !playerController.GetIsAttacking() && !playerController.GetInDoor() && canAttack) {
             StartCoroutine(PlayerAttack());
             StartCoroutine(ResetAttack());
         }
@@ -55,7 +55,7 @@ public class PlayerAttackController : PlayerController
 
         playerWhipHitbox = CreateWhipHitbox();
 
-        yield return new WaitForSecondsRealtime(0.125f);
+        yield return new WaitForSecondsRealtime(0.08f);
         
         playerController.SetIsAttacking(false);
         Destroy(playerWhipHitbox.gameObject);
