@@ -30,6 +30,4 @@ public class DamageEnemy : MonoBehaviour
             other.GetComponent<EnemyController>().TakeDamage(damageToDo);
         }
     }
-
-
 }
