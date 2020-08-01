@@ -6,12 +6,14 @@ public class LevelManager : MonoBehaviour
 {
     public PlayerController playerController;
     public SpawnEnemy[] enemies;
+    public CameraController sceneCamera;
 
     // Start is called before the first frame update
     void Awake()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         enemies = GameObject.FindObjectsOfType<SpawnEnemy>();
+        sceneCamera = GameObject.FindObjectOfType<CameraController>();
     }
 
     // Update is called once per frame
