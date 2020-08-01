@@ -19,6 +19,7 @@ public class EnemyController : PhysicsObject
     protected MOVE_DIRECTION moveDirection;
     protected Vector2 move;
     protected ResetObject resetObject;
+    protected SpawnEnemy enemySpawner;
 
     protected int currentHealth;
 
@@ -47,6 +48,16 @@ public class EnemyController : PhysicsObject
             spriteRenderer.flipX = true;
     }
 
+    protected void ReverseMovement() {
+        if (moveDirection == MOVE_DIRECTION.right) {
+            moveDirection = MOVE_DIRECTION.left;
+        } else {
+            moveDirection = MOVE_DIRECTION.right;
+        }
+        move = DetermineMoveX(moveDirection);
+        FlipSprite(move.x);
+    }
+
     protected void SetMovement() {
         moveDirection = MoveDirection();
         move = DetermineMoveX(moveDirection);
@@ -55,7 +66,8 @@ public class EnemyController : PhysicsObject
 
     public void CheckHealth() {
         if (currentHealth <= 0) {
-            gameObject.GetComponentInParent<SpawnEnemy>().EnemyKilled();
+            if (enemySpawner = gameObject.GetComponentInParent<SpawnEnemy>())
+                enemySpawner.EnemyKilled();
             Destroy(gameObject);
         }
     }
