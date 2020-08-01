@@ -1,0 +1,818 @@
+fileFormatVersion: 2
+guid: af2b72dcac95cf743983cf33bb78559c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Izabell-AllAttacks_0
+  - first:
+      213: 21300002
+    second: Izabell-AllAttacks_1
+  - first:
+      213: 21300004
+    second: Izabell-AllAttacks_2
+  - first:
+      213: 21300006
+    second: Izabell-AllAttacks_3
+  - first:
+      213: 21300008
+    second: Izabell-AllAttacks_4
+  - first:
+      213: 21300010
+    second: Izabell-AllAttacks_5
+  - first:
+      213: 21300012
+    second: Izabell-AllAttacks_6
+  - first:
+      213: 21300014
+    second: Izabell-AllAttacks_7
+  - first:
+      213: 21300016
+    second: Izabell-AllAttacks_8
+  - first:
+      213: 21300018
+    second: Izabell-AllAttacks_9
+  - first:
+      213: 21300020
+    second: Izabell-AllAttacks_10
+  - first:
+      213: 21300022
+    second: Izabell-AllAttacks_11
+  - first:
+      213: 21300024
+    second: Izabell-AllAttacks_12
+  - first:
+      213: 21300026
+    second: Izabell-AllAttacks_13
+  - first:
+      213: 21300028
+    second: Izabell-AllAttacks_14
+  - first:
+      213: 21300030
+    second: Izabell-AllAttacks_15
+  - first:
+      213: 21300032
+    second: Izabell-AllAttacks_16
+  - first:
+      213: 21300034
+    second: Izabell-AllAttacks_17
+  - first:
+      213: 21300036
+    second: Izabell-AllAttacks_18
+  - first:
+      213: 21300038
+    second: Izabell-AllAttacks_19
+  - first:
+      213: 21300040
+    second: Izabell-AllAttacks_20
+  - first:
+      213: 21300042
+    second: Izabell-AllAttacks_21
+  - first:
+      213: 21300044
+    second: Izabell-AllAttacks_22
+  - first:
+      213: 21300046
+    second: Izabell-AllAttacks_23
+  - first:
+      213: 21300048
+    second: Izabell-AllAttacks_24
+  - first:
+      213: 21300050
+    second: Izabell-AllAttacks_25
+  - first:
+      213: 21300052
+    second: Izabell-AllAttacks_26
+  - first:
+      213: 21300054
+    second: Izabell-AllAttacks_27
+  - first:
+      213: 4111093616151353712
+    second: Izabell-AllAttacks_0
+  - first:
+      213: -8539874307608108339
+    second: Izabell-AllAttacks_1
+  - first:
+      213: -3091548351131664808
+    second: Izabell-AllAttacks_2
+  - first:
+      213: -1108120337790267540
+    second: Izabell-AllAttacks_7
+  - first:
+      213: -7676662332437542389
+    second: Izabell-AllAttacks_8
+  - first:
+      213: -768574147949567413
+    second: Izabell-AllAttacks_9
+  - first:
+      213: 7569698638451726273
+    second: Izabell-AllAttacks_14
+  - first:
+      213: -4421961878125836957
+    second: Izabell-AllAttacks_15
+  - first:
+      213: -3736036640781377942
+    second: Izabell-AllAttacks_16
+  - first:
+      213: -1648890538500091365
+    second: Izabell-AllAttacks_21
+  - first:
+      213: 7011424504347628206
+    second: Izabell-AllAttacks_22
+  - first:
+      213: -3930489807027627238
+    second: Izabell-AllAttacks_23
+  - first:
+      213: 7357403997959404786
+    second: Izabell-AllAttacks_28
+  - first:
+      213: 7708645677077454463
+    second: Izabell-AllAttacks_29
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 307
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 079d315ccd98d0930800000000000000
+      internalID: 4111093616151353712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_1
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 307
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc2a88c30954c7980800000000000000
+      internalID: -8539874307608108339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_2
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 307
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e3ad4872d9815d0800000000000000
+      internalID: -3091548351131664808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_3
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 273
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_4
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 273
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_5
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 273
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 239
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_7
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 239
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6f00a18c6a2f90f0800000000000000
+      internalID: -1108120337790267540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_8
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 239
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0a40760844077590800000000000000
+      internalID: -7676662332437542389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_9
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 205
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42eaef62e97555f0800000000000000
+      internalID: -768574147949567413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_10
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 205
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_11
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 205
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_12
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 171
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 171
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_14
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 171
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c75ca14ec8fc0960800000000000000
+      internalID: 7569698638451726273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_15
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 137
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3658df3b91902a2c0800000000000000
+      internalID: -4421961878125836957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_16
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 137
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6ed166387ee62cc0800000000000000
+      internalID: -3736036640781377942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_17
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 137
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_18
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 103
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_19
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 103
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_20
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 103
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84305410000000000800000000000000
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_21
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 69
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b12133b9ac6fd19e0800000000000000
+      internalID: -1648890538500091365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_22
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 69
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea21c1740759d4160800000000000000
+      internalID: 7011424504347628206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_23
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 69
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1b13da58581479c0800000000000000
+      internalID: -3930489807027627238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 35
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05305410000000000800000000000000
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_25
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 35
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25305410000000000800000000000000
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_26
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 35
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45305410000000000800000000000000
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-AllAttacks_27
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65305410000000000800000000000000
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: efa5b2d2f139e5742a4796c420b4c6f1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,356 @@
+fileFormatVersion: 2
+guid: 153ce66ba1ec16d4a9756a11f5763ec9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Izabell-Crouch
+  - first:
+      213: 21300002
+    second: Izabell-Down-Stairs
+  - first:
+      213: 21300004
+    second: Izabell-Up-Stairs
+  - first:
+      213: 21300006
+    second: Izabell-Hurt
+  - first:
+      213: 21300008
+    second: Izabell-Dead
+  - first:
+      213: 21300010
+    second: Izabell-Walk0
+  - first:
+      213: 21300012
+    second: Izabell-Walk1
+  - first:
+      213: 21300014
+    second: Izabell-Walk2
+  - first:
+      213: 21300016
+    second: Izabell-Walk3
+  - first:
+      213: -2291758443097171385
+    second: Izabell-Crouch
+  - first:
+      213: 5609887025380448756
+    second: Izabell-DownStairs
+  - first:
+      213: -3821411493465783770
+    second: Izabell-UpStairs
+  - first:
+      213: -4408109956322549353
+    second: Izabell-Hurt
+  - first:
+      213: -7147201860165826222
+    second: Izabell-Dead
+  - first:
+      213: -6576612189894658062
+    second: Izabell-Walk0
+  - first:
+      213: 7559599836449080257
+    second: Izabell-Walk1
+  - first:
+      213: -3475394765829804116
+    second: Izabell-Walk2
+  - first:
+      213: -4044916464953077410
+    second: Izabell-Walk3
+  - first:
+      213: -3299756968418071687
+    second: Izabell-Spritesheet_9
+  - first:
+      213: 7277583845271620228
+    second: Izabell-Spritesheet_10
+  - first:
+      213: 5646446038629997764
+    second: Izabell-Spritesheet_11
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Izabell-Crouch
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 74
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ad03896d90230e0800000000000000
+      internalID: -2291758443097171385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-DownStairs
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 74
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f9dfd1f6825add40800000000000000
+      internalID: 5609887025380448756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-UpStairs
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 74
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 622806f4e7e97fac0800000000000000
+      internalID: -3821411493465783770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-Hurt
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 74
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7912882995f33d2c0800000000000000
+      internalID: -4408109956322549353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-Dead
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 38
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2590ec296c900dc90800000000000000
+      internalID: -7147201860165826222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-Walk0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 38
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f733d3ce0e2bb4a0800000000000000
+      internalID: -6576612189894658062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-Walk1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 38
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c306afaff719e860800000000000000
+      internalID: 7559599836449080257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-Walk2
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 38
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf6678bfdae4cfc0800000000000000
+      internalID: -3475394765829804116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Izabell-Walk3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e51d750f7e19dd7c0800000000000000
+      internalID: -4044916464953077410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 204de3803f4d5b24e911726816a8cc6e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

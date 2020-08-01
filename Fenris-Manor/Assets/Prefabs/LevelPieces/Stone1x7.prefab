@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 6e2713c5813bd574880609c3899e19d9, type: 3}
+  m_Sprite: {fileID: 694136986722954981, guid: c63f0f186b22e9142a0aa3227a9378d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,7 +151,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 6e2713c5813bd574880609c3899e19d9, type: 3}
+  m_Sprite: {fileID: 694136986722954981, guid: c63f0f186b22e9142a0aa3227a9378d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -232,7 +232,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 6e2713c5813bd574880609c3899e19d9, type: 3}
+  m_Sprite: {fileID: 694136986722954981, guid: c63f0f186b22e9142a0aa3227a9378d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -313,7 +313,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 6e2713c5813bd574880609c3899e19d9, type: 3}
+  m_Sprite: {fileID: 694136986722954981, guid: c63f0f186b22e9142a0aa3227a9378d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -394,7 +394,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 6e2713c5813bd574880609c3899e19d9, type: 3}
+  m_Sprite: {fileID: 694136986722954981, guid: c63f0f186b22e9142a0aa3227a9378d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -475,7 +475,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 6e2713c5813bd574880609c3899e19d9, type: 3}
+  m_Sprite: {fileID: 694136986722954981, guid: c63f0f186b22e9142a0aa3227a9378d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 6012233257461143514}
   - component: {fileID: 6021263886822693662}
   m_Layer: 0
-  m_Name: Stone1x7
+  m_Name: Stone7x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -620,7 +620,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 6e2713c5813bd574880609c3899e19d9, type: 3}
+  m_Sprite: {fileID: 694136986722954981, guid: c63f0f186b22e9142a0aa3227a9378d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

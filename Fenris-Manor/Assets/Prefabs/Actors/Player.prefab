@@ -166,6 +166,8 @@ MonoBehaviour:
   playerAnimator: {fileID: 0}
   baseWhipHitbox: {fileID: 0}
   upgradedWhipHitbox: {fileID: 0}
+  knockbackForce: 0
+  startingHealth: 10
 --- !u!95 &9026572747746677988
 Animator:
   serializedVersion: 3
