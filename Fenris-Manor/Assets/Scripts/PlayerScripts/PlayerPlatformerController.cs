@@ -78,7 +78,6 @@ public class PlayerPlatformerController : PhysicsObject
                 }
                 velocity.y = playerController.GetKnockbackForce() / 2f;
             }
-            Debug.Log(move.x);
             targetVelocity = move * playerController.GetKnockbackForce();
         }
     }
