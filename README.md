@@ -17,6 +17,8 @@ I started designing and doing artwork for this project in January 2019, and I pu
 
 I revitalized this project near my birthday in July 2019. I have put a lot of extra effort into getting features done on this project, and I hope to have most of the player controls done by the end of August. This would make for an awesome start for the project. Currently, the basic movement controls, jump controls, and stair controls are completed. I feel like I need to tweak both the basic movement controls and jump controls a bit, because the player currently has too much control while in midair.
 
+Life came back and forced me to put this project on hold for nearly a year; however, it's back now and better than ever. I've been pushing really hard for the past week to get a Demo ready to go, and it should be ready any day. I'm excited and feel like I've learned a lot about Unity and a lot about programming just from doing this project. I'm excited to watch this project grow and can't wait to see a community build around it.
+
 ## Disclaimer
 
-Story, characters, sprites, tiles, stage design, and art: copyrighted to derrick-j-tubbs NOT are under BSD3.
+Story, characters, sprites, tiles, stage design, and art: copyrighted to 2dLynx Games,LLC NOT are under BSD3.
