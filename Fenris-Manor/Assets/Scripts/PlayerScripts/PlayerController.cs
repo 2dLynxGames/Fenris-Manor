@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
     protected bool isHurt = false;
     protected bool isKnockedBack = false;
     protected bool canMove = true;
+    protected bool inDoor = false;
 
     protected Collider2D whipHitbox;
 
@@ -133,6 +134,9 @@ public class PlayerController : MonoBehaviour
     public bool GetIsKnockedBack() { return isKnockedBack; }
     public void SetIsKnockedBack(bool isKnockedBack) { this.isKnockedBack = isKnockedBack; }
 
+    public bool GetInDoor() { return inDoor; }
+    public void SetInDoor(bool inDoor) { this.inDoor = inDoor; }
+
     public int GetWhipDamage() { return whipDamage; }
     public void SetWhipDamage(int whipDamage) { this.whipDamage = whipDamage; }
 
@@ -201,9 +205,9 @@ public class PlayerController : MonoBehaviour
         canMove = true;
         StartCoroutine(PlayerFlash(0.4f, 4));
 
+        isAttacking = false; // effectively canAttack = true
         yield return new WaitForSecondsRealtime(0.6f);
 
-        isAttacking = false; // effectively canAttack = true
         isHurt = false;
         canTakeDamage = true;
     }
