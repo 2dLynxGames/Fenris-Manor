@@ -8,7 +8,6 @@ public class CultistController : EnemyController
 
     private Animator cultistAnimator;
     
-    // Start is called before the first frame update
     void Awake()
     {
         Debug.Log("Cultist Wake");
