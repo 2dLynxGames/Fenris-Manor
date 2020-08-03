@@ -124,6 +124,7 @@ MonoBehaviour:
   maxHealth: 1
   damage: 1
   moveSpeed: 5
+  destroySound: {fileID: 0}
 --- !u!50 &6704199712850528801
 Rigidbody2D:
   serializedVersion: 4
