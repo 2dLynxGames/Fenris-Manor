@@ -26,8 +26,8 @@ Round 2 dev:
         ☐ Finish setting up twitch/obs
 
     Bonus goals:
-        ☐ Sound
-        ☐ Music
+        ✔ Sound @done(20-08-03 04:20)
+        ✔ Music @done(20-08-03 04:20)
         ☐ Death Animation for enemies
         ☐ Shitty hud to show player damage is real.
         
@@ -134,6 +134,9 @@ Round 2 dev:
 
                 look into this:
                     https://docs.unity3d.com/ScriptReference/Physics2D.BoxCast.html
+        ✔ When killing an enemy the same frame they hit me, there is a null reference exception thrown by the damage enemy script. @done(20-08-03 04:18)
+        ✔ Damage Enemy is being called twice when the player hits the enemy with a whip. @done(20-08-03 04:18)
+            - both fixed by adding a bool to enemycontroller and checking if the enemy was already hurt before doing damage.
 
 
     July 25:
@@ -159,6 +162,10 @@ Round 2 dev:
     July 30:
         - Found a bug with whip attack causing the hit box to go only on the left side
         - Resolved above bug and created a new one where the player bounces when whipping the wall.
+    Aug 2/3: 
+        - Added SFX and Music
+        - Rewrote physics object class to be more intuitive.
+            - It was causing a bug where a player would jump, hit their head, and go through the ceiling into the next room.
 
 
 FUTURE ME:
