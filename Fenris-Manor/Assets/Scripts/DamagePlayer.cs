@@ -20,7 +20,7 @@ public class DamagePlayer : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player") {
-            this.GetComponent<EnemyController>().DealDamage();
+            this.GetComponentInParent<EnemyController>().DealDamage();
         }
     }
 }
