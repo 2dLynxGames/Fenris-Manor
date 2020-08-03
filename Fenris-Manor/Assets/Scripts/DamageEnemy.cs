@@ -8,6 +8,7 @@ public class DamageEnemy : MonoBehaviour
 
     private GameObject player;
     private PlayerController playerController;
+    private EnemyController enemy;
 
     private int damageToDo;
 
@@ -27,7 +28,11 @@ public class DamageEnemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Enemy") {
-            other.GetComponent<EnemyController>().TakeDamage(damageToDo);
+            if ((enemy = other.GetComponent<EnemyController>()) && !enemy.GetIsHurt()){
+                enemy.SetIsHurt(true);
+                enemy.TakeDamage(damageToDo);
+            }
+
         }
     }
 }
