@@ -39,7 +39,7 @@ public class WolfController : EnemyController
     protected override void ComputeVelocity() {
         if (isAwake) {
             if (!hasJumped) {
-                velocity.y = jumpStrength;
+                rb2d.velocity = Vector2.up * jumpStrength;
                 hasJumped = true;
             }
             targetVelocity = move * moveSpeed;
@@ -47,8 +47,8 @@ public class WolfController : EnemyController
     }
 
     protected override void AnimateActor(){
-        wolfAnimator.SetFloat("velocityY", velocity.y);
-        if (velocity.y == 0 && hasJumped) {
+        wolfAnimator.SetFloat("velocityY", rb2d.velocity.y);
+        if (rb2d.velocity.y == 0 && hasJumped) {
             wolfAnimator.SetBool("grounded", true);
         }
     }
@@ -61,7 +61,7 @@ public class WolfController : EnemyController
     }
 
     void TurnWolf() {
-        hasTurned = ((Mathf.Abs(Mathf.Abs(levelManager.playerController.transform.position.x) - Mathf.Abs(this.transform.position.x)) >= turnAroundDistance) && velocity.y == 0);
+        hasTurned = ((Mathf.Abs(Mathf.Abs(levelManager.playerController.transform.position.x) - Mathf.Abs(this.transform.position.x)) >= turnAroundDistance) && rb2d.velocity.y == 0);
         if (hasTurned) {
             ReverseMovement();
         }
