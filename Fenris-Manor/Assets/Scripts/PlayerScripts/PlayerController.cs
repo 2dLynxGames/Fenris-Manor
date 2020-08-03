@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public Animator playerAnimator;
     public Collider2D baseWhipHitbox;
     public Collider2D upgradedWhipHitbox;
+    public AudioSource whipSound;
+    public AudioSource hurtSound;
     [SerializeField]
     protected float knockbackForce;
 
