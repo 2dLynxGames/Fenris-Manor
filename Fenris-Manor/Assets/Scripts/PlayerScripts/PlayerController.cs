@@ -201,6 +201,7 @@ public class PlayerController : MonoBehaviour
         canMove = false;
         isKnockedBack = true;
         isAttacking = true; // effectively canAttack = false
+        hurtSound.Play();
         yield return new WaitForSecondsRealtime(0.3f);
         isKnockedBack = false;
 
