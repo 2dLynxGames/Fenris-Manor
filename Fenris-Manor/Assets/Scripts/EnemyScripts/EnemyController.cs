@@ -20,8 +20,22 @@ public class EnemyController : PhysicsObject
     protected Vector2 move;
     protected ResetObject resetObject;
     protected SpawnEnemy enemySpawner;
+    protected DestroyObjectOverTime destroyObject;
 
     protected int currentHealth;
+
+    protected virtual void Awake() {
+        levelManager = FindObjectOfType<LevelManager>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        rbObject = GetComponent<Rigidbody2D>();
+        
+        destroyObject = GetComponent<DestroyObjectOverTime>();
+        resetObject = GetComponent<ResetObject>();
+        destroyObject.enabled = false;
+
+        currentHealth = maxHealth;
+    }
 
     public void TakeDamage(int damageToTake) {
         currentHealth -= damageToTake;
@@ -68,6 +82,7 @@ public class EnemyController : PhysicsObject
         if (currentHealth <= 0) {
             if (enemySpawner = gameObject.GetComponentInParent<SpawnEnemy>())
                 enemySpawner.EnemyKilled();
+            levelManager.destroyEnemySound.Play();
             Destroy(gameObject);
         }
     }

@@ -14,13 +14,8 @@ public class WolfController : EnemyController
     private bool hasTurned = false;
     private bool hasJumped = false;
 
-    void Awake() {
-        levelManager = FindObjectOfType<LevelManager>();
-
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        rbObject = GetComponent<Rigidbody2D>();
-
-        resetObject = GetComponent<ResetObject>();
+    protected override void Awake() {
+        base.Awake();
 
         wolfAnimator = GetComponent<Animator>();
     }
@@ -60,10 +55,13 @@ public class WolfController : EnemyController
 
     void WakeWolf() {
         isAwake = Mathf.Abs(levelManager.playerController.transform.position.x - this.transform.position.x) <= wakeDistance;
+        if (isAwake) {
+            destroyObject.enabled = true;
+        }
     }
 
     void TurnWolf() {
-        hasTurned = Mathf.Abs(Mathf.Abs(levelManager.playerController.transform.position.x) - Mathf.Abs(this.transform.position.x)) >= turnAroundDistance;
+        hasTurned = ((Mathf.Abs(Mathf.Abs(levelManager.playerController.transform.position.x) - Mathf.Abs(this.transform.position.x)) >= turnAroundDistance) && velocity.y == 0);
         if (hasTurned) {
             ReverseMovement();
         }
