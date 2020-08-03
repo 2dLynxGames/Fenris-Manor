@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     public PlayerController playerController;
     public SpawnEnemy[] enemies;
     public CameraController sceneCamera;
+    public AudioSource destroyEnemySound;
 
     // Start is called before the first frame update
     void Awake()
