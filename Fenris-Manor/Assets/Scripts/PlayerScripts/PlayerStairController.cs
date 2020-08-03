@@ -44,11 +44,9 @@ public class PlayerStairController : MonoBehaviour
         {
             platformerController.enabled = false;
             playerController.SetIsClimbing(true);
-            //Debug.Log("Control taken from platformer controller");
             // move player to base of stairs if grounded
             if (playerController.GetJumpState() == PlayerController.JUMPING.grounded)
             {
-                //Debug.Log("Closest End: " + closestEndStep.name);
                 fraction = 0;
                 StartCoroutine(MovePlayerToStairs(player, stairController));
             } else {
@@ -185,7 +183,6 @@ public class PlayerStairController : MonoBehaviour
             animator.Play("PlayerUpStairs");
         } 
         if (!CheckLeftBound(moveTo)) {
-            //Debug.Log("Moving Left on Stairs");
             player.transform.position = Vector2.Lerp(player.transform.position, moveTo, 1);
             yield return new WaitForSeconds(animationDelay);
             animator.Play("PlayerStairsIdle");
@@ -193,7 +190,6 @@ public class PlayerStairController : MonoBehaviour
             canMove = true;
         } else {
             fraction = 0;
-            Debug.Log("Moving Player Off Stairs");
             StartCoroutine(MovePlayerOffStairs());
         }
     }
@@ -226,7 +222,6 @@ public class PlayerStairController : MonoBehaviour
             canMove = true;
         } else {
             fraction = 0;
-            Debug.Log("Moving Player Off Stairs");
             StartCoroutine(MovePlayerOffStairs());
         }
     }
@@ -250,14 +245,12 @@ public class PlayerStairController : MonoBehaviour
             player.transform.position = Vector2.Lerp(posPlayer, moveTo, fraction);
             yield return new WaitForEndOfFrame();
         }
-        Debug.Log("Player off stairs");
         playerController.SetStairState(PlayerController.STAIR_STATE.off_stair);
         platformerController.enabled = true;
         canMove = true;
     }
 
     IEnumerator FallOffStairs() {        
-        Debug.Log("Player jumping off stairs");
         platformerController.enabled = true;
         playerFalling = true;
         playerController.SetIsClimbing(false);
@@ -286,23 +279,15 @@ public class PlayerStairController : MonoBehaviour
         float playerY = 0;
         if (stairDirection == StairController.STAIR_DIRECTION.Up){
             if (closestEndStep.transform.position.x > playerX) {
-                //Debug.Log("right is closer");
                 playerY = closestEndStep.transform.position.y - (closestEndStep.transform.position.x - playerX) + 1.5f;
             } else {
-                //Debug.Log("left is closer");
                 playerY = closestEndStep.transform.position.y + (playerX - closestEndStep.transform.position.x) + 1f;
             }
         } else if (stairDirection == StairController.STAIR_DIRECTION.Down) {
             if (closestEndStep.transform.position.x > playerX) {
-                //Debug.Log("right is closer");
-                //Debug.Log("Initial: " + closestEndStep.transform.position.y);
-                //Debug.Log("+/-: " + (playerX - closestEndStep.transform.position.x));
                 // not entirely clear why this one needs to be + 0.5f instead of + 1 same issue as right is closer above, likely something to do with my placement of the end points. As long as this is consistent I don't really care. Even if it does secretly bother me.
                 playerY = closestEndStep.transform.position.y + (closestEndStep.transform.position.x - playerX) + 0.5f;
             } else {
-                //Debug.Log(playerX - closestEndStep.transform.position.x + 1);
-                //Debug.Log(closestEndStep.transform.position.y + 1);
-                //Debug.Log("left is closer");
                 playerY = closestEndStep.transform.position.y - (playerX - closestEndStep.transform.position.x) + 1f;
             }
         }

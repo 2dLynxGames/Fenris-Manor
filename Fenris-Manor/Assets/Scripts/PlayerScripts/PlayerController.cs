@@ -213,10 +213,8 @@ public class PlayerController : MonoBehaviour
     }
 
     IEnumerator PlayerHurt (float hurtDuration) {
-        Debug.Log("Playing Hurt");
         playerAnimator.SetBool("hurt", true);
         yield return new WaitForSecondsRealtime(hurtDuration);
-        Debug.Log("Exiting Hurt");
         playerAnimator.SetBool("hurt", false);
     }
 

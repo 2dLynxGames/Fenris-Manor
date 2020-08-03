@@ -10,7 +10,6 @@ public class CultistController : EnemyController
     
     void Awake()
     {
-        Debug.Log("Cultist Wake");
         levelManager = FindObjectOfType<LevelManager>();
 
         spriteRenderer = GetComponent<SpriteRenderer>();

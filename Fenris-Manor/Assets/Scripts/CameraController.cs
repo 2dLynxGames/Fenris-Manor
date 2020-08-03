@@ -27,8 +27,6 @@ public class CameraController : MonoBehaviour
         mainCamera = FindObjectOfType<Camera>();
         cameraHeightFromCenter = mainCamera.orthographicSize;
         cameraWidthFromCenter = Mathf.Round(cameraHeightFromCenter * mainCamera.aspect) + 0.5f;
-        //Debug.Log("Height: " + cameraHeightFromCenter);
-        //Debug.Log("Width: " + cameraWidthFromCenter);
 
         player = GameObject.Find("Player");
         playerController = player.GetComponent<PlayerController>();
@@ -45,17 +43,12 @@ public class CameraController : MonoBehaviour
             targetPosition.x -= followAhead;    
         }
 
-/*      Debug.Log(targetPosition.x + " Target");
-        Debug.Log(targetPosition.x - cameraWidthFromCenter + " Limit");
-        Debug.Log(maxXY.transform.position.x + " xmax"); 
-        Debug.Log((targetPosition.x - cameraWidthFromCenter) > maxXY.transform.position.x);*/
         if((targetPosition.x + cameraWidthFromCenter) > maxXY.transform.position.x) {
             targetPosition.x = maxXY.transform.position.x - cameraWidthFromCenter;
         } else if ((targetPosition.x - cameraWidthFromCenter) < minXY.transform.position.x) {
             targetPosition.x = minXY.transform.position.x + cameraWidthFromCenter;
         }
 
-        //transform.position = targetPosition;
         transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
     }
 }

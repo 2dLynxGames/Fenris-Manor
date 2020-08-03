@@ -21,11 +21,6 @@ public class StairController : MonoBehaviour
     
     public float timer;
 
-    void Start() {
-        //Debug.Log(this.name + " numSteps: " + numSteps);
-       // Debug.Log(this.name + " StairDirection: " + stairDirection);
-    }
-
     void Awake() {
         
         edgeCollider = GetComponent<EdgeCollider2D>();
