@@ -21,14 +21,17 @@ public class EnemyController : PhysicsObject
     protected ResetObject resetObject;
     protected SpawnEnemy enemySpawner;
     protected DestroyObjectOverTime destroyObject;
+    
+    protected bool isHurt;
 
     protected int currentHealth;
 
-    protected virtual void Awake() {
+    protected override void Awake() {
+        base.Awake();
         levelManager = FindObjectOfType<LevelManager>();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
-        rbObject = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
         
         destroyObject = GetComponent<DestroyObjectOverTime>();
         resetObject = GetComponent<ResetObject>();
@@ -36,6 +39,9 @@ public class EnemyController : PhysicsObject
 
         currentHealth = maxHealth;
     }
+
+    public bool GetIsHurt(){ return isHurt; }
+    public void SetIsHurt(bool isHurt){ this.isHurt = isHurt; }
 
     public void TakeDamage(int damageToTake) {
         currentHealth -= damageToTake;
@@ -84,6 +90,8 @@ public class EnemyController : PhysicsObject
                 enemySpawner.EnemyKilled();
             levelManager.destroyEnemySound.Play();
             Destroy(gameObject);
+        } else {
+            isHurt = false;
         }
     }
 }
