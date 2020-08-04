@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2987376474728678862}
   - component: {fileID: 3349612330306518472}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9047947825832855204}
   - component: {fileID: 6440666751313375817}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,9 +174,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1294747780986204330}
   - component: {fileID: -1634697670093544846}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: 1WoodStep
-  m_TagString: Untagged
+  m_TagString: Stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,7 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1885189860222010513}
   - component: {fileID: 2538708065133091527}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BottomStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1827187056100983448}
   - component: {fileID: 3906051736579587429}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TopStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}

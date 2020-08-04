@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4915275463694947794}
   - component: {fileID: 6322640160292409333}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_12 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5942479230065978885}
   - component: {fileID: 3329157150874612136}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BottomStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,9 +149,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8186405227977217479}
   - component: {fileID: 7215360578246884842}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: 3StoneStep
-  m_TagString: Untagged
+  m_TagString: Stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,7 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2948958329837707222}
   - component: {fileID: 5630838854416255332}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4318401883583179571}
   - component: {fileID: 997403250515323669}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TopStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4111280535715082472}
   - component: {fileID: 3120553224205133033}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_12 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2170565131089798138}
   - component: {fileID: 2758293015821641699}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7279932553521633764}
   - component: {fileID: 2011057056570826974}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_9 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4856402422762572268}
   - component: {fileID: 5318977929572208159}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_9 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
