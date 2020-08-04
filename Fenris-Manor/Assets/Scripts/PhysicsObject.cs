@@ -10,6 +10,7 @@ using UnityEngine;
     *          should be a child with the foot layer, to avoid collisions with other actors
     *          should be small and only ground adjacent
     *          must be attached to script in inspector
+    * Insure all objects to collide with are on the Terrain layer
 */
 
 public class PhysicsObject : MonoBehaviour {
