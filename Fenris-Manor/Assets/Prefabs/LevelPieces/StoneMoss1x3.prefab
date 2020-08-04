@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1427533358156287709}
   - component: {fileID: 231795182895951998}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,8 +67,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -4158547308902366022, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1721046483901472014}
   - component: {fileID: 6071081032767764681}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,8 +149,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -4158547308902366022, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8436847262398055864}
   - component: {fileID: 260227645834415532}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,8 +231,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -4158547308902366022, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2791975693596762880}
   - component: {fileID: 1713204547230003497}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: StoneMoss1x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

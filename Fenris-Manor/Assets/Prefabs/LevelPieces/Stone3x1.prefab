@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8662322927848915970}
   - component: {fileID: 4429659883107639374}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,8 +67,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -8608184781898366129, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3093851535876536699}
   - component: {fileID: 2480590121761608823}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,8 +149,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 694136986722954981, guid: c63f0f186b22e9142a0aa3227a9378d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -173,7 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6189187544395096550}
   - component: {fileID: 7482330200845290846}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,8 +230,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -8608184781898366129, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -255,8 +255,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8135840980948750460}
   - component: {fileID: 7105603103027804490}
-  m_Layer: 0
-  m_Name: Stone1x3
+  m_Layer: 13
+  m_Name: Stone3x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

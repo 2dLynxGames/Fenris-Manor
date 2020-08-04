@@ -50,3 +50,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: FarBack
+    uniqueID: 439960201
+    locked: 0
+  - name: CloseBack
+    uniqueID: 3641521197
+    locked: 0
+  - name: Stairs
+    uniqueID: 421023071
+    locked: 0
+  - name: Brekable
+    uniqueID: 117365091
+    locked: 0
+  - name: Terrain
+    uniqueID: 2739221113
+    locked: 0
+  - name: Enemy
+    uniqueID: 4246575713
+    locked: 0
+  - name: Player
+    uniqueID: 2300584509
+    locked: 0

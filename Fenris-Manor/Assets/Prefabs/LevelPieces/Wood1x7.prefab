@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6298825468123526469}
   - component: {fileID: 2441193082866859345}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,8 +67,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -5916110199838524960, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3581418884713168416}
   - component: {fileID: 2399257496237752451}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,8 +149,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -5916110199838524960, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3863592798514638323}
   - component: {fileID: 8519842435300509748}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,8 +231,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -5916110199838524960, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 343197845631079421}
   - component: {fileID: 3871646471470399956}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wood1x7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3967351810437934660}
   - component: {fileID: 947372704473407609}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_2 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,8 +377,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -5916110199838524960, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -402,7 +402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9180958428972568944}
   - component: {fileID: 2183035852417821627}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,8 +459,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -5916110199838524960, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -484,7 +484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1361208996027186644}
   - component: {fileID: 8304462099487087174}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_2 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,8 +541,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -5916110199838524960, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -566,7 +566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5303685648041996814}
   - component: {fileID: 1671052373801826140}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_2 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,8 +623,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -5916110199838524960, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}

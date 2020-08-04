@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2237727034253330619}
   - component: {fileID: 3977833202611825664}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_0 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,8 +67,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -8608184781898366129, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8979883099927529237}
   - component: {fileID: 6604966226695329468}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,8 +149,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -8608184781898366129, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2984730753969457470}
   - component: {fileID: 3147500693586774832}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,8 +231,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 694136986722954981, guid: c63f0f186b22e9142a0aa3227a9378d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -255,7 +255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6293631791759301863}
   - component: {fileID: 6109195618065411819}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_0 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,8 +312,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -8608184781898366129, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -337,7 +337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3226400584219378912}
   - component: {fileID: 3112937474804292753}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,8 +394,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -8608184781898366129, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -419,7 +419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7127615073255956402}
   - component: {fileID: 4715992047579454315}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,8 +476,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -8608184781898366129, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -501,7 +501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1925821677285782947}
   - component: {fileID: 9113891343526128644}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,8 +558,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 694136986722954981, guid: c63f0f186b22e9142a0aa3227a9378d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -582,7 +582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 367326735443942611}
   - component: {fileID: 1492954224047745970}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,8 +639,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -8608184781898366129, guid: c63f0f186b22e9142a0aa3227a9378d6,
     type: 3}
@@ -664,7 +664,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5252534135119734322}
   - component: {fileID: 2462525526845375606}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Stone3x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -730,7 +730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7043123072147519788}
   - component: {fileID: 4208935731801647075}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GenericTiles_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -787,8 +787,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1555746183
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 694136986722954981, guid: c63f0f186b22e9142a0aa3227a9378d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
