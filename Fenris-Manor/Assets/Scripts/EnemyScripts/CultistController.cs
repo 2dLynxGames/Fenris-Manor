@@ -8,19 +8,10 @@ public class CultistController : EnemyController
 
     private Animator cultistAnimator;
     
-    void Awake()
+    protected override void Awake()
     {
-        Debug.Log("Cultist Wake");
-        levelManager = FindObjectOfType<LevelManager>();
-
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        rbObject = GetComponent<Rigidbody2D>();
-
-        resetObject = GetComponent<ResetObject>();
-        
+        base.Awake();
         cultistAnimator = GetComponent<Animator>();
-
-        currentHealth = maxHealth;
     }
 
     void Start()

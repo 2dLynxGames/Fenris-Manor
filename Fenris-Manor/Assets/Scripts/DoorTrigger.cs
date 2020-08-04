@@ -28,12 +28,12 @@ public class DoorTrigger : MonoBehaviour {
     {
         if (other.gameObject.tag != "Player")
             return;
-        if (playerController = other.GetComponent<PlayerController>()) {
+        if (playerController = other.GetComponentInParent<PlayerController>()) {
             StartCoroutine(PlayerInDoor());
             StartCoroutine(playerController.DisableControls(other.gameObject, timeToWait));
             cameraController.minXY = newRoomMinXY;
             cameraController.maxXY = newRoomMaxXY;
-            other.gameObject.transform.position = roomSpawnPoint.transform.position;
+            other.transform.parent.transform.position = roomSpawnPoint.transform.position;
         }
     }
 

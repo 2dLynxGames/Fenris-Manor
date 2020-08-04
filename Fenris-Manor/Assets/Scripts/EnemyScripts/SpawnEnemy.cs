@@ -6,16 +6,23 @@ public class SpawnEnemy : MonoBehaviour
 {
 
     public GameObject enemyToSpawn;
+    public LevelManager levelManager;
     public bool hasLeftScreen = true;
+    public float minimumSpawnDistance;
 
     public bool enemyIsAlive = false;
     private bool canSpawnEnemy = true;
+    private bool playerTooClose;
     private GameObject spawnedEnemy;
+
+    void Awake() {
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
+    }
 
     void OnBecameVisible() {
         hasLeftScreen = false;
-        if (canSpawnEnemy) {
-            Debug.Log("Spawning Enemy");
+        playerTooClose = (Mathf.Abs(transform.position.x - levelManager.playerController.transform.position.x) <= minimumSpawnDistance);
+        if (canSpawnEnemy && !playerTooClose) {
             Instantiate(enemyToSpawn, transform);
             enemyIsAlive = true;
             canSpawnEnemy = false;
@@ -23,7 +30,6 @@ public class SpawnEnemy : MonoBehaviour
     }
 
     void OnBecameInvisible() {
-        Debug.Log("Became invisible");
         hasLeftScreen = true;
     }
 

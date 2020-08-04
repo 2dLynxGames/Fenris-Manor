@@ -16,7 +16,7 @@ public class DestroyObjectOverTime : MonoBehaviour {
 
 		if(lifeTime <= 0f)
 		{
-			if (gameObject.tag == "Enemy") {
+			if (gameObject.GetComponentInParent<SpawnEnemy>()) {
 				gameObject.GetComponentInParent<SpawnEnemy>().EnemyKilled();
 			}
 			Destroy(gameObject);

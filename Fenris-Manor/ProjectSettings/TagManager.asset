@@ -12,6 +12,7 @@ TagManager:
   - Weapon
   - Enemy
   - Breakable
+  - Hitbox
   layers:
   - Default
   - TransparentFX
@@ -29,8 +30,8 @@ TagManager:
   - Terrain
   - Trigger
   - Background
-  - Hitbox
-  - 
+  - Feet
+  - Weapon
   - 
   - 
   - 

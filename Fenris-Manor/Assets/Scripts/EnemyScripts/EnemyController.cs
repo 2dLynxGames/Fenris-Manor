@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+    * Enemies require the following to due and take damage (in addition to Physics Object requirements)
+    *      Collider2D (trigger) child - Hitbox (Layer and Tag = enemy) (should be slightly bigger than the sprite to avoid BS misses)
+    *      Collider2D (trigger) child - Hurtbox (Layer and Tag = enemy) (should be slightly smaller than the model to avoid BS hits)
+    *          DamagePlayer script attaches to Hurtbox
+    *      
+*/
 public class EnemyController : PhysicsObject
 {
 
@@ -20,8 +27,28 @@ public class EnemyController : PhysicsObject
     protected Vector2 move;
     protected ResetObject resetObject;
     protected SpawnEnemy enemySpawner;
+    protected DestroyObjectOverTime destroyObject;
+    
+    protected bool isHurt;
 
     protected int currentHealth;
+
+    protected override void Awake() {
+        base.Awake();
+        levelManager = FindObjectOfType<LevelManager>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        rb2d = GetComponent<Rigidbody2D>();
+        
+        destroyObject = GetComponent<DestroyObjectOverTime>();
+        resetObject = GetComponent<ResetObject>();
+        destroyObject.enabled = false;
+
+        currentHealth = maxHealth;
+    }
+
+    public bool GetIsHurt(){ return isHurt; }
+    public void SetIsHurt(bool isHurt){ this.isHurt = isHurt; }
 
     public void TakeDamage(int damageToTake) {
         currentHealth -= damageToTake;
@@ -68,7 +95,10 @@ public class EnemyController : PhysicsObject
         if (currentHealth <= 0) {
             if (enemySpawner = gameObject.GetComponentInParent<SpawnEnemy>())
                 enemySpawner.EnemyKilled();
+            levelManager.destroyEnemySound.Play();
             Destroy(gameObject);
+        } else {
+            isHurt = false;
         }
     }
 }

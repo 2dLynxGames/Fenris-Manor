@@ -11,19 +11,20 @@ public class PlayerPlatformerController : PhysicsObject
     private PlayerController playerController;
 
     // Start is called before the first frame update
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerController = GetComponent<PlayerController>();
     }
 
     protected override void AnimateActor(){
-        if(velocity.y != 0 && !playerController.GetIsHurt()) {
-            playerController.SetJumpState( velocity.y > 0 ? PlayerController.JUMPING.up : PlayerController.JUMPING.down );
-            playerController.playerAnimator.SetFloat("velocityY", velocity.y);
+        if(rb2d.velocity.y != 0 && !playerController.GetIsHurt()) {
+            playerController.SetJumpState( rb2d.velocity.y > 0 ? PlayerController.JUMPING.up : PlayerController.JUMPING.down );
+            playerController.playerAnimator.SetFloat("velocityY", rb2d.velocity.y);
             return;
         }
-        if (velocity.y == 0) {
+        if (rb2d.velocity.y == 0  && this.ObjectIsGrounded()) {
             playerController.playerAnimator.SetFloat("velocityY", 0);
             playerController.SetJumpState(PlayerController.JUMPING.grounded);
         }
@@ -53,7 +54,7 @@ public class PlayerPlatformerController : PhysicsObject
         if (playerController.GetCanMove()) {
             move.x = Input.GetAxisRaw("Horizontal");
             if (Input.GetButtonDown("Jump") && (playerController.GetJumpState() == PlayerController.JUMPING.grounded)) {
-                velocity.y = jumpTakeOffSpeed;
+                rb2d.velocity = Vector2.up * jumpTakeOffSpeed;
             }
             // player is in the air and moving backwards
             if (playerController.GetJumpState() != PlayerController.JUMPING.grounded && playerController.PlayerMovingBackwards(move.x)) {
@@ -76,7 +77,7 @@ public class PlayerPlatformerController : PhysicsObject
                 else {
                     move.x = 1;
                 }
-                velocity.y = playerController.GetKnockbackForce() / 2f;
+                rb2d.velocity = (Vector2.up * playerController.GetKnockbackForce()) / 2f;
             }
             targetVelocity = move * playerController.GetKnockbackForce();
         }
@@ -90,11 +91,4 @@ public class PlayerPlatformerController : PhysicsObject
         }
     }
 
-    public Vector2 GetPlayerVelocity() {
-        return velocity;
-    }
-
-    public void SetPlayerVelocity(Vector2 newVelocity) {
-        velocity = newVelocity;
-    }
 }

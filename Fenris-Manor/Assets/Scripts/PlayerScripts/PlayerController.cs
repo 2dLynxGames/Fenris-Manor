@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/*
+ * Players require the following to take damage:
+ *      Collider2D (trigger) child - PlayerHitbox (layer/tag Player)
+ *      
+*/
 public class PlayerController : MonoBehaviour
 {
     /*
@@ -20,6 +24,8 @@ public class PlayerController : MonoBehaviour
     public Animator playerAnimator;
     public Collider2D baseWhipHitbox;
     public Collider2D upgradedWhipHitbox;
+    public AudioSource whipSound;
+    public AudioSource hurtSound;
     [SerializeField]
     protected float knockbackForce;
 
@@ -42,8 +48,7 @@ public class PlayerController : MonoBehaviour
     public enum JUMPING {
         up,
         down,
-        grounded,
-        in_air
+        grounded
     }
 
     // declare variables and initialize values for all enums
@@ -199,6 +204,7 @@ public class PlayerController : MonoBehaviour
         canMove = false;
         isKnockedBack = true;
         isAttacking = true; // effectively canAttack = false
+        hurtSound.Play();
         yield return new WaitForSecondsRealtime(0.3f);
         isKnockedBack = false;
 
@@ -213,10 +219,8 @@ public class PlayerController : MonoBehaviour
     }
 
     IEnumerator PlayerHurt (float hurtDuration) {
-        Debug.Log("Playing Hurt");
         playerAnimator.SetBool("hurt", true);
         yield return new WaitForSecondsRealtime(hurtDuration);
-        Debug.Log("Exiting Hurt");
         playerAnimator.SetBool("hurt", false);
     }
 

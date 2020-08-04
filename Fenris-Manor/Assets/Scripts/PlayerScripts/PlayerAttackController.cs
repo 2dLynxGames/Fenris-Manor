@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttackController : PlayerController
+public class PlayerAttackController : MonoBehaviour
 {
     private PlayerController playerController;
     private Animator animator;
@@ -13,8 +13,8 @@ public class PlayerAttackController : PlayerController
     // Start is called before the first frame update
     void Start()
     {
-        playerController = player.GetComponent<PlayerController>();
-        animator = player.GetComponent<Animator>();
+        playerController = GetComponent<PlayerController>();
+        animator = GetComponent<Animator>();
         animator.SetInteger("whipLevel", 1);
         canAttack = true;
     }
@@ -53,6 +53,7 @@ public class PlayerAttackController : PlayerController
         
         yield return new WaitForSecondsRealtime(0.125f);
 
+        playerController.whipSound.Play();
         playerWhipHitbox = CreateWhipHitbox();
 
         yield return new WaitForSecondsRealtime(0.08f);
