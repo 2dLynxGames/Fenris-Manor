@@ -61,7 +61,7 @@ TextureImporter:
     second: Window0
   - first:
       213: -4304363713457432986
-    second: TerrainTilesheet_19
+    second: WoodBrick
   - first:
       213: 4737255118015041816
     second: Candle0
@@ -124,7 +124,7 @@ TextureImporter:
     second: StoneStep0
   - first:
       213: -4149387642326575960
-    second: TerrainTilesheet_40
+    second: WoodStep0
   - first:
       213: -2420748958803854910
     second: Water0
@@ -621,7 +621,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TerrainTilesheet_19
+      name: WoodBrick
       rect:
         serializedVersion: 2
         x: 91
@@ -1062,7 +1062,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TerrainTilesheet_40
+      name: WoodStep0
       rect:
         serializedVersion: 2
         x: 91

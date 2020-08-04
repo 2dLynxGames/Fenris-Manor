@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 101839440566763979}
   - component: {fileID: 459564901592250829}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1648192650339853912}
   - component: {fileID: 527179271101627354}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6923592975845403645}
   - component: {fileID: 8107262986155459105}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TopStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,9 +231,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4173529819704521903}
   - component: {fileID: 218123678691001785}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: 3WoodStep
-  m_TagString: Untagged
+  m_TagString: Stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -285,7 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1798789658656444195}
   - component: {fileID: 5723433842734444759}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BottomStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7198083773938103914}
   - component: {fileID: 8646906224453682517}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_8 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1846341232914351507}
   - component: {fileID: 4960544509789772674}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_8 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 356294107329925133}
   - component: {fileID: 6058930584527415847}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_5 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6164374424664244897}
   - component: {fileID: 8177794977521694284}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}

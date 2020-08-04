@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7549938095336455822}
   - component: {fileID: 275137943997274071}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TopStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1268355855194484223}
   - component: {fileID: 5204300044578305777}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_8 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1786809928401218933}
   - component: {fileID: 2289371844509242739}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8701329382015699734}
   - component: {fileID: 2299078008360771126}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_8 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7155185713582768642}
   - component: {fileID: 8679807266370639748}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7273179655571803108}
   - component: {fileID: 6272815233648290493}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_8 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2744337216758934217}
   - component: {fileID: 2823043180285391360}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BottomStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6380644091743712801}
   - component: {fileID: 891468653135686222}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_5 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,7 +616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 961576336163396540}
   - component: {fileID: 5262130318567688498}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_8 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8832191471161653649}
   - component: {fileID: 6293024363524676954}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_5 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -780,7 +780,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5881460437361698351}
   - component: {fileID: 8198276259619259758}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_5 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -862,9 +862,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2327959711151380497}
   - component: {fileID: -6117494703905542157}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: 7StoneStep
-  m_TagString: Untagged
+  m_TagString: Stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -924,7 +924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2070775470113588615}
   - component: {fileID: 5615852782048828305}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_8 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1006,7 +1006,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5488068970424053279}
   - component: {fileID: 7554952698236426994}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1088,7 +1088,7 @@ GameObject:
   m_Component:
   - component: {fileID: 417647188132325219}
   - component: {fileID: 5429895664324943643}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_5 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1170,7 +1170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5326300947902069075}
   - component: {fileID: 2016823720485997863}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_8 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1252,7 +1252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2330633713015404897}
   - component: {fileID: 1499813163746353874}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GenericTiles_5 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
