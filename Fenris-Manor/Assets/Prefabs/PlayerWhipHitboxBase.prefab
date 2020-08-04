@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6357983962855181092}
   - component: {fileID: 1777001331932791240}
   - component: {fileID: 1447569815736292935}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: PlayerWhipHitboxBase
   m_TagString: Weapon
   m_Icon: {fileID: 0}
