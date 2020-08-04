@@ -33,7 +33,6 @@ public class DoorTrigger : MonoBehaviour {
             StartCoroutine(playerController.DisableControls(other.gameObject, timeToWait));
             cameraController.minXY = newRoomMinXY;
             cameraController.maxXY = newRoomMaxXY;
-            Debug.Log("moving player from " + other.gameObject.transform.position + " to " + roomSpawnPoint.transform.position);
             other.transform.parent.transform.position = roomSpawnPoint.transform.position;
         }
     }
