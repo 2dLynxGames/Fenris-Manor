@@ -72,7 +72,7 @@ public class PhysicsObject : MonoBehaviour {
 
     protected bool ObjectIsGrounded() {
         float shellDistance = 0.1f;
-        Color rayColor;
+        //Color rayColor;
         RaycastHit2D raycastHit = Physics2D.BoxCast(actorFeetCollider.bounds.center, actorFeetCollider.bounds.size, 0f, Vector2.down, shellDistance, layerMask);
         if (raycastHit && raycastHit.collider.transform.position.y > transform.position.y) {
             Debug.Log("Hit Head");
