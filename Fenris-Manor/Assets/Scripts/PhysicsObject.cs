@@ -10,6 +10,7 @@ using UnityEngine;
     *          should be a child with the foot layer, to avoid collisions with other actors
     *          should be small and only ground adjacent
     *          must be attached to script in inspector
+    *          must be ground adjacent
     * Insure all objects to collide with are on the Terrain layer
 */
 
