@@ -28,11 +28,10 @@ public class DamageEnemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Enemy") {
-            if ((enemy = other.GetComponent<EnemyController>()) && !enemy.GetIsHurt()){
+            if (((enemy = other.GetComponent<EnemyController>()) || (enemy = other.GetComponentInParent<EnemyController>())) && !enemy.GetIsHurt()){
                 enemy.SetIsHurt(true);
                 enemy.TakeDamage(damageToDo);
             }
-
         }
     }
 }
