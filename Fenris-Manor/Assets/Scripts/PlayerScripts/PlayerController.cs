@@ -48,8 +48,7 @@ public class PlayerController : MonoBehaviour
     public enum JUMPING {
         up,
         down,
-        grounded,
-        in_air
+        grounded
     }
 
     // declare variables and initialize values for all enums
