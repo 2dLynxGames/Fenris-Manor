@@ -15,11 +15,11 @@ Round 2 dev:
         ✔ Wolf @done(20-08-01 02:34)
         ✔ Camera @done(20-07-27 03:11)
         ✔ Doors @done(20-07-27 03:10)
-        ☐ Build a stage
+        ✔ Build a stage @done(20-08-04 15:41)
     
 
     Prep for Demo Release:
-        ☐ Build a stage
+        ✔ Build a stage @done(20-08-04 15:41)
         ☐ Patreon
         ☐ Twitter
         ☐ Discord
@@ -43,7 +43,7 @@ Round 2 dev:
         ✔ Make the animations deal damage to enemies and destroy objects. @done(20-07-30 02:20)
         Next (post demo 1):
             ☐ Make the damage vary by whip upgrade
-            ☐ make the damage
+            ☐ Make whip upgrades upgrade whip level by one
 
     Player Health:
         ✔ Make enemies do damage to the player, but not kill the player instantly @done(20-07-31 06:07)
@@ -136,7 +136,9 @@ Round 2 dev:
                     https://docs.unity3d.com/ScriptReference/Physics2D.BoxCast.html
         ✔ When killing an enemy the same frame they hit me, there is a null reference exception thrown by the damage enemy script. @done(20-08-03 04:18)
         ✔ Damage Enemy is being called twice when the player hits the enemy with a whip. @done(20-08-03 04:18)
-            - both fixed by adding a bool to enemycontroller and checking if the enemy was already hurt before doing damage.
+            both fixed by adding a bool to enemycontroller and checking if the enemy was already hurt before doing damage.
+        ☐ Enemies should despawn when they get too far ahead of the player or when the player moves to a new screen.
+        ☐ Player sometimes still does damage while hurt, typically from being hurt after the whip box is spawned. This might be fixed by fixing the above bug.
 
 
     July 25:
