@@ -21,4 +21,4 @@ Life came back and forced me to put this project on hold for nearly a year; howe
 
 ## Disclaimer
 
-Story, characters, sprites, tiles, stage design, and art: copyrighted to 2dLynx Games,LLC NOT are under BSD3.
+Story, characters, sprites, tiles, stage design, and art: copyrighted to 2dLynx Games, LLC and NOT under BSD3.
