@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/*
+ * Players require the following to take damage:
+ *      Collider2D (trigger) child - PlayerHitbox (layer/tag Player)
+ *      
+*/
 public class PlayerController : MonoBehaviour
 {
     /*
