@@ -24,7 +24,7 @@ public class PlayerPlatformerController : PhysicsObject
             playerController.playerAnimator.SetFloat("velocityY", rb2d.velocity.y);
             return;
         }
-        if (rb2d.velocity.y == 0) {
+        if (rb2d.velocity.y == 0  && this.ObjectIsGrounded()) {
             playerController.playerAnimator.SetFloat("velocityY", 0);
             playerController.SetJumpState(PlayerController.JUMPING.grounded);
         }
