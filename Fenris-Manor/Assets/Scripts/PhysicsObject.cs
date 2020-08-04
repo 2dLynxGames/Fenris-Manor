@@ -72,10 +72,21 @@ public class PhysicsObject : MonoBehaviour {
 
     protected bool ObjectIsGrounded() {
         float shellDistance = 0.1f;
-        if (rb2d.velocity.y == 0) {
-            RaycastHit2D raycastHit = Physics2D.BoxCast(actorFeetCollider.bounds.center, actorFeetCollider.bounds.size, 0f, Vector2.down, shellDistance, layerMask);
-            return raycastHit;
+        Color rayColor;
+        RaycastHit2D raycastHit = Physics2D.BoxCast(actorFeetCollider.bounds.center, actorFeetCollider.bounds.size, 0f, Vector2.down, shellDistance, layerMask);
+        if (raycastHit && raycastHit.collider.transform.position.y > transform.position.y) {
+            Debug.Log("Hit Head");
+            return false;
         }
-        return false;
+        return raycastHit;
+/*          if (raycastHit) {
+            rayColor = Color.magenta;
+        } else {
+            rayColor = Color.red;
+        }
+        Debug.DrawRay((actorFeetCollider.bounds.center - new Vector3(actorFeetCollider.bounds.extents.x, 0)), (Vector2.down * (actorFeetCollider.bounds.extents.y + shellDistance)), rayColor);
+        Debug.DrawRay((actorFeetCollider.bounds.center + new Vector3(actorFeetCollider.bounds.extents.x, 0)), (Vector2.down * (actorFeetCollider.bounds.extents.y + shellDistance)), rayColor);
+        Debug.DrawRay((actorFeetCollider.bounds.center - new Vector3(actorFeetCollider.bounds.extents.x, actorFeetCollider.bounds.extents.y + shellDistance)), (Vector2.right * (actorFeetCollider.bounds.size.x)), rayColor);
+        Debug.DrawRay((actorFeetCollider.bounds.center + new Vector3(-actorFeetCollider.bounds.extents.x, 0)), (Vector2.right * (actorFeetCollider.bounds.size.x)), rayColor); */
     }
 }
