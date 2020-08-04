@@ -52,14 +52,18 @@ public class PlayerAttackController : MonoBehaviour
         animator.SetBool("attack", true);
         
         yield return new WaitForSecondsRealtime(0.125f);
+        if (!playerController.GetIsHurt()) {
+            playerController.whipSound.Play();
+            playerWhipHitbox = CreateWhipHitbox();
 
-        playerController.whipSound.Play();
-        playerWhipHitbox = CreateWhipHitbox();
+            
+            yield return new WaitForSecondsRealtime(0.08f);
 
-        yield return new WaitForSecondsRealtime(0.08f);
+            Destroy(playerWhipHitbox.gameObject);
+        }
         
         playerController.SetIsAttacking(false);
-        Destroy(playerWhipHitbox.gameObject);
+
         animator.SetBool("attack", false);
     }
 
