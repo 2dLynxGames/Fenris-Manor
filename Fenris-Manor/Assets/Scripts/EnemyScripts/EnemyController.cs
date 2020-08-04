@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+    * Enemies require the following to due and take damage (in addition to Physics Object requirements)
+    *      Collider2D (trigger) child - Hitbox (Layer and Tag = enemy) (should be slightly bigger than the sprite to avoid BS misses)
+    *      Collider2D (trigger) child - Hurtbox (Layer and Tag = enemy) (should be slightly smaller than the model to avoid BS hits)
+    *          DamagePlayer script attaches to Hurtbox
+    *      
+*/
 public class EnemyController : PhysicsObject
 {
 
