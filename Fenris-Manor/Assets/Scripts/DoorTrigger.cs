@@ -4,23 +4,21 @@ using UnityEngine;
 
 public class DoorTrigger : MonoBehaviour {
 
+    public GameObject oldCamera;
+    public GameObject newCamera;
+
     public GameObject roomSpawnPoint;
-    public CameraController cameraController;
     public float timeToWait = 1;
 
     protected PlayerController playerController;
     protected PlayerPlatformerController platformerController;
     protected LevelManager levelManager;
-    
-    public GameObject newRoomMinXY;
-    public GameObject newRoomMaxXY;
 
     private EnemyController[] enemies;
 
     // TODO: Make a player walking animation that starts once the door is open and ends upon reachign destination. 
 
     void Start() {
-        cameraController = FindObjectOfType<CameraController>();
         levelManager = FindObjectOfType<LevelManager>();
     }
 
@@ -31,8 +29,8 @@ public class DoorTrigger : MonoBehaviour {
         if (playerController = other.GetComponentInParent<PlayerController>()) {
             StartCoroutine(PlayerInDoor());
             StartCoroutine(playerController.DisableControls(other.gameObject, timeToWait));
-            cameraController.minXY = newRoomMinXY;
-            cameraController.maxXY = newRoomMaxXY;
+            newCamera.SetActive(true);
+            oldCamera.SetActive(false);
             other.transform.parent.transform.position = roomSpawnPoint.transform.position;
         }
     }
