@@ -68221,6 +68221,11 @@ PrefabInstance:
       propertyPath: maxXY
       value: 
       objectReference: {fileID: 480454714}
+    - target: {fileID: 2328691440116296822, guid: 4a3f135f132df7144bf91c30dcca32d9,
+        type: 3}
+      propertyPath: smoothSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a3f135f132df7144bf91c30dcca32d9, type: 3}
 --- !u!4 &2355738413867636951
