@@ -5,6 +5,43 @@
 'Cmd/Ctrl+Shift+A' // Triggers  `Todo: Archive`
 
 Round 2 dev:
+    Requirements for v0.2 Release:
+        ☐ Stair Controller
+        ✔ Improved Camera for less jarring transitions @done(20-08-06 05:35)
+        ✔ Improved Attack Controller @done(20-08-06 05:35)
+        ☐ Merman
+        ☐ Bat
+        ☐ Breakable candles
+        ☐ basic drops (ammo/points/whip upgrades)
+
+        Stair Controller:
+            ☐ Player can walk up/down the stairs
+            ☐ Can jump and fall off stairs
+            ☐ Can jump onto the stairs
+        
+        Improved Camera:
+            ✔ Use Cinemachine @done(20-08-06 05:31)
+
+        Improved Attack Controller:
+            ✔ Use boxcast/box overlap @done(20-08-06 05:35)
+        
+        Merman:
+            ☐ Jump from off screen
+            ☐ Shoot projectile
+        
+        Bat:
+            ☐ Idle on screen
+            ☐ Wake when character reaches the appropriate Y value
+            ☐ Fly directly towards player
+
+        Candles:
+            ☐ Breakable by whip
+                ☐ Whip currently only cares about enemies, figure out how contact layer can change this.
+
+        Drops:
+            ☐ Create drop icons for ammo and points
+            ☐ Implement a basic drop table
+
     The demo is going to be basic.
     Requirements for Demo 1 Release:
         Ignore all post demo 1 requirements, these are optional for this release.
@@ -20,10 +57,10 @@ Round 2 dev:
 
     Prep for Demo Release:
         ✔ Build a stage @done(20-08-04 15:41)
-        ☐ Patreon
+        ✔ Patreon @done(20-08-06 05:14)
         ☐ Twitter
-        ☐ Discord
-        ☐ Finish setting up twitch/obs
+        ✔ Discord @done(20-08-06 05:14)
+        ✔ Finish setting up twitch/obs @done(20-08-06 05:14)
 
     Bonus goals:
         ✔ Sound @done(20-08-03 04:20)
@@ -138,7 +175,10 @@ Round 2 dev:
         ✔ Damage Enemy is being called twice when the player hits the enemy with a whip. @done(20-08-03 04:18)
             both fixed by adding a bool to enemycontroller and checking if the enemy was already hurt before doing damage.
         ☐ Enemies should despawn when they get too far ahead of the player or when the player moves to a new screen.
-        ☐ Player sometimes still does damage while hurt, typically from being hurt after the whip box is spawned. This might be fixed by fixing the above bug.
+        ✔ Player sometimes still does damage while hurt, typically from being hurt after the whip box is spawned. This might be fixed by fixing the above bug. @done(20-08-06 05:02)
+            This was resolved by changing the hit detection system. Now using boxoverlap.
+        ☐ Enemies take damage each frame they are in a box overlap.
+            Simply add a check to the take damage function using a bool that resets in a coroutine after a like 100ms have passed. This will help for continues damage weapons like fire or tornados as well.
 
 
     July 25:
