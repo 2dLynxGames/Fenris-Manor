@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAttackController : MonoBehaviour
 {
+
     private PlayerController playerController;
     private Animator animator;
 
@@ -48,19 +49,10 @@ public class PlayerAttackController : MonoBehaviour
 
     IEnumerator PlayerAttack() {
         playerController.SetIsAttacking(true);
-        Collider2D playerWhipHitbox;
+        //Collider2D playerWhipHitbox;
         animator.SetBool("attack", true);
-        
-        yield return new WaitForSecondsRealtime(0.125f);
-        if (!playerController.GetIsHurt()) {
-            playerController.whipSound.Play();
-            playerWhipHitbox = CreateWhipHitbox();
 
-            
-            yield return new WaitForSecondsRealtime(0.08f);
-
-            Destroy(playerWhipHitbox.gameObject);
-        }
+        yield return new WaitForSecondsRealtime(0.35f);
         
         playerController.SetIsAttacking(false);
 
@@ -70,7 +62,7 @@ public class PlayerAttackController : MonoBehaviour
     IEnumerator ResetAttack() {
         canAttack = false;
 
-        yield return new WaitForSecondsRealtime(0.4f);
+        yield return new WaitForSecondsRealtime(0.5f);
 
         canAttack = true;
     }
