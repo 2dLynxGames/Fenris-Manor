@@ -26,6 +26,13 @@ public class PlayerController : MonoBehaviour
     public Collider2D upgradedWhipHitbox;
     public AudioSource whipSound;
     public AudioSource hurtSound;
+    
+    // These will be changed to protected and changed based upon whip level later. For now leave them public.
+    public float bufferZone = 0.25f;
+    public float whipLength = 2.4f;
+    public float whipHeight = 0.5f;
+    public float crouchReduction = 0.4f;
+
     [SerializeField]
     protected float knockbackForce;
 
