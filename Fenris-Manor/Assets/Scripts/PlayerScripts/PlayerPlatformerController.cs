@@ -83,7 +83,10 @@ public class PlayerPlatformerController : PhysicsObject
         }
     }
 
-    private void FlipSprite() {
+    /*
+     * refactor this into player controller to avoid duplication
+    */
+    public void FlipSprite() {
         bool flipSprite = (spriteRenderer.flipX ? (velocity.x > 0.01f) : (velocity.x < 0.01f));
         if (flipSprite) {
             spriteRenderer.flipX = !spriteRenderer.flipX;
