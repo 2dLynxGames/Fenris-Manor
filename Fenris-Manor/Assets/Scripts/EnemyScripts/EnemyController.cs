@@ -51,8 +51,12 @@ public class EnemyController : PhysicsObject
     public void SetIsHurt(bool isHurt){ this.isHurt = isHurt; }
 
     public void TakeDamage(int damageToTake) {
-        currentHealth -= damageToTake;
-        CheckHealth();
+        if (!isHurt) {
+            currentHealth -= damageToTake;
+            CheckHealth();
+            StartCoroutine(ResetIsHurt());
+        }
+
     }
 
     public void DealDamage() {
@@ -97,8 +101,16 @@ public class EnemyController : PhysicsObject
                 enemySpawner.EnemyKilled();
             levelManager.destroyEnemySound.Play();
             Destroy(gameObject);
-        } else {
-            isHurt = false;
         }
+    }
+
+    // If time between attacks is changed, this number should change. However, this will only likely change once or twice (if ever) throughout development 
+    // so hardcoding is fine.
+    IEnumerator ResetIsHurt() {
+        isHurt = true;
+
+        yield return new WaitForSecondsRealtime(0.4f);
+        
+        isHurt = false;
     }
 }
