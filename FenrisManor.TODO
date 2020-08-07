@@ -13,7 +13,6 @@ Round 2 dev:
         ☐ Bat
         ☐ Breakable candles
         ☐ basic drops (ammo/points/whip upgrades)
-            consider whether or not to make drops functional yet
 
         Stair Controller:
             ☐ Player can walk up/down the stairs
@@ -143,7 +142,7 @@ Round 2 dev:
         
         BUGS:
             ☐ Enemies should despawn when they get too far ahead of the player or when the player moves to a new screen.
-
+            
         Fixed Bugs:
             ✔ Whip currently on spawns hitbox on the right side of the character, even when facing left. @done(20-07-30 01:40)
                 Fixed using method 3 from below. Was told a 4th way to do this that is more efficient, and effectively what I'm doing with this code.
