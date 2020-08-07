@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 3623111047305513170}
   - component: {fileID: 9026572747746677988}
   - component: {fileID: 294756219}
-  m_Layer: 0
+  - component: {fileID: 462093325}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -182,6 +183,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91fb012633eea34fb262a3a75bbd92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &462093325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323938216396014}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408d2a873b9121f43b765a0078faee5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &269614227725875838
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +210,7 @@ GameObject:
   - component: {fileID: 867649509059392421}
   m_Layer: 16
   m_Name: PlayerCollider
-  m_TagString: PlayerFeet
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -312,7 +328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6910174840632153890
 Transform:
   m_ObjectHideFlags: 0
@@ -338,7 +354,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1ea2f4019bc791d488cab9e0c8f1b2bd, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
