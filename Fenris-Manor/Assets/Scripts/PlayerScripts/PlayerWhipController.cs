@@ -16,7 +16,7 @@ public class PlayerWhipController : MonoBehaviour
     void Awake() {
         playerController = GetComponent<PlayerController>();
 
-        size  = new Vector2(playerController.whipLength, playerController.whipHeight);
+        size  = new Vector2(playerController.GetWhipLength(), playerController.GetWhipHeight());
 
         contactFilter.useTriggers = false;
         contactFilter.SetLayerMask(layerMask);
@@ -25,28 +25,29 @@ public class PlayerWhipController : MonoBehaviour
 
     void FixedUpdate() {
 
-        if (playerController.GetFacing() == PlayerController.FACING.right) {
-            if (playerController.GetIsCrouching()) {
-                point = new Vector2(transform.position.x + playerController.bufferZone + (playerController.whipLength / 2f), transform.position.y - playerController.crouchReduction + (playerController.whipLength / 2f));
-            } else {
-                point = new Vector2(transform.position.x + playerController.bufferZone + (playerController.whipLength / 2f), transform.position.y + (playerController.whipLength / 2f));
-            }
-
-        } else {
-            if (playerController.GetIsCrouching()) {
-                point = new Vector2(transform.position.x - playerController.bufferZone - (playerController.whipLength / 2f), transform.position.y - playerController.crouchReduction + (playerController.whipLength / 2f));
-            } else {
-                point =  new Vector2(transform.position.x - playerController.bufferZone - (playerController.whipLength / 2f), transform.position.y + (playerController.whipLength / 2f));
-            }
-        }
+        point = SetPoint();
 
         Physics2D.OverlapBox(point, size, 0f, contactFilter, enemiesHit);
 
         foreach (var enemy in enemiesHit) {
             enemy.GetComponentInParent<EnemyController>().TakeDamage(playerController.GetWhipDamage());
         }
-        Debug.Log(Time.deltaTime);
-        DebugStuff();
+    }
+
+    Vector2 SetPoint() {
+        Vector2 newPoint;
+        if (playerController.GetFacing() == PlayerController.FACING.right) {
+            newPoint.x = transform.position.x + playerController.GetBufferZone() + (playerController.GetWhipLength() / 2f);
+        } else {
+            newPoint.x = transform.position.x - playerController.GetBufferZone() - (playerController.GetWhipLength() / 2f);
+        }
+        
+        if (playerController.GetIsCrouching()) {
+            newPoint.y =  transform.position.y - playerController.GetCrouchReduction() + (playerController.GetWhipLength() / 2f);
+        } else {
+            newPoint.y = transform.position.y + (playerController.GetWhipLength() / 2f);
+        }
+        return newPoint;
     }
 
     void DebugStuff() {
@@ -63,23 +64,23 @@ public class PlayerWhipController : MonoBehaviour
         }
         if (playerController.GetFacing() == PlayerController.FACING.right) {
             if (playerController.GetIsCrouching()) {
-                Debug.DrawRay(new Vector2(transform.position.x + playerController.bufferZone, transform.position.y - playerController.crouchReduction), Vector2.right * playerController.whipLength, rayColor);
-                Debug.DrawRay(new Vector2(transform.position.x + playerController. bufferZone, transform.position.y + playerController.whipHeight - playerController.crouchReduction), Vector2.right * playerController.whipLength, rayColor);
-                Debug.DrawRay(new Vector2(transform.position.x + playerController.bufferZone + playerController.whipLength, transform.position.y - playerController.crouchReduction), Vector2.up * playerController.whipHeight, rayColor);
+                Debug.DrawRay(new Vector2(transform.position.x + playerController.GetBufferZone(), transform.position.y - playerController.GetCrouchReduction()), Vector2.right * playerController.GetWhipLength(), rayColor);
+                Debug.DrawRay(new Vector2(transform.position.x + playerController. GetBufferZone(), transform.position.y + playerController.GetWhipHeight() - playerController.GetCrouchReduction()), Vector2.right * playerController.GetWhipLength(), rayColor);
+                Debug.DrawRay(new Vector2(transform.position.x + playerController.GetBufferZone() + playerController.GetWhipLength(), transform.position.y - playerController.GetCrouchReduction()), Vector2.up * playerController.GetWhipHeight(), rayColor);
             } else {
-                Debug.DrawRay(new Vector2(transform.position.x + playerController.bufferZone, transform.position.y), Vector2.right * playerController.whipLength, rayColor);
-                Debug.DrawRay(new Vector2(transform.position.x + playerController. bufferZone, transform.position.y + playerController.whipHeight), Vector2.right * playerController.whipLength, rayColor);
-                Debug.DrawRay(new Vector2(transform.position.x + playerController.bufferZone + playerController.whipLength, transform.position.y), Vector2.up * playerController.whipHeight, rayColor);
+                Debug.DrawRay(new Vector2(transform.position.x + playerController.GetBufferZone(), transform.position.y), Vector2.right * playerController.GetWhipLength(), rayColor);
+                Debug.DrawRay(new Vector2(transform.position.x + playerController. GetBufferZone(), transform.position.y + playerController.GetWhipHeight()), Vector2.right * playerController.GetWhipLength(), rayColor);
+                Debug.DrawRay(new Vector2(transform.position.x + playerController.GetBufferZone() + playerController.GetWhipLength(), transform.position.y), Vector2.up * playerController.GetWhipHeight(), rayColor);
                 }
         } else {
             if (playerController.GetIsCrouching()) {
-                Debug.DrawRay(new Vector2(transform.position.x - playerController.bufferZone, transform.position.y - playerController.crouchReduction), Vector2.left * playerController.whipLength, rayColor);
-                Debug.DrawRay(new Vector2(transform.position.x - playerController. bufferZone, transform.position.y + playerController.whipHeight - playerController.crouchReduction), Vector2.left * playerController.whipLength, rayColor);
-                Debug.DrawRay(new Vector2(transform.position.x - playerController.bufferZone - playerController.whipLength, transform.position.y - playerController.crouchReduction), Vector2.up * playerController.whipHeight, rayColor);
+                Debug.DrawRay(new Vector2(transform.position.x - playerController.GetBufferZone(), transform.position.y - playerController.GetCrouchReduction()), Vector2.left * playerController.GetWhipLength(), rayColor);
+                Debug.DrawRay(new Vector2(transform.position.x - playerController. GetBufferZone(), transform.position.y + playerController.GetWhipHeight() - playerController.GetCrouchReduction()), Vector2.left * playerController.GetWhipLength(), rayColor);
+                Debug.DrawRay(new Vector2(transform.position.x - playerController.GetBufferZone() - playerController.GetWhipLength(), transform.position.y - playerController.GetCrouchReduction()), Vector2.up * playerController.GetWhipHeight(), rayColor);
             } else {
-                Debug.DrawRay(new Vector2(transform.position.x - playerController.bufferZone, transform.position.y), Vector2.left * playerController.whipLength, rayColor);
-                Debug.DrawRay(new Vector2(transform.position.x - playerController. bufferZone, transform.position.y + playerController.whipHeight), Vector2.left * playerController.whipLength, rayColor);
-                Debug.DrawRay(new Vector2(transform.position.x - playerController.bufferZone - playerController.whipLength, transform.position.y), Vector2.up * playerController.whipHeight, rayColor);
+                Debug.DrawRay(new Vector2(transform.position.x - playerController.GetBufferZone(), transform.position.y), Vector2.left * playerController.GetWhipLength(), rayColor);
+                Debug.DrawRay(new Vector2(transform.position.x - playerController. GetBufferZone(), transform.position.y + playerController.GetWhipHeight()), Vector2.left * playerController.GetWhipLength(), rayColor);
+                Debug.DrawRay(new Vector2(transform.position.x - playerController.GetBufferZone() - playerController.GetWhipLength(), transform.position.y), Vector2.up * playerController.GetWhipHeight(), rayColor);
             }
         }
     }
