@@ -5,9 +5,8 @@ using UnityEngine;
 public class StairController : MonoBehaviour
 {
     public enum STAIR_DIRECTION {
-        Up,
-        Down,
-        none
+        up,
+        down
     };
 
     private int numSteps = 0;
@@ -26,7 +25,33 @@ public class StairController : MonoBehaviour
         edgeCollider = GetComponent<EdgeCollider2D>();
         numSteps = CalculateNumSteps();
         stairDirection = DetermineStairDirection();
-        if (stairDirection == STAIR_DIRECTION.Up) {
+        //CalculateEdgeCollider();
+
+        //SetPoints();
+    }
+
+    void SetPoints() {
+        edgeCollider.points = verticies.ToArray();
+    }
+
+    public STAIR_DIRECTION GetStairDirection() {
+        return stairDirection;
+    }
+
+    public int GetNumSteps() {
+        return numSteps;
+    }
+
+    int CalculateNumSteps() {
+        return (int)(rightEndStep.transform.position.x - leftEndStep.transform.position.x) * 2;
+    }
+
+    STAIR_DIRECTION DetermineStairDirection() {
+        return (leftEndStep.transform.position.y < rightEndStep.transform.position.y) ? STAIR_DIRECTION.up : STAIR_DIRECTION.down;
+    }
+
+    void CalculateEdgeCollider() {
+        if (stairDirection == STAIR_DIRECTION.up) {
             // create the bottom of the stair step for the line y = x
             for (int x = 0; x <= ((numSteps - 1) / 2); x++) {
                 verticies.Add( new Vector2(x, x));
@@ -48,7 +73,7 @@ public class StairController : MonoBehaviour
                     verticies.Add(new Vector2(0,0));
                 }
             }
-        } if (stairDirection == STAIR_DIRECTION.Down) {
+        } if (stairDirection == STAIR_DIRECTION.down) {
             // same as above for y = -x
             for (int x = 0; x <= ((numSteps - 1) / 2); x++) {
                 verticies.Add( new Vector2(-x, x));
@@ -70,34 +95,5 @@ public class StairController : MonoBehaviour
                 }
             }
         }
-        SetPoints();
-    }
-
-    void SetPoints() {
-        edgeCollider.points = verticies.ToArray();
-    }
-
-    public STAIR_DIRECTION getStairDirection() {
-        return stairDirection;
-    }
-
-    public int getNumSteps() {
-        return numSteps;
-    }
-
-    int CalculateNumSteps() {
-        return (int)(rightEndStep.transform.position.x - leftEndStep.transform.position.x) * 2;
-    }
-
-    STAIR_DIRECTION DetermineStairDirection() {
-        if (leftEndStep.transform.position.y < rightEndStep.transform.position.y)
-        {
-            return STAIR_DIRECTION.Up; 
-        } else if (leftEndStep.transform.position.y > rightEndStep.transform.position.y)
-        {
-            return STAIR_DIRECTION.Down;
-        }
-        Debug.Log("Stairs in impossible state, y postion of both ends is equal. GameObject: " + this.name);
-        return STAIR_DIRECTION.none;
     }
 }
