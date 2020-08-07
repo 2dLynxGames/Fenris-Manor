@@ -250,7 +250,7 @@ public class PlayerController : MonoBehaviour
      * bool state should represent the state of the controls for the player
      * use false to disable, true to enable
     */
-    void ToggleControls(bool state) {
+    public void ToggleControls(bool state) {
         player.GetComponent<PlayerPlatformerController>().enabled = state;
         playerAnimator.SetBool("idle", !state);
     }
