@@ -26,6 +26,13 @@ public class PlayerController : MonoBehaviour
     public Collider2D upgradedWhipHitbox;
     public AudioSource whipSound;
     public AudioSource hurtSound;
+    
+    protected const float bufferZone = 0.25f;
+    protected const float whipHeight = 0.5f;
+    protected const float crouchReduction = 0.4f;
+
+    protected float whipLength = 2.4f;
+
     [SerializeField]
     protected float knockbackForce;
 
@@ -80,8 +87,8 @@ public class PlayerController : MonoBehaviour
         player = GameObject.Find("Player");
         playerAnimator = player.GetComponent<Animator>();
         whipDamage = DetermineWhipDamage(whipLevel);
+        whipLength = DetermineWhipLength(whipLevel);
         health = startingHealth;
-        whipHitbox = DetermineWhipHitbox(whipLevel);
     }
 
     void Update(){
@@ -148,6 +155,13 @@ public class PlayerController : MonoBehaviour
     public float GetKnockbackForce() { return knockbackForce; }
     public void SetKnockbackForce(float knockbackForce) { this.knockbackForce = knockbackForce; }
 
+    public float GetWhipLength() { return whipLength; }
+    public void SetWhipLength(float whipLength) { this.whipLength = whipLength; }
+
+    public float GetBufferZone() { return bufferZone; }
+    public float GetWhipHeight() { return whipHeight; }
+    public float GetCrouchReduction() { return crouchReduction; }
+
     //#Helpers
     private bool CheckIdle() {
         return !(!(jumpState == JUMPING.grounded) || isMoving || isAttacking);
@@ -186,15 +200,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private Collider2D DetermineWhipHitbox(WHIP_LEVEL whipLevel) {
+    private float DetermineWhipLength(WHIP_LEVEL whipLevel) {
         switch (whipLevel) {
             case WHIP_LEVEL.basic:
             case WHIP_LEVEL.chain:
-                return baseWhipHitbox;
+                return 2.4f;
             case WHIP_LEVEL.extended_chain:
-                return upgradedWhipHitbox;
+            //TODO: Determine whipLength for level 3 whip. 3 is a placeholder until testing can be done.
+                return 3f;
             default:
-                return baseWhipHitbox;
+                return 2.4f;
         }
     }
 
