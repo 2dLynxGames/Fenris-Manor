@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerStairController : MonoBehaviour
 {
+    public float transitionSpeed = 3f;
+    
+    private float transitionPercent = 0f;
     private LevelManager levelManager;
 
     void Awake()
@@ -18,8 +21,9 @@ public class PlayerStairController : MonoBehaviour
 
         if (Input.GetAxis("Climb") != 0 && levelManager.playerController.GetStairState() != PlayerController.STAIR_STATE.on_stair && levelManager.playerController.GetJumpState() == PlayerController.JUMPING.grounded) {
             levelManager.playerController.SetStairState(PlayerController.STAIR_STATE.on_stair);
-            levelManager.playerController.ToggleControls(false);
+            levelManager.playerController.playerAnimator.SetBool("onStair", true);
             
+            transitionPercent = 0f;
             StartCoroutine(MovePlayerToStairs(stairController, other.gameObject));
             Debug.Log("Player wants to climb");
         }
@@ -28,21 +32,38 @@ public class PlayerStairController : MonoBehaviour
 
     IEnumerator MovePlayerToStairs(StairController stairController, GameObject triggerStep) {
         Vector2 playerPos = levelManager.playerController.player.transform.position;
-        Vector2 stepPos = triggerStep.transform.position;
+        Vector2 stepPos = triggerStep.GetComponent<Collider2D>().bounds.center;
         if (stairController.GetStairDirection() == StairController.STAIR_DIRECTION.up) {
-            if (playerPos.x > stepPos.x){
-                if (levelManager.playerController.GetFacing() != PlayerController.FACING.right) {
-                    Debug.Log("Flip it");
-                    levelManager.playerController.player.GetComponent<PlayerPlatformerController>().FlipSprite();
-                }
-                Debug.Log("Player is left of the step");
+            // a staircase goes up if it moves from left(bottom) to right (top)
+            if (triggerStep.transform.position == stairController.leftEndStep.transform.position) {
+                // this means we're at the left end of a staircase that goes up
+                stepPos = new Vector2(triggerStep.transform.position.x + 0.25f, triggerStep.transform.position.y + 0.5f);
             } else {
-                Debug.Log("Player is right of the step");
+                // we must be at the right end of a staircase that goes up
+                stepPos = new Vector2(triggerStep.transform.position.x - 0.25f, triggerStep.transform.position.y + 1);
             }
             Debug.Log("Stairs go up");
         } else {
+            // a staircase goes down if it moves from left(top) to right(bottom)
             Debug.Log("Stairs go down");
         }
-        yield return new WaitForEndOfFrame();
+        Debug.Log(playerPos);
+        Debug.Log(stepPos);
+        levelManager.playerController.player.GetComponent<PhysicsObject>().enabled = false;
+        while (transitionPercent < 1) {
+            transitionPercent += Time.deltaTime * transitionSpeed * 2;
+            Debug.Log("Moving Player to stairs");
+            Debug.Log(transitionPercent);
+            if (transitionPercent > 1){
+                transitionPercent = 1;
+            }
+            //Debug.Log(playerPos);
+            levelManager.playerController.player.transform.position = Vector2.Lerp(playerPos, stepPos, transitionPercent);
+            yield return new WaitForEndOfFrame();
+        }
+        levelManager.playerController.player.GetComponent<PhysicsObject>().enabled = false;
+        levelManager.playerController.playerAnimator.SetFloat("velocityX", 0);
+        levelManager.playerController.playerAnimator.Play("PlayerStairsIdle");
+
     }
 }
