@@ -28,7 +28,7 @@ public class PlayerPlatformerController : PhysicsObject
             playerController.playerAnimator.SetFloat("velocityY", 0);
             playerController.SetJumpState(PlayerController.JUMPING.grounded);
         }
-        if (velocity.x != 0) {
+        if (velocity.x != 0 && playerController.GetStairState() != PlayerController.STAIR_STATE.on_stair) {
             playerController.playerAnimator.SetFloat("velocityX", Mathf.Abs(velocity.x));
             if (!playerController.GetIsHurt()) {
                 FlipSprite();
@@ -51,7 +51,7 @@ public class PlayerPlatformerController : PhysicsObject
         //  Reset the move vector every time this function is called
         Vector2 move = Vector2.zero;
 
-        if (playerController.GetCanMove()) {
+        if (playerController.GetCanMove() && playerController.GetStairState() != PlayerController.STAIR_STATE.on_stair) {
             move.x = Input.GetAxisRaw("Horizontal");
             if (Input.GetButtonDown("Jump") && (playerController.GetJumpState() == PlayerController.JUMPING.grounded)) {
                 rb2d.velocity = Vector2.up * jumpTakeOffSpeed;
