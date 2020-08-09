@@ -2450,6 +2450,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &52555824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1724835633315432384, guid: d51143a7aceabeb48967fe3efb449b91,
+    type: 3}
+  m_PrefabInstance: {fileID: 2017390864}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &56129990
 GameObject:
   m_ObjectHideFlags: 0
@@ -15337,6 +15343,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &497518393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3226743631427070406, guid: d51143a7aceabeb48967fe3efb449b91,
+    type: 3}
+  m_PrefabInstance: {fileID: 2017390864}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &501204778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22901,11 +22913,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4153770419592146, guid: b9b038cc316e0114f8cd73acda3551c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11
+      value: 59
       objectReference: {fileID: 0}
     - target: {fileID: 4153770419592146, guid: b9b038cc316e0114f8cd73acda3551c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4153770419592146, guid: b9b038cc316e0114f8cd73acda3551c7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -61793,6 +61805,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1974392011}
     m_Modifications:
+    - target: {fileID: 797532525041000395, guid: d51143a7aceabeb48967fe3efb449b91,
+        type: 3}
+      propertyPath: leftEndStep
+      value: 
+      objectReference: {fileID: 497518393}
+    - target: {fileID: 797532525041000395, guid: d51143a7aceabeb48967fe3efb449b91,
+        type: 3}
+      propertyPath: rightEndStep
+      value: 
+      objectReference: {fileID: 52555824}
     - target: {fileID: 960962725796807913, guid: d51143a7aceabeb48967fe3efb449b91,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -66313,7 +66335,7 @@ PrefabInstance:
     - target: {fileID: 734154557723368607, guid: 4a3f135f132df7144bf91c30dcca32d9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.730665
+      value: 63.2692
       objectReference: {fileID: 0}
     - target: {fileID: 734154557723368607, guid: 4a3f135f132df7144bf91c30dcca32d9,
         type: 3}
@@ -71108,12 +71130,12 @@ PrefabInstance:
     - target: {fileID: 7034542542174422921, guid: ccc4d75cb251b2244b7d16eec937688a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.2692
+      value: 63.2692
       objectReference: {fileID: 0}
     - target: {fileID: 7034542542174422921, guid: ccc4d75cb251b2244b7d16eec937688a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.1000004
+      value: 7.6000004
       objectReference: {fileID: 0}
     - target: {fileID: 7034542542174422921, guid: ccc4d75cb251b2244b7d16eec937688a,
         type: 3}
