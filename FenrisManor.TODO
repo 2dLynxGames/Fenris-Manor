@@ -16,6 +16,14 @@ Round 2 dev:
             consider whether or not to make drops functional yet
 
         Stair Controller:
+            Things stairs need to do in order:
+                ✔ Player can walk into the stair trigger, press the climb button (up or down), and indicate they want to climb the stairs @done(20-08-08 20:30)
+                ☐ Pressing up climbs up the stairs, down climbs down the stairs.
+                ☐ Pressing left or right moves the proper direction up or down the stairs
+                ☐ Leave the staircase by reaching the top trigger
+                ☐ Jump and enter the stairs
+                ☐ Jump and leave the stairs early
+
             ☐ Player can walk up/down the stairs
             ☐ Can jump and fall off stairs
             ☐ Can jump onto the stairs
