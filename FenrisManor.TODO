@@ -19,8 +19,8 @@ Round 2 dev:
             Things stairs need to do in order:
                 ✔ Player can walk into the stair trigger, press the climb button (up or down), and indicate they want to climb the stairs @done(20-08-08 20:30)
                 ☐ Pressing up climbs up the stairs, down climbs down the stairs.
-                ☐ Pressing left or right moves the proper direction up or down the stairs
-                ☐ Leave the staircase by reaching the top trigger
+                ✔ Pressing left or right moves the proper direction up or down the stairs @done(20-08-10 17:49)
+                ✔ Leave the staircase by reaching the top or bottom trigger @done(20-08-10 17:49)
                 ☐ Jump and enter the stairs
                 ☐ Jump and leave the stairs early
 
@@ -151,6 +151,8 @@ Round 2 dev:
         
         BUGS:
             ☐ Enemies should despawn when they get too far ahead of the player or when the player moves to a new screen.
+            ☐ Player leaves a staircase one step too early when going down the staircase
+            ☐ Script fails if player enters a top or bottom trigger while no input is held
 
         Fixed Bugs:
             ✔ Whip currently on spawns hitbox on the right side of the character, even when facing left. @done(20-07-30 01:40)
