@@ -11,11 +11,13 @@ public class PlayerStairController : MonoBehaviour
     private LevelManager levelManager;
     private GameObject player;
     private PlayerPlatformerController playerPlatformerController;
+    private StairController.STAIR_DIRECTION stairDirection;
     private float oldGravityScale;
     private bool isMovingToStairs = false;
     private bool isMovingOnStairs = false;
     private bool isMovingOffStairs = false;
     private bool hasLeftStairTrigger = true;
+    private bool hasMovedOnce = false;
     private StairController stairController;
     private Vector2 playerPos;
 
@@ -30,21 +32,25 @@ public class PlayerStairController : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (levelManager.playerController.GetStairState() == PlayerController.STAIR_STATE.on_stair && stairController != null && !isMovingToStairs) {
+        if (levelManager.playerController.GetStairState() == PlayerController.STAIR_STATE.on_stair && !isMovingToStairs) {
             if (Input.GetAxis("Horizontal") > 0.1f && !isMovingOnStairs) {
-                MoveOnStairs(1, stairController.GetStairDirection());
+                MoveOnStairs(1, stairDirection);
             } else if (Input.GetAxis("Horizontal") < -0.1f && !isMovingOnStairs) {
-                MoveOnStairs(-1, stairController.GetStairDirection());
+                MoveOnStairs(-1, stairDirection);
+            } else if (Input.GetAxis("Climb") > 0.1f && !isMovingOnStairs && hasMovedOnce) {
+                if (stairDirection == StairController.STAIR_DIRECTION.up) {
+                    MoveOnStairs(1, stairDirection);
+                } else {
+                    MoveOnStairs(-1, stairDirection);
+                }
+            } else if (Input.GetAxis("Climb") < -0.1f && !isMovingOnStairs && hasMovedOnce) {
+                if (stairDirection == StairController.STAIR_DIRECTION.down) {
+                    MoveOnStairs(1, stairDirection);
+                } else {
+                    MoveOnStairs(-1, stairDirection);
+                }
             }
         }
-    }
-
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag != "Stairs") {
-            return;
-        }
-
-        runAfterMoving = MovePlayerOffStairs;
     }
     
     void OnTriggerExit2D(Collider2D other) {
@@ -61,6 +67,7 @@ public class PlayerStairController : MonoBehaviour
         stairController = other.GetComponentInParent<StairController>();
 
         if (Input.GetAxis("Climb") != 0 && levelManager.playerController.GetStairState() != PlayerController.STAIR_STATE.on_stair && levelManager.playerController.GetJumpState() == PlayerController.JUMPING.grounded && hasLeftStairTrigger) {
+            stairDirection = stairController.GetStairDirection();
             hasLeftStairTrigger = false;
             player.GetComponent<Rigidbody2D>().gravityScale = 0;
             levelManager.playerController.SetStairState(PlayerController.STAIR_STATE.on_stair);
@@ -121,29 +128,36 @@ public class PlayerStairController : MonoBehaviour
         //target.y is the same as stair direction on right and inverted on left
         targetPos.y = playerPos.y + moveYOnStairs(directionToMove, stairDirection);
         
-        if ((!isMovingToStairs || !isMovingOffStairs) && !CheckBound(targetPos.x, directionToMove)) {
+        if ((!isMovingToStairs || !isMovingOffStairs) && CheckBound(targetPos.x, directionToMove, stairDirection) == 0) {
             runAfterMoving = RunAfterMovingOnStairs;
+            if (stairController.GetStairDirection() == StairController.STAIR_DIRECTION.up) {
+                levelManager.playerController.playerAnimator.SetInteger("stairDirection", directionToMove);
+            } else {
+                levelManager.playerController.playerAnimator.SetInteger("stairDirection", -directionToMove);
+            }
             StartCoroutine(MovePlayer(targetPos, climbSpeed));
+        } else if (CheckBound(targetPos.x, directionToMove, stairDirection) != 0) {
+            MovePlayerOffStairs(directionToMove);
         } else {
+            levelManager.playerController.playerAnimator.SetInteger("stairDirection", 0);
             isMovingOnStairs = false;
         }
     }
 
     void MovePlayerOffStairs(int directionToMove) {
         isMovingOffStairs = true;
+        levelManager.playerController.SetStairState(PlayerController.STAIR_STATE.off_stair);
         Vector2 targetPos = Vector2.zero;
         playerPos = levelManager.playerController.player.transform.position;
         if (directionToMove == 1) {
-            targetPos.x = playerPos.x + 1.5f;
-            targetPos.y = (stairController.GetStairDirection() == StairController.STAIR_DIRECTION.up) ? playerPos.y : playerPos.y - 0.5f;
+            targetPos.x = playerPos.x + 2f;
         } else {
-            targetPos.x = playerPos.x + -1.5f;
-            targetPos.y = (stairController.GetStairDirection() == StairController.STAIR_DIRECTION.down) ? playerPos.y : playerPos.y - 0.5f;
+            targetPos.x = playerPos.x + -2f;
         }
-        if (stairController.GetStairDirection() == StairController.STAIR_DIRECTION.up) {
-            targetPos.y = playerPos.y;
-        }
+        targetPos.y = playerPos.y;
         runAfterMoving = RunAfterMovingOffStairs;
+        levelManager.playerController.playerAnimator.SetBool("onStair", false);
+        levelManager.playerController.playerAnimator.SetFloat("velocityX", 1);
         StartCoroutine(MovePlayer(targetPos, transitionSpeed));
     }
 
@@ -155,38 +169,72 @@ public class PlayerStairController : MonoBehaviour
 
     void RunAfterMovingOnStairs() {
         isMovingOnStairs = false;
+        if (!hasMovedOnce)
+            hasMovedOnce = true;
     }
 
     void RunAfterMovingOffStairs() {
+        hasMovedOnce = false;
         player.GetComponent<PhysicsObject>().enabled = true;
         player.GetComponent<Rigidbody2D>().gravityScale = oldGravityScale;
-        levelManager.playerController.SetStairState(PlayerController.STAIR_STATE.off_stair);
+        //levelManager.playerController.SetStairState(PlayerController.STAIR_STATE.off_stair);
+        //levelManager.playerController.playerAnimator.SetBool("idle", true);
     }
 
-    bool CheckBound(float targetX, int directionToMove) {
-        if (directionToMove == 1) {
-            return (targetX > stairController.rightEndStep.transform.position.x - 0.5f);
+
+    /*
+     * CheckBound returns an int representing whether the player is attempting to move off of the bounded stairs.
+     * If the player is at the right end and tries to continue moving right, return 1
+     * If the player is at the left end and tries to continue moving left, return -1
+     * If the player is at and end, but not continuing in that direction, return 0
+    */
+    int CheckBound(float targetX, int directionToMove, StairController.STAIR_DIRECTION stairDirection) {
+        // player is attempting to move right
+        if (stairDirection == StairController.STAIR_DIRECTION.up) {
+            if (directionToMove == 1) {
+                // player is at the right end
+                if (targetX > stairController.rightEndStep.transform.position.x - 0.5f) {
+                    // return 1 to tell move script to move player off the right end
+                    return 1;
+                }
+            } else if (directionToMove == -1) {
+                if (targetX < stairController.leftEndStep.transform.position.x) {
+                    return -1;
+                }
+            }
         } else {
-            Debug.Log(targetX);
-            Debug.Log(stairController.leftEndStep.transform.position.x);
-            return (targetX < stairController.leftEndStep.transform.position.x - 1f);
+            if (directionToMove == 1) {
+                // player is at the right end
+                if (targetX > stairController.rightEndStep.transform.position.x - 0.125f) {
+                    // return 1 to tell move script to move player off the right end
+                    return 1;
+                }
+            } else if (directionToMove == -1) {
+                if (targetX < stairController.leftEndStep.transform.position.x + 0.5f) {
+                
+                    return -1;
+                }
+            }
         }
-    }
-
-    bool CheckRightBound(Vector2 targetMove) {
-        return (targetMove.x > stairController.rightEndStep.transform.position.x);
+        return 0;
     }
 
     IEnumerator MovePlayer(Vector2 targetPos, float transitionSpeed) {
         transitionPercent = 0;
         while (transitionPercent < 1) {
-            transitionPercent += Time.deltaTime * climbSpeed;
+            transitionPercent += Time.deltaTime * transitionSpeed;
             if (transitionPercent > 1) {
                 transitionPercent = 1;
             }
             levelManager.playerController.transform.position = Vector2.Lerp(playerPos, targetPos, transitionPercent);
             yield return new WaitForFixedUpdate();
         }
+        levelManager.playerController.playerAnimator.SetInteger("stairDirection", 0);
+        
+        if (runAfterMoving == RunAfterMovingOnStairs) {
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+
         runAfterMoving();
     }
 
