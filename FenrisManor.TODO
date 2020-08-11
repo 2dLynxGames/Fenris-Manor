@@ -18,15 +18,25 @@ Round 2 dev:
         Stair Controller:
             Things stairs need to do in order:
                 ✔ Player can walk into the stair trigger, press the climb button (up or down), and indicate they want to climb the stairs @done(20-08-08 20:30)
-                ☐ Pressing up climbs up the stairs, down climbs down the stairs.
+                ✔ Pressing up climbs up the stairs, down climbs down the stairs. @done(20-08-10 23:45)
                 ✔ Pressing left or right moves the proper direction up or down the stairs @done(20-08-10 17:49)
                 ✔ Leave the staircase by reaching the top or bottom trigger @done(20-08-10 17:49)
-                ☐ Jump and enter the stairs
-                ☐ Jump and leave the stairs early
-
+                ☐ Flip the sprite when switching directions or entering from the 'wrong' direction
+                Jumping on stairs:
+                    This might not be added until v0.3 depending on how I decide to implement it. A few questions to ask players.
+                    if jumping on stairs, :
+                        1) do you want to be able to enter stairs that are above you?
+                        2) do you want to always land on the stairs you jumped from (if not entering above) or would you rather fall to the floor?
+                    ☐ Jump and enter the stairs
+                    ☐ Jump and leave the stairs early
+                
             ☐ Player can walk up/down the stairs
             ☐ Can jump and fall off stairs
             ☐ Can jump onto the stairs
+
+            If we want the player to jsut hold up or hold down to move up or down a full staircase, but not hold up or down and instantly leave from the other end, we need to check which direction they are entering from and then allow movements properly. (This is a potential polishing step for a later version if the players want it.)
+
+            Request feedback on stairclimb animation
         
         Improved Camera:
             ✔ Use Cinemachine @done(20-08-06 05:31)
@@ -51,7 +61,58 @@ Round 2 dev:
             ☐ Create drop icons for ammo and points
             ☐ Implement a basic drop table
 
-    The demo is going to be basic.
+    
+        
+        BUGS:
+            ☐ Enemies should despawn when they get too far ahead of the player or when the player moves to a new screen.
+            
+            Fixed Bugs:
+                ✔ Player sometimes can't reenter the staircase after leaving it. @done(20-08-10 23:31)
+                    This is a result of the player sometimes not exiting the trigger, because of the below bug. Resolving it should resolve this as well.
+                ✔ Player leaves a staircase one step too early when going down the staircase @done(20-08-10 23:12)
+                    ✔ Only half fixed, moving right on a downward staircase, for some reason still exits either early or late, depending on the buffer amount. @done(20-08-10 23:31)
+
+                ✔ Script fails if player enters a top or bottom trigger while no input is held @done(20-08-10 23:12)
+                ✔ Whip currently on spawns hitbox on the right side of the character, even when facing left. @done(20-07-30 01:40)
+                Fixed using method 3 from below. Was told a 4th way to do this that is more efficient, and effectively what I'm doing with this code.
+                
+                The method is called physics overlap. https://docs.unity3d.com/ScriptReference/Physics2D.BoxCast.html
+                Using this cast create a box cast that generates an array of collisions, iterate through the array for actions to take, then take those actions.
+                
+                Similar to the casting in PhysicsObject class. Should be straight forward since I effectively created this myself.
+                There are 3 ways I can think of to fix this
+                1) use the unity animator and have 2 different 'attack' animations , one facing left and the other facing right [More states for that web I linked] (no extra calls in my scripts, but a more complex animator, and I have no clue what the performance cost here is)
+                2) programatically flip xscale of the hit box from 1 to -1 to reverse the whip hitboxes. (2 extra calls everytime the player flips)
+                3) make the AttackController instantiate/destroy the whipbox as a child object on each attack. This is the most complex, but likely the most correct as well. As this removes the responsibilty of animation hitboxes from the animator, which isn't a responsibility it should have.
+                ✔ Player bounces when whipping a wall. @done(20-07-30 02:16) BANDAID APPLIED
+                    This one drove me and Osteel bonkers. Bandaid fix follows
+                        So the issue was not your whip hitting the colliders, not in the way we were thinking. Having it set to a trigger in the prefab was fine and it was not causing collisions as expected.
+                        However, if we look at the PhysicsObject script ...
+                        There's the movement function which is called a few times, and also overriden once. I'm not sure why.
+                        
+                        But anyway, what's important is the how this script determines where to position the object. It creates a list called hitBufferList which it populates with colliders in the scene around the object. It determine this by using the Cast method on the rigidbody, a built in method of the component.
+                        If we look at the documentation for it
+                        https://docs.unity3d.com/ScriptReference/Rigidbody2D.Cast.html "All the Collider2D shapes attached to the Rigidbody2D are cast into the Scene starting at each Collider position ignoring the Colliders attached to the same Rigidbody2D."
+
+                        how to fix it in the games current state
+                        The best workaround solution I could come up with is to simply not child your whip collider into the player.
+                        
+                        var playerWhipHitbox = Instantiate(playerController.GetWhipHitbox(), transform.position, Quaternion.identity);
+
+                        And instead just position it at the player.
+
+                        look into this
+                            https://docs.unity3d.com/ScriptReference/Physics2D.BoxCast.html
+                ✔ When killing an enemy the same frame they hit me, there is a null reference exception thrown by the damage enemy script. @done(20-08-03 04:18)
+                ✔ Damage Enemy is being called twice when the player hits the enemy with a whip. @done(20-08-03 04:18)
+                    both fixed by adding a bool to enemycontroller and checking if the enemy was already hurt before doing damage.
+                ✔ Player sometimes still does damage while hurt, typically from being hurt after the whip box is spawned. This might be fixed by fixing the above bug. @done(20-08-06 05:02)
+                    This was resolved by changing the hit detection system. Now using boxoverlap.
+                ✔ Enemies take damage each frame they are in a box overlap. @done(20-08-07 00:20)
+                    Simply add a check to the take damage function using a bool that resets in a coroutine after a like 100ms have passed. This will help for continues damage weapons like fire or tornados as well.
+
+                    The demo is going to be basic.
+    
     Requirements for Demo 1 Release:
         Ignore all post demo 1 requirements, these are optional for this release.
         ✔ Player movement @done(20-07-27 03:10)
@@ -64,136 +125,92 @@ Round 2 dev:
         ✔ Build a stage @done(20-08-04 15:41)
     
 
-    Prep for Demo Release:
-        ✔ Build a stage @done(20-08-04 15:41)
-        ✔ Patreon @done(20-08-06 05:14)
-        ☐ Twitter
-        ✔ Discord @done(20-08-06 05:14)
-        ✔ Finish setting up twitch/obs @done(20-08-06 05:14)
+        Prep for Demo Release:
+            ✔ Build a stage @done(20-08-04 15:41)
+            ✔ Patreon @done(20-08-06 05:14)
+            ☐ Twitter
+            ✔ Discord @done(20-08-06 05:14)
+            ✔ Finish setting up twitch/obs @done(20-08-06 05:14)
 
-    Bonus goals:
-        ✔ Sound @done(20-08-03 04:20)
-        ✔ Music @done(20-08-03 04:20)
-        ☐ Death Animation for enemies
-        ☐ Shitty hud to show player damage is real.
-        
-    Player Movement:
-        ✔ Play walk animation while moving @done(20-07-24 03:23)
-        ✔ Polish player movement script @done(20-07-27 03:05)
-        ✔ Reduce player control while jumping @done(20-07-27 03:05)
-        Next (post demo 1): 
-            ☐ Walking off ledge has significantly higher gravity than jumping
-        
-    Player Attack:
-        ✔ Make the button trigger animations @done(20-07-25 03:01)
-        ✔ Make the animations deal damage to enemies and destroy objects. @done(20-07-30 02:20)
-        Next (post demo 1):
-            ☐ Make the damage vary by whip upgrade
-            ☐ Make whip upgrades upgrade whip level by one
-
-    Player Health:
-        ✔ Make enemies do damage to the player, but not kill the player instantly @done(20-07-31 06:07)
-        ✔ Player gets knocked back when taking damage @done(20-07-31 06:08)
-        ✔ Player can't attack when knocked back @done(20-07-31 06:08)
-        ✔ Player flashes while damaged @done(20-07-31 06:08)
-
-    Enemies:
-        Enemy health
-        /X in that situation needs to be more than 2, but if they were 1/2/3 it would be 4 minimum, and I'm not sure if that's too many or not. I think it should be 3 / 2 / 1 for attacks.
-        wait... no I think 1/2/3 translates to 3/2/1...
-        it does, I was overthinking something somewhere
-        this is why I put numbers on a board, like a nerd
-        if I give bosses 16 hp, that'd be 16/8/5 attacks depending on whip strength. Which I think is fine.
-        or, bosses could just take static damage not dependent on weapon type, and require x hits no matter what, and the whip upgrades only affect regular enemies
-        ✔ Enemies deal damage with their hurtbox @done(20-07-31 06:08)
-        ✔ Enemies take damage with their hitbox @done(20-07-30 02:19)
-        Cultist:
-            ✔ Basic AI movement, walk left to right based on player location @done(20-07-29 04:31)
-        Wolf:
-            ✔ Jump on wake @done(20-08-01 02:34)
-            ✔ Chases player, turns once at screen edge @done(20-08-01 02:34)
-    
-    Camera:
-        ✔ Limit min/max positions @done(20-07-24 03:16)
-        Next (post demo 1):
-            ☐ Give camera the ability to scroll vertically for vertical stages
-            This needs to be smooth so that it doesn't move when you jump, only when you get close to the top of the screen (top 1/4-1/3 probably)
-
-        Doors:
-            ✔ Make doors move players and change room bounds @done(20-07-24 03:17)
+        Bonus goals:
+            ✔ Sound @done(20-08-03 04:20)
+            ✔ Music @done(20-08-03 04:20)
+            ☐ Death Animation for enemies
+            ☐ Shitty hud to show player damage is real.
+            
+        Player Movement:
+            ✔ Play walk animation while moving @done(20-07-24 03:23)
+            ✔ Polish player movement script @done(20-07-27 03:05)
+            ✔ Reduce player control while jumping @done(20-07-27 03:05)
+            Next (post demo 1): 
+                ☐ Walking off ledge has significantly higher gravity than jumping
+            
+        Player Attack:
+            ✔ Make the button trigger animations @done(20-07-25 03:01)
+            ✔ Make the animations deal damage to enemies and destroy objects. @done(20-07-30 02:20)
             Next (post demo 1):
-                ☐ Make doors trigger from stairs
-                ☐ Make enemies not spawn while door animation is playing
+                ☐ Make the damage vary by whip upgrade
+                ☐ Make whip upgrades upgrade whip level by one
 
-    Stairs:
-        When rewriting the stair controller in the future, adjustments will need to be made to check player idle, as I'm fairly certain that both 
-        STAIR STATE and isClimbing are always the same state, and only one needs to be used.
-        Post Demo 1:
-            ☐ Polish Stair Controller
+        Player Health:
+            ✔ Make enemies do damage to the player, but not kill the player instantly @done(20-07-31 06:07)
+            ✔ Player gets knocked back when taking damage @done(20-07-31 06:08)
+            ✔ Player can't attack when knocked back @done(20-07-31 06:08)
+            ✔ Player flashes while damaged @done(20-07-31 06:08)
 
-    New Objects (post demo 1):
-        Door:
-            ☐ create door object
-            ☐ create door animation
-            ☐ change door transition timer to door animation length
-            ☐ make sure door transition also stops all enemy movement/spawning until the animation is complete
-                ^ is likely best done using a variable in the level editor that wraps the entire enemy loop and enabling/disabling it
-    
-    Movement Notes:
-        So, when making something move in the x direction you have to set it's targetVelocity, when moving in the y direction, regular velocity is fine.
-
-    New Animations (post demo 1):
-        ☐ Player sub weapon/spell start
-            ☐ animations/objects for each sub weapon
-            ☐ collision effects for each sub weapon
-        ☐ Door walk animation
-        Possibly just a regular walk cycle but slower?
+        Enemies:
+            Enemy health
+            /X in that situation needs to be more than 2, but if they were 1/2/3 it would be 4 minimum, and I'm not sure if that's too many or not. I think it should be 3 / 2 / 1 for attacks.
+            wait... no I think 1/2/3 translates to 3/2/1...
+            it does, I was overthinking something somewhere
+            this is why I put numbers on a board, like a nerd
+            if I give bosses 16 hp, that'd be 16/8/5 attacks depending on whip strength. Which I think is fine.
+            or, bosses could just take static damage not dependent on weapon type, and require x hits no matter what, and the whip upgrades only affect regular enemies
+            ✔ Enemies deal damage with their hurtbox @done(20-07-31 06:08)
+            ✔ Enemies take damage with their hitbox @done(20-07-30 02:19)
+            Cultist:
+                ✔ Basic AI movement, walk left to right based on player location @done(20-07-29 04:31)
+            Wolf:
+                ✔ Jump on wake @done(20-08-01 02:34)
+                ✔ Chases player, turns once at screen edge @done(20-08-01 02:34)
         
-        BUGS:
-            ☐ Enemies should despawn when they get too far ahead of the player or when the player moves to a new screen.
-            ☐ Player leaves a staircase one step too early when going down the staircase
-            ☐ Script fails if player enters a top or bottom trigger while no input is held
+        Camera:
+            ✔ Limit min/max positions @done(20-07-24 03:16)
+            Next (post demo 1):
+                ☐ Give camera the ability to scroll vertically for vertical stages
+                This needs to be smooth so that it doesn't move when you jump, only when you get close to the top of the screen (top 1/4-1/3 probably)
 
-        Fixed Bugs:
-            ✔ Whip currently on spawns hitbox on the right side of the character, even when facing left. @done(20-07-30 01:40)
-                Fixed using method 3 from below. Was told a 4th way to do this that is more efficient, and effectively what I'm doing with this code.
+            Doors:
+                ✔ Make doors move players and change room bounds @done(20-07-24 03:17)
+                Next (post demo 1):
+                    ☐ Make doors trigger from stairs
+                    ☐ Make enemies not spawn while door animation is playing
 
-                The method is called physics overlap. https://docs.unity3d.com/ScriptReference/Physics2D.BoxCast.html
-                Using this cast create a box cast that generates an array of collisions, iterate through the array for actions to take, then take those actions.
+        Stairs:
+            When rewriting the stair controller in the future, adjustments will need to be made to check player idle, as I'm fairly certain that both 
+            STAIR STATE and isClimbing are always the same state, and only one needs to be used.
+            Post Demo 1:
+                ☐ Polish Stair Controller
 
-                Similar to the casting in PhysicsObject class. Should be straight forward since I effectively created this myself.
-                There are 3 ways I can think of to fix this
-                    1) use the unity animator and have 2 different 'attack' animations , one facing left and the other facing right [More states for that web I linked] (no extra calls in my scripts, but a more complex animator, and I have no clue what the performance cost here is)
-                    2) programatically flip xscale of the hit box from 1 to -1 to reverse the whip hitboxes. (2 extra calls everytime the player flips)
-                    3) make the AttackController instantiate/destroy the whipbox as a child object on each attack. This is the most complex, but likely the most correct as well. As this removes the responsibilty of animation hitboxes from the animator, which isn't a responsibility it should have.
-            ✔ Player bounces when whipping a wall. @done(20-07-30 02:16) BANDAID APPLIED
-                This one drove me and Osteel bonkers. Bandaid fix follows
-                    So the issue was not your whip hitting the colliders, not in the way we were thinking. Having it set to a trigger in the prefab was fine and it was not causing collisions as expected.
-                    However, if we look at the PhysicsObject script ...
-                    There's the movement function which is called a few times, and also overriden once. I'm not sure why.
-                    
-                    But anyway, what's important is the how this script determines where to position the object. It creates a list called hitBufferList which it populates with colliders in the scene around the object. It determine this by using the Cast method on the rigidbody, a built in method of the component.
-                    If we look at the documentation for it
-                    https://docs.unity3d.com/ScriptReference/Rigidbody2D.Cast.html "All the Collider2D shapes attached to the Rigidbody2D are cast into the Scene starting at each Collider position ignoring the Colliders attached to the same Rigidbody2D."
+        New Objects (post demo 1):
+            Door:
+                ☐ create door object
+                ☐ create door animation
+                ☐ change door transition timer to door animation length
+                ☐ make sure door transition also stops all enemy movement/spawning until the animation is complete
+                    ^ is likely best done using a variable in the level editor that wraps the entire enemy loop and enabling/disabling it
+        
+        Movement Notes:
+            So, when making something move in the x direction you have to set it's targetVelocity, when moving in the y direction, regular velocity is fine.
 
-                    how to fix it in the games current state
-                    The best workaround solution I could come up with is to simply not child your whip collider into the player.
-                    
-                    var playerWhipHitbox = Instantiate(playerController.GetWhipHitbox(), transform.position, Quaternion.identity);
+        New Animations (post demo 1):
+            ☐ Player sub weapon/spell start
+                ☐ animations/objects for each sub weapon
+                ☐ collision effects for each sub weapon
+            ☐ Door walk animation
+            Possibly just a regular walk cycle but slower?
 
-                    And instead just position it at the player.
-
-                    look into this
-                        https://docs.unity3d.com/ScriptReference/Physics2D.BoxCast.html
-            ✔ When killing an enemy the same frame they hit me, there is a null reference exception thrown by the damage enemy script. @done(20-08-03 04:18)
-            ✔ Damage Enemy is being called twice when the player hits the enemy with a whip. @done(20-08-03 04:18)
-                both fixed by adding a bool to enemycontroller and checking if the enemy was already hurt before doing damage.
-            ✔ Player sometimes still does damage while hurt, typically from being hurt after the whip box is spawned. This might be fixed by fixing the above bug. @done(20-08-06 05:02)
-                This was resolved by changing the hit detection system. Now using boxoverlap.
-            ✔ Enemies take damage each frame they are in a box overlap. @done(20-08-07 00:20)
-            Simply add a check to the take damage function using a bool that resets in a coroutine after a like 100ms have passed. This will help for continues damage weapons like fire or tornados as well.
-
-
+    
     July 25:
         - Did a lot of work on animations. Switched to the Unity animator. Wish I'd taken more notes.
     July 26:
