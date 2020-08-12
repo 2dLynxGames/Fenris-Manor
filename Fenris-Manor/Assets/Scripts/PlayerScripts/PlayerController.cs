@@ -22,8 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject player; 
     public Animator playerAnimator;
-    public Collider2D baseWhipHitbox;
-    public Collider2D upgradedWhipHitbox;
+    public SpriteRenderer spriteRenderer;
     public AudioSource whipSound;
     public AudioSource hurtSound;
     
@@ -86,6 +85,7 @@ public class PlayerController : MonoBehaviour
     void Awake(){
         player = GameObject.Find("Player");
         playerAnimator = player.GetComponent<Animator>();
+        spriteRenderer = player.GetComponent<SpriteRenderer>();
         whipDamage = DetermineWhipDamage(whipLevel);
         whipLength = DetermineWhipLength(whipLevel);
         health = startingHealth;
@@ -264,5 +264,13 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSecondsRealtime(flashDuration / (numFlashes * 2f));
         }
         player.GetComponent<SpriteRenderer>().material.color = Color.white;
+    }
+
+    public void FlipSprite(int directionToMove) {
+        bool flipSprite = (spriteRenderer.flipX ? (directionToMove > 0) : (directionToMove < 0));
+        if (flipSprite) {
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+            FlipFacing();
+        }
     }
 }
