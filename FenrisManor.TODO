@@ -6,7 +6,7 @@
 
 Round 2 dev:
     Requirements for v0.2 Release:
-        ☐ Stair Controller
+        ✔ Stair Controller @done(20-08-11 20:24)
         ✔ Improved Camera for less jarring transitions @done(20-08-06 05:35)
         ✔ Improved Attack Controller @done(20-08-06 05:35)
         ☐ Merman
@@ -21,7 +21,8 @@ Round 2 dev:
                 ✔ Pressing up climbs up the stairs, down climbs down the stairs. @done(20-08-10 23:45)
                 ✔ Pressing left or right moves the proper direction up or down the stairs @done(20-08-10 17:49)
                 ✔ Leave the staircase by reaching the top or bottom trigger @done(20-08-10 17:49)
-                ☐ Flip the sprite when switching directions or entering from the 'wrong' direction
+                ✔ Flip the sprite when switching directions or entering from the 'wrong' direction @done(20-08-11 20:23)
+
                 Jumping on stairs:
                     This might not be added until v0.3 depending on how I decide to implement it. A few questions to ask players.
                     if jumping on stairs, :
@@ -29,12 +30,8 @@ Round 2 dev:
                         2) do you want to always land on the stairs you jumped from (if not entering above) or would you rather fall to the floor?
                     ☐ Jump and enter the stairs
                     ☐ Jump and leave the stairs early
-                
-            ☐ Player can walk up/down the stairs
-            ☐ Can jump and fall off stairs
-            ☐ Can jump onto the stairs
 
-            If we want the player to jsut hold up or hold down to move up or down a full staircase, but not hold up or down and instantly leave from the other end, we need to check which direction they are entering from and then allow movements properly. (This is a potential polishing step for a later version if the players want it.)
+            If we want the player to just hold up or hold down to move up or down a full staircase, but not hold up or down and instantly leave from the other end, we need to check which direction they are entering from and then allow movements properly. (This is a potential polishing step for a later version if the players want it.)
 
             Request feedback on stairclimb animation
         
