@@ -111,6 +111,9 @@ public class PlayerStairController : MonoBehaviour
                 targetPos = DeterminePlayerTarget(triggerStep, -0.25f, 0.5f);
             }
         }
+
+        FlipOnStairs(targetPos.x);
+
         player.GetComponent<PhysicsObject>().enabled = false;
         runAfterMoving = RunAfterMovingToStairs;
         StartCoroutine(MovePlayer(targetPos, transitionSpeed));
@@ -127,6 +130,8 @@ public class PlayerStairController : MonoBehaviour
         //target.y is determined by move direction and stair direction
         //target.y is the same as stair direction on right and inverted on left
         targetPos.y = playerPos.y + moveYOnStairs(directionToMove, stairDirection);
+
+        FlipOnStairs(targetPos.x);
         
         if ((!isMovingToStairs || !isMovingOffStairs) && CheckBound(targetPos.x, directionToMove, stairDirection) == 0) {
             runAfterMoving = RunAfterMovingOnStairs;
@@ -254,5 +259,15 @@ public class PlayerStairController : MonoBehaviour
 
     Vector2 DeterminePlayerTarget(GameObject triggerStep, float xOffset, float yOffset) {
         return new Vector2(triggerStep.transform.position.x + xOffset, triggerStep.transform.position.y + yOffset);
+    }
+
+    void FlipOnStairs(float targetPosX) {
+        if (targetPosX > playerPos.x) {
+            // player needs to face right
+            levelManager.playerController.FlipSprite(1);
+        } else if (targetPosX < playerPos.x) {
+            // player needs to face left
+            levelManager.playerController.FlipSprite(-1);
+        }
     }
 }
