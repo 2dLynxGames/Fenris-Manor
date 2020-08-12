@@ -31,7 +31,11 @@ public class PlayerPlatformerController : PhysicsObject
         if (velocity.x != 0 && playerController.GetStairState() != PlayerController.STAIR_STATE.on_stair) {
             playerController.playerAnimator.SetFloat("velocityX", Mathf.Abs(velocity.x));
             if (!playerController.GetIsHurt()) {
-                FlipSprite();
+                if (velocity.x > 0) {
+                    playerController.FlipSprite(1);
+                } else if (velocity.x < 0) {
+                    playerController.FlipSprite(-1);
+                }
             }
         }
         if (playerController.GetIsIdle() && Input.GetButton("Crouch")){
@@ -82,16 +86,4 @@ public class PlayerPlatformerController : PhysicsObject
             targetVelocity = move * playerController.GetKnockbackForce();
         }
     }
-
-    /*
-     * refactor this into player controller to avoid duplication
-    */
-    public void FlipSprite() {
-        bool flipSprite = (spriteRenderer.flipX ? (velocity.x > 0.01f) : (velocity.x < 0.01f));
-        if (flipSprite) {
-            spriteRenderer.flipX = !spriteRenderer.flipX;
-            playerController.FlipFacing();
-        }
-    }
-
 }
