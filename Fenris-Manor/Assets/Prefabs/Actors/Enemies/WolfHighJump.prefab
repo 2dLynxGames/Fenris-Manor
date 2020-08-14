@@ -109,6 +109,8 @@ MonoBehaviour:
   maxHealth: 1
   damage: 1
   moveSpeed: 10
+  deathParticles: {fileID: 6707924561923168701, guid: 33c2b51b5a3d4034f93dfd8900fdae3c,
+    type: 3}
   wakeDistance: 6
   turnAroundDistance: 12
   jumpStrength: 12

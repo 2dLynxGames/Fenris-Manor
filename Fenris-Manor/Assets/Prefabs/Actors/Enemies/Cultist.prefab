@@ -127,6 +127,8 @@ MonoBehaviour:
   maxHealth: 1
   damage: 1
   moveSpeed: 5
+  deathParticles: {fileID: 6707924561923168701, guid: 33c2b51b5a3d4034f93dfd8900fdae3c,
+    type: 3}
 --- !u!50 &6704199712850528801
 Rigidbody2D:
   serializedVersion: 4
