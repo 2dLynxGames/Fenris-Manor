@@ -11,7 +11,7 @@ Round 2 dev:
         ✔ Improved Attack Controller @done(20-08-06 05:35)
         ☐ Merman
         ☐ Bat
-        ☐ Breakable candles
+        ✔ Breakable candles @done(20-08-14 03:52)
         ☐ basic drops (ammo/points/whip upgrades)
 
         Stair Controller:
@@ -50,11 +50,11 @@ Round 2 dev:
             ☐ Fly directly towards player
 
         Candles:
-            ☐ Breakable by whip
-                ☐ Whip currently only cares about enemies, figure out how contact layer can change this.
+            ✔ Breakable by whip @done(20-08-14 03:52)
+                ✔ Whip currently only cares about enemies, figure out how contact layer can change this. @done(20-08-14 03:52)
 
         Drops:
-            ☐ Create drop icons for ammo and points
+            ✔ Create drop icons for ammo and points @done(20-08-14 04:20)
             ☐ Implement a basic drop table
 
     
@@ -131,7 +131,7 @@ Round 2 dev:
         Bonus goals:
             ✔ Sound @done(20-08-03 04:20)
             ✔ Music @done(20-08-03 04:20)
-            ☐ Death Animation for enemies
+            ✔ Death Animation for enemies @done(20-08-14 03:53)
             ☐ Shitty hud to show player damage is real.
             
         Player Movement:
