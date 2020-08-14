@@ -5,6 +5,8 @@
 'Cmd/Ctrl+Shift+A' // Triggers  `Todo: Archive`
 
 Round 2 dev:
+    Find examples for this: https://docs.unity3d.com/Manual/class-ScriptableObject.html
+        This might save memory and be a better practice than our current enemy spawner system.
     Requirements for v0.2 Release:
         ✔ Stair Controller @done(20-08-11 20:24)
         ✔ Improved Camera for less jarring transitions @done(20-08-06 05:35)
