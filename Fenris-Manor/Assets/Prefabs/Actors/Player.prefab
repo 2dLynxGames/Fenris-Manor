@@ -70,7 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a032c7f03247f4d960ea02958e242e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionSpeed: 1
+  transitionSpeed: 2
+  climbSpeed: 10
 --- !u!1 &1323938216396014
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,7 +88,6 @@ GameObject:
   - component: {fileID: 9026572747746677988}
   - component: {fileID: 294756219}
   - component: {fileID: 462093325}
-  - component: {fileID: 7045695331104580279}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -217,10 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerAnimator: {fileID: 0}
-  baseWhipHitbox: {fileID: 1777001331932791240, guid: 9743e1c2ed69cd248b6116b2961c41ea,
-    type: 3}
-  upgradedWhipHitbox: {fileID: 6196507281415828997, guid: e73bfbcdbbf69fc438538b5a6d15277f,
-    type: 3}
+  spriteRenderer: {fileID: 0}
   whipSound: {fileID: 7984073215529852845}
   hurtSound: {fileID: 1996792171672974451}
   knockbackForce: 5
@@ -268,24 +265,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408d2a873b9121f43b765a0078faee5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerMask:
+  enemyMask:
     serializedVersion: 2
-    m_Bits: 1024
---- !u!114 &7045695331104580279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1323938216396014}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 408d2a873b9121f43b765a0078faee5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerMask:
+    m_Bits: 0
+  breakableMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
 --- !u!1 &269614227725875838
 GameObject:
   m_ObjectHideFlags: 0
