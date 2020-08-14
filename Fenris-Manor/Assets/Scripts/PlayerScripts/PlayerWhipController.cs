@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PlayerWhipController : MonoBehaviour
 {
-    public LayerMask layerMask;
+    public LayerMask enemyMask;
+    public LayerMask breakableMask;
+    private LayerMask layerMask;
 
     private PlayerController playerController;
     private Vector2 point;
     private Vector2 size;
     private ContactFilter2D contactFilter;
-    private List<Collider2D> enemiesHit = new List<Collider2D>(16);
+    private List<Collider2D> objectsHit = new List<Collider2D>(16);
 
 
     void Awake() {
@@ -18,6 +20,7 @@ public class PlayerWhipController : MonoBehaviour
 
         size  = new Vector2(playerController.GetWhipLength(), playerController.GetWhipHeight());
 
+        layerMask = enemyMask | breakableMask;
         contactFilter.useTriggers = false;
         contactFilter.SetLayerMask(layerMask);
         contactFilter.useLayerMask = true;
@@ -27,10 +30,15 @@ public class PlayerWhipController : MonoBehaviour
 
         point = SetPoint();
 
-        Physics2D.OverlapBox(point, size, 0f, contactFilter, enemiesHit);
+        Physics2D.OverlapBox(point, size, 0f, contactFilter, objectsHit);
 
-        foreach (var enemy in enemiesHit) {
-            enemy.GetComponentInParent<EnemyController>().TakeDamage(playerController.GetWhipDamage());
+        foreach (var objectHit in objectsHit) {
+            if (objectHit.tag == "Enemy") {
+                objectHit.GetComponentInParent<EnemyController>().TakeDamage(playerController.GetWhipDamage());
+            } else if (objectHit.tag == "Breakable") {
+                Debug.Log("I hit a candle");
+                objectHit.GetComponent<DestroyBreakable>().DestroyObject();
+            }
         }
     }
 
@@ -53,10 +61,10 @@ public class PlayerWhipController : MonoBehaviour
     void DebugStuff() {
         Color rayColor;
 
-        if (enemiesHit.Count != 0) {
+        if (objectsHit.Count != 0) {
             rayColor = Color.green;
-            Debug.Log(enemiesHit.Count);
-            foreach (var enemy in enemiesHit) {
+            Debug.Log(objectsHit.Count);
+            foreach (var enemy in objectsHit) {
                 Debug.Log(enemy.name);
             }
         } else {
