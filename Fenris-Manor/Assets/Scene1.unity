@@ -22907,13 +22907,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1840385416, guid: b9b038cc316e0114f8cd73acda3551c7, type: 3}
-      propertyPath: transitionSpeed
-      value: 2
+    - target: {fileID: 462093325, guid: b9b038cc316e0114f8cd73acda3551c7, type: 3}
+      propertyPath: enemyMask.m_Bits
+      value: 1024
       objectReference: {fileID: 0}
-    - target: {fileID: 1840385416, guid: b9b038cc316e0114f8cd73acda3551c7, type: 3}
-      propertyPath: climbSpeed
-      value: 10
+    - target: {fileID: 462093325, guid: b9b038cc316e0114f8cd73acda3551c7, type: 3}
+      propertyPath: breakableMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 1323938216396014, guid: b9b038cc316e0114f8cd73acda3551c7, type: 3}
       propertyPath: m_Name
@@ -34844,6 +34844,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1144737015 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 128621510442961482, guid: b0d42dc6f38b4f44d912e842ec8b8d9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 62357697}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1144737020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144737015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd57a459756e384785f3d046d03e010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1146070184
 GameObject:
   m_ObjectHideFlags: 0
@@ -66343,7 +66361,7 @@ PrefabInstance:
     - target: {fileID: 734154557723368607, guid: 4a3f135f132df7144bf91c30dcca32d9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.730665
+      value: 21.715385
       objectReference: {fileID: 0}
     - target: {fileID: 734154557723368607, guid: 4a3f135f132df7144bf91c30dcca32d9,
         type: 3}
@@ -71138,7 +71156,7 @@ PrefabInstance:
     - target: {fileID: 7034542542174422921, guid: ccc4d75cb251b2244b7d16eec937688a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.2692
+      value: 15.264616
       objectReference: {fileID: 0}
     - target: {fileID: 7034542542174422921, guid: ccc4d75cb251b2244b7d16eec937688a,
         type: 3}
