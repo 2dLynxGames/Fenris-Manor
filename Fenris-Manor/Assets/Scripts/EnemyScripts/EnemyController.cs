@@ -20,6 +20,7 @@ public class EnemyController : PhysicsObject
     public int maxHealth = 1;
     public int damage = 1;
     public float moveSpeed;
+    public GameObject deathParticles;
 
     protected LevelManager levelManager;    
     protected SpriteRenderer spriteRenderer;
@@ -100,6 +101,7 @@ public class EnemyController : PhysicsObject
             if (enemySpawner = gameObject.GetComponentInParent<SpawnEnemy>())
                 enemySpawner.EnemyKilled();
             levelManager.destroyEnemySound.Play();
+            Instantiate(deathParticles, new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-1f, 1f)), transform.rotation);
             Destroy(gameObject);
         }
     }
