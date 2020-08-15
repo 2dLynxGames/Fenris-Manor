@@ -163,15 +163,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8192
-  maxHealth: 1
-  damage: 1
-  moveSpeed: 10
-  deathParticles: {fileID: 6707924561923168701, guid: 33c2b51b5a3d4034f93dfd8900fdae3c,
-    type: 3}
-  wakeDistance: 6
-  turnAroundDistance: 12
-  jumpStrength: 6
-  moveSpeedMultiplier: 1.2
+  wolfData: {fileID: 11400000, guid: f0f710f99397b994f9c73cde63f634bb, type: 2}
 --- !u!114 &7845027965629143526
 MonoBehaviour:
   m_ObjectHideFlags: 0

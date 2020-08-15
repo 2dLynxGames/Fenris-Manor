@@ -4,23 +4,21 @@ using UnityEngine;
 
 public class WolfController : EnemyController
 {
-    public float wakeDistance;
-    public float turnAroundDistance;
-    public float jumpStrength;
-    public float moveSpeedMultiplier = 1.2f;
-
     private Animator wolfAnimator;
     private Vector3 awakePosition;
 
     private bool isAwake = false;
     private bool hasTurned = false;
     private bool hasJumped = false;
+    
+    public WolfData wolfData;
 
     protected override void Awake() {
         base.Awake();
 
         awakePosition = transform.position;
         wolfAnimator = GetComponent<Animator>();
+        enemyData = wolfData;
     }
 
     void Start() {
@@ -42,13 +40,13 @@ public class WolfController : EnemyController
     protected override void ComputeVelocity() {
         if (isAwake) {
             if (!hasJumped) {
-                rb2d.velocity = Vector2.up * jumpStrength;
+                rb2d.velocity = Vector2.up * wolfData.jumpStrength;
                 hasJumped = true;
             }
             if (hasTurned) {
-                targetVelocity = move * moveSpeed * moveSpeedMultiplier;
+                targetVelocity = move * wolfData.moveSpeed * wolfData.moveSpeedMultiplier;
             } else {
-                targetVelocity = move * moveSpeed;
+                targetVelocity = move * wolfData.moveSpeed;
             }
         }
     }
@@ -61,14 +59,14 @@ public class WolfController : EnemyController
     }
 
     void WakeWolf() {
-        isAwake = Mathf.Abs(levelManager.playerController.transform.position.x - this.transform.position.x) <= wakeDistance;
+        isAwake = Mathf.Abs(levelManager.playerController.transform.position.x - this.transform.position.x) <= wolfData.wakeDistance;
         if (isAwake) {
             destroyObject.enabled = true;
         }
     }
 
     void TurnWolf() {
-        hasTurned = ((Mathf.Abs(Mathf.Abs(awakePosition.x) - Mathf.Abs(this.transform.position.x)) >= turnAroundDistance) && rb2d.velocity.y == 0);
+        hasTurned = ((Mathf.Abs(Mathf.Abs(awakePosition.x) - Mathf.Abs(this.transform.position.x)) >= wolfData.turnAroundDistance) && rb2d.velocity.y == 0);
         if (hasTurned) {
             ReverseMovement();
         }
