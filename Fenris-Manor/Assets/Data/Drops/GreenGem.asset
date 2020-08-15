@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294fee21e4646624887245477b4df352, type: 3}
+  m_Name: GreenGem
+  m_EditorClassIdentifier: 
+  dropName: Green Gem
+  weight: 75
+  sprite: {fileID: -8583475998539195964, guid: 8babeeec77f8fb3409bb398263a6db9a, type: 3}
+  points: 750

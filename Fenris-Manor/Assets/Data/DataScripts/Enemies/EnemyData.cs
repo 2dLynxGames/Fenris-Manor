@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenuAttribute()]
+[CreateAssetMenuAttribute(fileName = "EnemyData", menuName = "Scriptables/Enemies/Generic", order=-1000)]
 public class EnemyData : ScriptableObject
 {
     public float moveSpeed;

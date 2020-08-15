@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenuAttribute()]
+[CreateAssetMenuAttribute(fileName = "WolfData", menuName = "Scriptables/Enemies/Wolf", order=-998)]
 public class WolfData : EnemyData
 {
     public float wakeDistance;
