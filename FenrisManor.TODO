@@ -58,6 +58,10 @@ Round 2 dev:
         Drops:
             ✔ Create drop icons for ammo and points @done(20-08-14 04:20)
             ☐ Implement a basic drop table
+                Point drops have been created as a scriptable object. Create a new scriptable object that is a list of scriptable objects.
+                There will likely be 2 list types, power-ups/subweapons and points.
+                An object can be scripted to drop an individual item or a random item picked from one of those lists.
+                
 
     
         
