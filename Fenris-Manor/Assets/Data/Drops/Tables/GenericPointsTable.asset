@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a977f5f93cb083478471c34d30eb90a, type: 3}
   m_Name: GenericPointsTable
   m_EditorClassIdentifier: 
-  dropTable: []
+  dropTable:
+  - {fileID: 11400000, guid: 9d99ae92bd0b7b8448c32d227eff6cc8, type: 2}
+  - {fileID: 11400000, guid: d49a854f9f5810a49adffe97cb37dd38, type: 2}
+  - {fileID: 11400000, guid: 8e9d8421888c6e444929ee5fc9c6ae57, type: 2}
+  - {fileID: 11400000, guid: 8840f8d32c0cdc84183e7a5a9a342e71, type: 2}
+  - {fileID: 11400000, guid: 77c11e2c3001d9546873bf43892256dc, type: 2}
+  - {fileID: 11400000, guid: 0029d602119dcb649a9c4b589613d718, type: 2}
+  - {fileID: 11400000, guid: 1e3bffca0e06b6c49b29d6e341be880a, type: 2}
+  - {fileID: 11400000, guid: e80165a2115e1774fa1be8a9c4e8e34e, type: 2}
