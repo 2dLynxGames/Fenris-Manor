@@ -62,7 +62,6 @@ public class PlayerWhipController : MonoBehaviour
 
         if (objectsHit.Count != 0) {
             rayColor = Color.green;
-            Debug.Log(objectsHit.Count);
             foreach (var enemy in objectsHit) {
                 Debug.Log(enemy.name);
             }
