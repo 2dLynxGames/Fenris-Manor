@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public SpawnEnemy[] enemies;
     public CameraController sceneCamera;
     public AudioSource destroyEnemySound;
+    public int points = 0;
 
     // Start is called before the first frame update
     void Awake()
@@ -27,5 +28,9 @@ public class LevelManager : MonoBehaviour
         foreach (var enemy in enemies) {
             enemy.gameObject.SetActive(state);
         }
+    }
+
+    public void AddPoints(int pointsToAdd) {
+        points += pointsToAdd;
     }
 }

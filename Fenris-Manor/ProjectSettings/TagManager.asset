@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Terrain
   - Stairs
-  - PlayerDrop
   - Trigger
   - PlayerFeet
   - Weapon
@@ -14,6 +13,8 @@ TagManager:
   - Breakable
   - Hitbox
   - Room
+  - Drop
+  - PlayerDrop
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - 
   - 
   - Player
-  - PlayerDrop
+  - Drop
   - Enemy
   - Breakable
   - Stairs
@@ -34,7 +35,7 @@ TagManager:
   - Feet
   - Weapon
   - Room
-  - 
+  - Collider
   - 
   - 
   - 

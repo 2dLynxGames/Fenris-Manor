@@ -36,7 +36,6 @@ public class PlayerWhipController : MonoBehaviour
             if (objectHit.tag == "Enemy") {
                 objectHit.GetComponentInParent<EnemyController>().TakeDamage(playerController.GetWhipDamage());
             } else if (objectHit.tag == "Breakable") {
-                Debug.Log("I hit a candle");
                 objectHit.GetComponent<DestroyBreakable>().DestroyObject();
             }
         }
@@ -63,7 +62,6 @@ public class PlayerWhipController : MonoBehaviour
 
         if (objectsHit.Count != 0) {
             rayColor = Color.green;
-            Debug.Log(objectsHit.Count);
             foreach (var enemy in objectsHit) {
                 Debug.Log(enemy.name);
             }

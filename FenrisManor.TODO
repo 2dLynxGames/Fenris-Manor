@@ -57,12 +57,18 @@ Round 2 dev:
 
         Drops:
             ✔ Create drop icons for ammo and points @done(20-08-14 04:20)
+            ✔ Items drop from candles, but aren't randomized @created(20-08-16 04:01) @done(20-08-16 04:02)
             ☐ Implement a basic drop table
+                Point drops have been created as a scriptable object. Create a new scriptable object that is a list of scriptable objects.
+                There will likely be 2 list types, power-ups/subweapons and points.
+                An object can be scripted to drop an individual item or a random item picked from one of those lists.
+                
 
     
         
         BUGS:
             ☐ Enemies should despawn when they get too far ahead of the player or when the player moves to a new screen.
+            ☐ Candles don't break immediately, there's a rather long delay, figure out why @created(20-08-16 04:02)
             
             Fixed Bugs:
                 ✔ Player sometimes can't reenter the staircase after leaving it. @done(20-08-10 23:31)

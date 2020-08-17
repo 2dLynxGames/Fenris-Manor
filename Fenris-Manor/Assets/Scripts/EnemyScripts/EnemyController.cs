@@ -17,10 +17,7 @@ public class EnemyController : PhysicsObject
         right
     }
 
-    public int maxHealth = 1;
-    public int damage = 1;
-    public float moveSpeed;
-    public GameObject deathParticles;
+    protected EnemyData enemyData;
 
     protected LevelManager levelManager;    
     protected SpriteRenderer spriteRenderer;
@@ -31,7 +28,6 @@ public class EnemyController : PhysicsObject
     protected DestroyObjectOverTime destroyObject;
     
     protected bool isHurt;
-
     protected int currentHealth;
 
     protected override void Awake() {
@@ -45,7 +41,11 @@ public class EnemyController : PhysicsObject
         resetObject = GetComponent<ResetObject>();
         destroyObject.enabled = false;
 
-        currentHealth = maxHealth;
+        
+    }
+
+    void Start() {
+        currentHealth = enemyData.health;
     }
 
     public bool GetIsHurt(){ return isHurt; }
@@ -61,7 +61,7 @@ public class EnemyController : PhysicsObject
     }
 
     public void DealDamage() {
-        levelManager.playerController.TakeDamage(damage);
+        levelManager.playerController.TakeDamage(enemyData.damageToDo);
     }
 
 
@@ -101,7 +101,7 @@ public class EnemyController : PhysicsObject
             if (enemySpawner = gameObject.GetComponentInParent<SpawnEnemy>())
                 enemySpawner.EnemyKilled();
             levelManager.destroyEnemySound.Play();
-            Instantiate(deathParticles, new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-1f, 1f)), transform.rotation);
+            Instantiate(enemyData.death, new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-1f, 1f)), transform.rotation);
             Destroy(gameObject);
         }
     }
