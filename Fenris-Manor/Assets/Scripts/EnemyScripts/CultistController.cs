@@ -5,7 +5,6 @@ using UnityEngine;
 public class CultistController : EnemyController
 {
     public CultistData cultistData;
-    private bool isAwake = false;
 
     private Animator cultistAnimator;
     

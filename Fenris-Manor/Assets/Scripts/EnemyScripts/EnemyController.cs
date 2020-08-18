@@ -26,7 +26,8 @@ public class EnemyController : PhysicsObject
     protected ResetObject resetObject;
     protected SpawnEnemy enemySpawner;
     protected DestroyObjectOverTime destroyObject;
-    
+
+    protected bool isAwake = false;    
     protected bool isHurt;
     protected int currentHealth;
 
@@ -103,6 +104,13 @@ public class EnemyController : PhysicsObject
             levelManager.destroyEnemySound.Play();
             Instantiate(enemyData.death, new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-1f, 1f)), transform.rotation);
             Destroy(gameObject);
+        }
+    }
+
+    protected void WakeEnemy(float wakeDistance) {
+        isAwake = Mathf.Abs(levelManager.playerController.transform.position.x - this.transform.position.x) <= wakeDistance;
+        if (isAwake) {
+            destroyObject.enabled = true;
         }
     }
 
