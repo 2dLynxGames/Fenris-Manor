@@ -23,7 +23,6 @@ public class EnemyController : PhysicsObject
     protected SpriteRenderer spriteRenderer;
     protected MOVE_DIRECTION moveDirection;
     protected Vector2 move;
-    protected ResetObject resetObject;
     protected SpawnEnemy enemySpawner;
     protected DestroyObjectOverTime destroyObject;
 
@@ -39,7 +38,6 @@ public class EnemyController : PhysicsObject
         rb2d = GetComponent<Rigidbody2D>();
         
         destroyObject = GetComponent<DestroyObjectOverTime>();
-        resetObject = GetComponent<ResetObject>();
         destroyObject.enabled = false;
 
         
