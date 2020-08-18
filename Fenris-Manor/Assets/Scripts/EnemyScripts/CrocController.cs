@@ -6,12 +6,18 @@ public class CrocController : EnemyController
 {
     public CrocData crocData;
 
-    public bool hasFired = false;
+    private Animator crocAnimator;
+
+    private bool hasFired = false;
+    private bool hasJumped = false;
+    private bool resetFacing = true;
 
     protected override void Awake() {
         base.Awake();
 
+
         enemyData = crocData;
+        crocAnimator = GetComponent<Animator>();
     }
 
     void Start() {
@@ -19,33 +25,72 @@ public class CrocController : EnemyController
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    protected override void Update() {
+        base.Update();
+
         if (isAwake) {
-            if (isGrounded && !hasFired) {
+            if (!hasFired && rb2d.velocity.y == 0) {
                 StartCoroutine(ShootFireball());
             }
         } else {
             WakeEnemy(crocData.wakeDistance);
         }
+
+        if (rb2d.velocity.y < -0.1f) {
+            actorFeetCollider.enabled = true;
+        }
+
+        if (resetFacing) {
+            StartCoroutine(ResetFacing());
+        }
+    }
+
+    protected override void ComputeVelocity() {
+        if (isAwake) {
+            if (!hasJumped) {
+                actorFeetCollider.enabled = false;
+                rb2d.velocity = Vector2.up * crocData.jumpStrength;
+                hasJumped = true;
+            }
+        }
+    }
+
+    protected override void AnimateActor() {
+        
     }
 
     IEnumerator ShootFireball() {
         hasFired = true;
-        var fireball = Instantiate(crocData.fireball);
+        var fireball = Instantiate(crocData.fireball, new Vector2(transform.position.x, transform.position.y + 0.25f), transform.rotation);
         MoveProjectileLinearly(fireball);
 
         yield return new WaitForSecondsRealtime(Random.Range(1f, 2f));
 
-        hasFired = true;
+        hasFired = false;
     }
 
     void MoveProjectileLinearly(GameObject projectile) {
+        SpriteRenderer projectileSprite = projectile.GetComponent<SpriteRenderer>();
         if (moveDirection == MOVE_DIRECTION.left) {
-            rb2d.AddForce(Vector2.left * crocData.projectileSpeed);
+            projectile.GetComponent<Rigidbody2D>().AddForce(Vector2.left * crocData.projectileSpeed);
+                if (!projectileSprite.flipX) {
+                    projectileSprite.flipX = true;
+                }
         } else {
-            rb2d.AddForce(Vector2.right * crocData.projectileSpeed);
+            projectile.GetComponent<Rigidbody2D>().AddForce(Vector2.right * crocData.projectileSpeed);
+                if (projectileSprite.flipX) {
+                    projectileSprite.flipX = false;
+                }
         }
+    }
+
+    IEnumerator ResetFacing() {
+        resetFacing = false;
+        SetMovement();
+
+        yield return new WaitForSecondsRealtime(3f);
+
+        resetFacing = true;
     }
 
 }
