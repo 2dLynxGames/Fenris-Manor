@@ -18,6 +18,8 @@ public class CrocController : EnemyController
 
         enemyData = crocData;
         crocAnimator = GetComponent<Animator>();
+
+        currentHealth = crocData.health;
     }
 
     void Start() {

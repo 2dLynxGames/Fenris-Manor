@@ -18,6 +18,8 @@ public class WolfController : EnemyController
         awakePosition = transform.position;
         wolfAnimator = GetComponent<Animator>();
         enemyData = wolfData;
+
+        currentHealth = wolfData.health;
     }
 
     void Start() {
