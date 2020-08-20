@@ -37,14 +37,8 @@ public class EnemyController : PhysicsObject
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb2d = GetComponent<Rigidbody2D>();
         
-        destroyObject = GetComponent<DestroyObjectOverTime>();
-        destroyObject.enabled = false;
-
-        
-    }
-
-    void Start() {
-        currentHealth = enemyData.health;
+        if (destroyObject = GetComponent<DestroyObjectOverTime>())
+            destroyObject.enabled = false;
     }
 
     public bool GetIsHurt(){ return isHurt; }
@@ -121,4 +115,6 @@ public class EnemyController : PhysicsObject
         
         isHurt = false;
     }
+
+    public MOVE_DIRECTION GetMoveDirection() { return this.moveDirection; }
 }
