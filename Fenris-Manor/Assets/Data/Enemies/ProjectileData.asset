@@ -12,10 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae8ecee50a687094f951d53f0f9e365b, type: 3}
   m_Name: ProjectileData
   m_EditorClassIdentifier: 
-  moveSpeed: 100
-  death: {fileID: 0}
-  health: 1
-  gravityModifier: 1
-  damageToDo: 1
   damage: 1
-  projectileSpeed: 10
+  projectileSpeed: 350

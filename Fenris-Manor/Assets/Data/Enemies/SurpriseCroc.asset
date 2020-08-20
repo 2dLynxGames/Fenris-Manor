@@ -19,6 +19,5 @@ MonoBehaviour:
   damageToDo: 2
   jumpStrength: 20
   wakeDistance: 5
-  projectileSpeed: 200
-  fireball: {fileID: 5109152149574194648, guid: 6d97ca540a44f664bb91fa81d6750a5a,
+  fireball: {fileID: 2352270719745711888, guid: 0758302f8bf8b0c48ae5e5971b860913,
     type: 3}

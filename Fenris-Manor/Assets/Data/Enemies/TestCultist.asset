@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed24a65f29324334b96ed505d7d4d669, type: 3}
-  m_Name: CultistData
+  m_Name: TestCultist
   m_EditorClassIdentifier: 
   moveSpeed: 0
-  death: {fileID: 0}
-  health: 0
+  death: {fileID: 6707924561923168701, guid: 33c2b51b5a3d4034f93dfd8900fdae3c, type: 3}
+  health: 100
   gravityModifier: 1
   damageToDo: 0
