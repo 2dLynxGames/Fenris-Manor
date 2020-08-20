@@ -55,33 +55,19 @@ public class CrocController : EnemyController
         }
     }
 
-    protected override void AnimateActor() {
-        
-    }
-
     IEnumerator ShootFireball() {
         hasFired = true;
+        crocAnimator.SetBool("attacking", true);
         var fireball = Instantiate(crocData.fireball, new Vector2(transform.position.x, transform.position.y + 0.25f), transform.rotation);
-        MoveProjectileLinearly(fireball);
+        fireball.GetComponent<ProjectileController>().MoveProjectileLinearly(fireball, this);
 
-        yield return new WaitForSecondsRealtime(Random.Range(1f, 2f));
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        crocAnimator.SetBool("attacking", false);
+
+        yield return new WaitForSecondsRealtime(Random.Range(0.5f, 1.5f));
 
         hasFired = false;
-    }
-
-    void MoveProjectileLinearly(GameObject projectile) {
-        SpriteRenderer projectileSprite = projectile.GetComponent<SpriteRenderer>();
-        if (moveDirection == MOVE_DIRECTION.left) {
-            projectile.GetComponent<Rigidbody2D>().AddForce(Vector2.left * crocData.projectileSpeed);
-                if (!projectileSprite.flipX) {
-                    projectileSprite.flipX = true;
-                }
-        } else {
-            projectile.GetComponent<Rigidbody2D>().AddForce(Vector2.right * crocData.projectileSpeed);
-                if (projectileSprite.flipX) {
-                    projectileSprite.flipX = false;
-                }
-        }
     }
 
     IEnumerator ResetFacing() {

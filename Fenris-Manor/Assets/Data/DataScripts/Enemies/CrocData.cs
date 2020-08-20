@@ -7,6 +7,5 @@ public class CrocData : EnemyData
 {
     public float jumpStrength;
     public float wakeDistance;
-    public float projectileSpeed;
     public GameObject fireball;
 }
