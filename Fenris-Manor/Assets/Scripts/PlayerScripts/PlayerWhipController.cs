@@ -6,6 +6,7 @@ public class PlayerWhipController : MonoBehaviour
 {
     public LayerMask enemyMask;
     public LayerMask breakableMask;
+    public LayerMask projectileMask;
     private LayerMask layerMask;
 
     private PlayerController playerController;
@@ -20,10 +21,11 @@ public class PlayerWhipController : MonoBehaviour
 
         size  = new Vector2(playerController.GetWhipLength(), playerController.GetWhipHeight());
 
-        layerMask = enemyMask | breakableMask;
+        layerMask = enemyMask | breakableMask | projectileMask;
         contactFilter.useTriggers = false;
         contactFilter.SetLayerMask(layerMask);
         contactFilter.useLayerMask = true;
+        Debug.Log(contactFilter.layerMask.value);
     }
 
     void FixedUpdate() {
@@ -31,12 +33,15 @@ public class PlayerWhipController : MonoBehaviour
         point = SetPoint();
 
         Physics2D.OverlapBox(point, size, 0f, contactFilter, objectsHit);
-
+        
         foreach (var objectHit in objectsHit) {
+            Debug.Log(objectHit.name);
             if (objectHit.tag == "Enemy") {
                 objectHit.GetComponentInParent<EnemyController>().TakeDamage(playerController.GetWhipDamage());
             } else if (objectHit.tag == "Breakable") {
                 objectHit.GetComponent<DestroyBreakable>().DestroyObject();
+            } else if (objectHit.tag == "Projectile") {
+                objectHit.GetComponent<ProjectileController>().DestroyProjectile();
             }
         }
     }
@@ -50,9 +55,9 @@ public class PlayerWhipController : MonoBehaviour
         }
         
         if (playerController.GetIsCrouching()) {
-            newPoint.y =  transform.position.y - playerController.GetCrouchReduction() + (playerController.GetWhipLength() / 2f);
+            newPoint.y =  transform.position.y - playerController.GetCrouchReduction() + (playerController.GetWhipHeight() / 2f);
         } else {
-            newPoint.y = transform.position.y + (playerController.GetWhipLength() / 2f);
+            newPoint.y = transform.position.y + (playerController.GetWhipHeight() / 2f);
         }
         return newPoint;
     }
