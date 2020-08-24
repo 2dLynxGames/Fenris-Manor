@@ -23,10 +23,10 @@ public class EnemyController : PhysicsObject
     protected SpriteRenderer spriteRenderer;
     protected MOVE_DIRECTION moveDirection;
     protected Vector2 move;
-    protected ResetObject resetObject;
     protected SpawnEnemy enemySpawner;
     protected DestroyObjectOverTime destroyObject;
-    
+
+    protected bool isAwake = false;    
     protected bool isHurt;
     protected int currentHealth;
 
@@ -37,15 +37,8 @@ public class EnemyController : PhysicsObject
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb2d = GetComponent<Rigidbody2D>();
         
-        destroyObject = GetComponent<DestroyObjectOverTime>();
-        resetObject = GetComponent<ResetObject>();
-        destroyObject.enabled = false;
-
-        
-    }
-
-    void Start() {
-        currentHealth = enemyData.health;
+        if (destroyObject = GetComponent<DestroyObjectOverTime>())
+            destroyObject.enabled = false;
     }
 
     public bool GetIsHurt(){ return isHurt; }
@@ -106,6 +99,13 @@ public class EnemyController : PhysicsObject
         }
     }
 
+    protected void WakeEnemy(float wakeDistance) {
+        isAwake = Mathf.Abs(levelManager.playerController.transform.position.x - this.transform.position.x) <= wakeDistance;
+        if (isAwake) {
+            destroyObject.enabled = true;
+        }
+    }
+
     // If time between attacks is changed, this number should change. However, this will only likely change once or twice (if ever) throughout development 
     // so hardcoding is fine.
     IEnumerator ResetIsHurt() {
@@ -115,4 +115,6 @@ public class EnemyController : PhysicsObject
         
         isHurt = false;
     }
+
+    public MOVE_DIRECTION GetMoveDirection() { return this.moveDirection; }
 }

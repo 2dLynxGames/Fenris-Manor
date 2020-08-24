@@ -34,7 +34,7 @@ public class PhysicsObject : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    void Update() {
+    protected virtual void Update() {
         targetVelocity = Vector2.zero;
         ComputeVelocity();
         AnimateActor();
@@ -72,11 +72,14 @@ public class PhysicsObject : MonoBehaviour {
 
     protected bool ObjectIsGrounded() {
         //Color rayColor;
-        Collider2D collider = Physics2D.OverlapBox(actorFeetCollider.bounds.center, actorFeetCollider.bounds.size, 0f, layerMask);
-        if (collider && collider.transform.position.y > transform.position.y) {
-            return false;
+        if(actorFeetCollider != null) {
+            Collider2D collider = Physics2D.OverlapBox(actorFeetCollider.bounds.center, actorFeetCollider.bounds.size, 0f, layerMask);
+            if (collider && collider.transform.position.y > transform.position.y) {
+                return false;
+            }
+            return collider;
         }
-        return collider;
+        return false;
 /*          if (raycastHit) {
             rayColor = Color.magenta;
         } else {

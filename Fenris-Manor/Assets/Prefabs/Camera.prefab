@@ -169,6 +169,7 @@ MonoBehaviour:
   enemies: []
   sceneCamera: {fileID: 0}
   destroyEnemySound: {fileID: 734154558753735049}
+  points: 0
 --- !u!82 &734154558030967323
 AudioSource:
   m_ObjectHideFlags: 0

@@ -11,10 +11,10 @@ Round 2 dev:
         ✔ Stair Controller @done(20-08-11 20:24)
         ✔ Improved Camera for less jarring transitions @done(20-08-06 05:35)
         ✔ Improved Attack Controller @done(20-08-06 05:35)
-        ☐ Merman
+        ✔ Merman @done(20-08-18 06:51)
         ☐ Bat
         ✔ Breakable candles @done(20-08-14 03:52)
-        ☐ basic drops (ammo/points/whip upgrades)
+        ✔ basic drops (ammo/points/whip upgrades) @done(20-08-18 06:51)
 
         Stair Controller:
             Things stairs need to do in order:
@@ -43,8 +43,12 @@ Round 2 dev:
             ✔ Use boxcast/box overlap @done(20-08-06 05:35)
         
         Merman:
-            ☐ Jump from off screen
-            ☐ Shoot projectile
+            ✔ Jump from off screen @done(20-08-18 06:46)
+            ✔ Shoot projectile @done(20-08-18 06:46)
+            Player currently cannot destroy projectiles with the whip, this should be done befoer pushing this build to the public.
+            If it proves to continue to be aproblem, then it can be saved for after this.
+
+
         
         Bat:
             ☐ Idle on screen
@@ -69,6 +73,13 @@ Round 2 dev:
         BUGS:
             ☐ Enemies should despawn when they get too far ahead of the player or when the player moves to a new screen.
             ☐ Candles don't break immediately, there's a rather long delay, figure out why @created(20-08-16 04:02)
+                This is a result of a bug within the attack script, since the attack script is being enabled/disabled when the attack animaiton starts/finishes there could be objects hit by the whip that don't have calculations applied.
+
+                Move these to a coroutine within the LevelManager, let the levelmanager calculate what gets done to objects hit by the whip.
+                
+                This is the culprit, I think
+
+                Found an issue with my current attack script. Which is.... the way I have it setup... it only runs, when the animator is playing the correct frames of the attack animation. But this doesn't work. Because it might still be calculating what to do with hits when it's turned off, and just doesn't do any of that. So I think I need to have it pass it's hitlist to the level manager and let the level manager calculate stuff
             
             Fixed Bugs:
                 ✔ Player sometimes can't reenter the staircase after leaving it. @done(20-08-10 23:31)

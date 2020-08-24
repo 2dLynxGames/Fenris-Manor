@@ -5,7 +5,6 @@ using UnityEngine;
 public class CultistController : EnemyController
 {
     public CultistData cultistData;
-    private bool isAwake = false;
 
     private Animator cultistAnimator;
     
@@ -14,6 +13,8 @@ public class CultistController : EnemyController
         base.Awake();
         cultistAnimator = GetComponent<Animator>();
         enemyData = cultistData;
+
+        currentHealth = cultistData.health;
     }
 
     void Start()

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b718d5384b5fa4a4093b511b1d3d30e3, type: 3}
+  m_Name: SurpriseCroc
+  m_EditorClassIdentifier: 
+  moveSpeed: 0
+  death: {fileID: 6707924561923168701, guid: 33c2b51b5a3d4034f93dfd8900fdae3c, type: 3}
+  health: 1
+  gravityModifier: 1
+  damageToDo: 2
+  jumpStrength: 20
+  wakeDistance: 5
+  fireball: {fileID: 2352270719745711888, guid: 0758302f8bf8b0c48ae5e5971b860913,
+    type: 3}

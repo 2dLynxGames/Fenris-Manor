@@ -7,7 +7,6 @@ public class WolfController : EnemyController
     private Animator wolfAnimator;
     private Vector3 awakePosition;
 
-    private bool isAwake = false;
     private bool hasTurned = false;
     private bool hasJumped = false;
     
@@ -19,6 +18,8 @@ public class WolfController : EnemyController
         awakePosition = transform.position;
         wolfAnimator = GetComponent<Animator>();
         enemyData = wolfData;
+
+        currentHealth = wolfData.health;
     }
 
     void Start() {
@@ -26,15 +27,14 @@ public class WolfController : EnemyController
     }
 
     // Update is called once per frame
-    void Update() {
+    protected override void Update() {
+        base.Update();
         if (!isAwake) {
-            WakeWolf();
+            WakeEnemy(wolfData.wakeDistance);
         }
         if (isAwake && !hasTurned) {
             TurnWolf();
         }
-        ComputeVelocity();
-        AnimateActor();
     }
     
     protected override void ComputeVelocity() {
@@ -51,17 +51,10 @@ public class WolfController : EnemyController
         }
     }
 
-    protected override void AnimateActor(){
+    protected override void AnimateActor() {
         wolfAnimator.SetFloat("velocityY", rb2d.velocity.y);
         if (rb2d.velocity.y == 0 && hasJumped) {
             wolfAnimator.SetBool("grounded", true);
-        }
-    }
-
-    void WakeWolf() {
-        isAwake = Mathf.Abs(levelManager.playerController.transform.position.x - this.transform.position.x) <= wolfData.wakeDistance;
-        if (isAwake) {
-            destroyObject.enabled = true;
         }
     }
 
