@@ -25,7 +25,6 @@ public class PlayerWhipController : MonoBehaviour
         contactFilter.useTriggers = false;
         contactFilter.SetLayerMask(layerMask);
         contactFilter.useLayerMask = true;
-        Debug.Log(contactFilter.layerMask.value);
     }
 
     void FixedUpdate() {
