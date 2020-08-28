@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1840385414}
   - component: {fileID: 1840385415}
   - component: {fileID: 1840385416}
+  - component: {fileID: 975875915}
   m_Layer: 16
   m_Name: PlayerFeet
   m_TagString: PlayerFeet
@@ -72,6 +73,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionSpeed: 2
   climbSpeed: 10
+--- !u!114 &975875915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840385413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37604053e6bd36e43a8e5dd26988e56b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1323938216396014
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,10 +280,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   breakableMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
+  projectileMask:
+    serializedVersion: 2
+    m_Bits: 1048576
 --- !u!1 &269614227725875838
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4137432934799672596}
   - component: {fileID: 867649509059392421}
-  m_Layer: 16
+  m_Layer: 19
   m_Name: PlayerCollider
   m_TagString: Player
   m_Icon: {fileID: 0}
