@@ -5,6 +5,11 @@
 'Cmd/Ctrl+Shift+A' // Triggers  `Todo: Archive`
 
 Round 2 dev:
+
+    v0.3:
+        ☐ make cultist groups spawn together @created(20-08-28 07:07)
+
+
     Find examples for this: https://docs.unity3d.com/Manual/class-ScriptableObject.html
         This might save memory and be a better practice than our current enemy spawner system.
     Requirements for v0.2 Release:
@@ -12,7 +17,7 @@ Round 2 dev:
         ✔ Improved Camera for less jarring transitions @done(20-08-06 05:35)
         ✔ Improved Attack Controller @done(20-08-06 05:35)
         ✔ Merman @done(20-08-18 06:51)
-        ☐ Bat
+        ✔ Bat @done(20-08-28 06:53)
         ✔ Breakable candles @done(20-08-14 03:52)
         ✔ basic drops (ammo/points/whip upgrades) @done(20-08-18 06:51)
 
@@ -51,9 +56,9 @@ Round 2 dev:
 
         
         Bat:
-            ☐ Idle on screen
-            ☐ Wake when character reaches the appropriate Y value
-            ☐ Fly directly towards player
+            ✔ Idle on screen @done(20-08-28 06:53)
+            ✔ Wake when character reaches the appropriate Y value @done(20-08-28 06:53)
+            ✔ Fly directly towards player @done(20-08-28 06:53)
 
         Candles:
             ✔ Breakable by whip @done(20-08-14 03:52)
@@ -71,8 +76,13 @@ Round 2 dev:
     
         
         BUGS:
+            ☐ Player can't attack while falling off a ledge @created(20-08-28 08:06)
+            ☐ Player not always grounded on bridges @created(20-08-28 10:17)
             ☐ Enemies should despawn when they get too far ahead of the player or when the player moves to a new screen.
-            ☐ Candles don't break immediately, there's a rather long delay, figure out why @created(20-08-16 04:02)
+                Not a bug.
+            
+            Fixed Bugs:
+            ✔ Candles don't break immediately, there's a rather long delay, figure out why @created(20-08-16 04:02) @done(20-08-28 06:54)
                 This is a result of a bug within the attack script, since the attack script is being enabled/disabled when the attack animaiton starts/finishes there could be objects hit by the whip that don't have calculations applied.
 
                 Move these to a coroutine within the LevelManager, let the levelmanager calculate what gets done to objects hit by the whip.
@@ -80,8 +90,8 @@ Round 2 dev:
                 This is the culprit, I think
 
                 Found an issue with my current attack script. Which is.... the way I have it setup... it only runs, when the animator is playing the correct frames of the attack animation. But this doesn't work. Because it might still be calculating what to do with hits when it's turned off, and just doesn't do any of that. So I think I need to have it pass it's hitlist to the level manager and let the level manager calculate stuff
-            
-            Fixed Bugs:
+
+                Turns out I was 100% wrong about all of this. It was all a result of bad math in the whipcontroller class
                 ✔ Player sometimes can't reenter the staircase after leaving it. @done(20-08-10 23:31)
                     This is a result of the player sometimes not exiting the trigger, because of the below bug. Resolving it should resolve this as well.
                 ✔ Player leaves a staircase one step too early when going down the staircase @done(20-08-10 23:12)
