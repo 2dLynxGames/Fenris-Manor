@@ -8,6 +8,11 @@ Round 2 dev:
 
     v0.3:
         ☐ make cultist groups spawn together @created(20-08-28 07:07)
+            don't stagger them based on screen scroll, spawn them in groups of 3 from 1 object
+        ☐ cull enemies, projectiles, etc. off screen @created(20-10-21 17:37)
+        ☐ Create slider to adjust enemies relative spawn height @created(20-10-21 17:38)
+        ☐ create lantern and more background objects for the dock portion of level 1 @created(20-10-21 17:42)
+        ☐ BOSS BATTLE @created(20-10-21 17:42)
 
 
     Find examples for this: https://docs.unity3d.com/Manual/class-ScriptableObject.html
