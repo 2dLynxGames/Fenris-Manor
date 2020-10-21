@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5856817406436657316}
   - component: {fileID: 5856817406436657339}
   m_Layer: 0
-  m_Name: Croc on platform
+  m_Name: HiJumpCrocPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,6 +152,12 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7029363313720607011, guid: c651b54c9a581f54baa5a7b93cd42e62,
+        type: 3}
+      propertyPath: crocData
+      value: 
+      objectReference: {fileID: 11400000, guid: 8511797d9df4389498f0a4a15eb7246c,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c651b54c9a581f54baa5a7b93cd42e62, type: 3}
 --- !u!4 &4745781404006721471 stripped
