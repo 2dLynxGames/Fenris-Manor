@@ -20,6 +20,7 @@ public class CultistController : EnemyController
     void Start()
     {
         SetMovement();
+        destroyObject.enabled = true;
     }
     
     protected override void ComputeVelocity(){
